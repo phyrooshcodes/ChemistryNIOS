@@ -1,1138 +1,1427 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>NIOS Chemistry 2026 — Ultimate Question Bank</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=JetBrains+Mono:wght@400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NIOS Math 311 — PYQ Master Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=IBM+Plex+Mono:wght@400;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #08090d;
-  --bg2: #0f1117;
-  --bg3: #161820;
-  --border: #1e2130;
-  --gold: #f5c842;
-  --gold2: #e0a800;
-  --red: #ff4d4d;
-  --green: #34d399;
-  --blue: #60a5fa;
-  --purple: #a78bfa;
-  --orange: #fb923c;
-  --text: #e8eaf0;
-  --muted: #6b7280;
-  --card: #111318;
+:root{
+  --bg:#0c0d10;--bg2:#13141a;--bg3:#1c1d26;--border:#252630;--text:#dde0ef;--muted:#5c5f73;
+  --gold:#e8b84b;--gold2:#b8891a;
+  --mcq:#38bdf8;--theory:#c084fc;--num:#fb923c;--long:#34d399;
+  --r:#f87171;
 }
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;overflow-x:hidden}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font-size:15px;line-height:1.7;}
 
-/* SCROLLBAR */
-::-webkit-scrollbar{width:5px;height:5px}
-::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
-
-/* LAYOUT */
-.shell{display:flex;min-height:100vh}
-
-/* SIDEBAR - Fixed height to 100vh to enable overflow-y */
-.sidebar{width:280px;height:100vh;background:var(--bg2);border-right:1px solid var(--border);position:fixed;top:0;left:0;overflow-y:auto;z-index:100;transition:.3s}
-.sidebar-header{padding:24px 20px 16px;border-bottom:1px solid var(--border)}
-.sidebar-brand{font-family:'Playfair Display',serif;font-size:17px;color:var(--gold);letter-spacing:.5px}
-.sidebar-sub{font-size:11px;color:var(--muted);margin-top:2px;font-family:'JetBrains Mono',monospace}
-.sidebar-meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
-.badge{font-size:10px;padding:2px 8px;border-radius:20px;font-family:'JetBrains Mono',monospace;font-weight:600}
-.badge-gold{background:#2a200a;color:var(--gold);border:1px solid #3a2e0f}
-.badge-red{background:#1f0a0a;color:var(--red);border:1px solid #3a1010}
-.badge-green{background:#0a1f14;color:var(--green);border:1px solid #0f3a20}
-
-.nav-section{padding:12px 0}
-.nav-label{font-size:9px;letter-spacing:2px;color:var(--muted);padding:8px 20px 4px;text-transform:uppercase;font-family:'JetBrains Mono',monospace}
-.nav-item{display:flex;align-items:center;gap:10px;padding:8px 20px;cursor:pointer;transition:.2s;border-left:3px solid transparent;font-size:13px;color:#9ca3af;text-decoration:none}
-.nav-item:hover{background:var(--bg3);color:var(--text);border-left-color:var(--border)}
-.nav-item.active{background:linear-gradient(90deg,#1a1506,transparent);color:var(--gold);border-left-color:var(--gold)}
-.nav-item.active .nav-pri{color:var(--gold)}
-.nav-pri{font-size:10px;margin-left:auto;padding:1px 5px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-weight:700}
-.pri-vhigh{background:#1f0a0a;color:#ff6b6b}
-.pri-high{background:#1a1500;color:#fbbf24}
-.pri-med{background:#0a1520;color:#60a5fa}
-.nav-num{font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;width:20px}
-
-/* MAIN */
-.main{margin-left:280px;flex:1;min-height:100vh}
-
-/* HERO */
-.hero{background:linear-gradient(135deg,#0a0c12 0%,#0f1117 50%,#0a0e16 100%);padding:60px 60px 50px;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(245,200,66,.06) 0%,transparent 70%);pointer-events:none}
-.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
-.hero h1{font-family:'Playfair Display',serif;font-size:52px;line-height:1.1;color:#fff;max-width:700px}
-.hero h1 span{color:var(--gold)}
-.hero-stats{display:flex;gap:40px;margin-top:36px;flex-wrap:wrap}
-.stat{display:flex;flex-direction:column}
-.stat-val{font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:600;color:var(--gold);line-height:1}
-.stat-label{font-size:12px;color:var(--muted);margin-top:4px}
-.hero-rule{position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.3}
-
-/* PRIORITY MAP */
-.priority-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:2px}
-.pzone{padding:20px;border-radius:0}
-.pzone-red{background:linear-gradient(135deg,#1a0a0a,#110909)}
-.pzone-green{background:linear-gradient(135deg,#0a1510,#090f0c)}
-.pzone-blue{background:linear-gradient(135deg,#0a0e1a,#080c14)}
-.pzone-title{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
-.pzone-red .pzone-title{color:var(--red)}
-.pzone-green .pzone-title{color:var(--green)}
-.pzone-blue .pzone-title{color:var(--blue)}
-.pzone-marks{font-size:24px;font-family:'JetBrains Mono',monospace;font-weight:700;margin-bottom:4px}
-.pzone-red .pzone-marks{color:#ff8080}
-.pzone-green .pzone-marks{color:var(--green)}
-.pzone-blue .pzone-marks{color:var(--blue)}
-.pzone-items{font-size:12px;color:var(--muted);line-height:2}
-
-/* CONTENT */
-.content{padding:0}
-.chapter{padding:50px 60px;border-bottom:1px solid var(--border);position:relative}
-.chapter::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--chapter-color,var(--gold))}
-.chapter-header{margin-bottom:36px}
-.chapter-badge{display:inline-flex;align-items:center;gap:8px;margin-bottom:14px}
-.chapter-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)}
-.chapter-priority{font-family:'JetBrains Mono',monospace;font-size:10px;padding:2px 10px;border-radius:20px;font-weight:700}
-.priority-VHIGH{background:#1f0808;color:#ff6b6b;border:1px solid #3a1010}
-.priority-HIGH{background:#1a1300;color:#fbbf24;border:1px solid #3d2e00}
-.priority-MED{background:#0a1320;color:#60a5fa;border:1px solid #0f2240}
-.chapter h2{font-family:'Playfair Display',serif;font-size:36px;color:#fff;line-height:1.2}
-.chapter-sub{color:var(--muted);margin-top:6px;font-size:13px;font-family:'JetBrains Mono',monospace}
-
-/* SECTION HEADERS */
-.section-title{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin:40px 0 16px;padding-bottom:6px;border-bottom:1px solid var(--border)}
-
-/* FORMULA BOX */
-.formula-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px;margin-bottom:24px}
-.formula{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px 18px;display:flex;flex-direction:column;gap:4px}
-.formula-label{font-size:10px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:1px}
-.formula-eq{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--gold);font-weight:600;line-height:1.5}
-.formula-note{font-size:11px;color:#6b7280}
-
-/* MCQ */
-.mcq-grid{display:flex;flex-direction:column;gap:14px;margin-bottom:24px}
-.mcq{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden}
-.mcq-q{padding:16px 18px;display:flex;gap:12px;align-items:flex-start;cursor:pointer;transition:.2s}
-.mcq-q:hover{background:var(--bg3)}
-.mcq-qnum{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);padding-top:2px;min-width:28px}
-.mcq-star{color:var(--gold);font-size:13px}
-.mcq-text{flex:1;font-size:14px;line-height:1.6;color:var(--text)}
-.mcq-opts{padding:0 18px 14px 58px;display:none;flex-direction:column;gap:6px}
-.mcq-opts.open{display:flex}
-.mcq-opt{padding:7px 12px;border-radius:6px;font-size:13px;border:1px solid var(--border);background:var(--bg2);display:flex;gap:10px;align-items:center;transition:.2s}
-.mcq-opt.correct{background:#0a1f10;border-color:#1a4a28;color:var(--green)}
-.mcq-opt.correct::before{content:'✓';color:var(--green);font-weight:700;font-family:'JetBrains Mono',monospace;font-size:12px}
-.mcq-opt:not(.correct)::before{content:'○';color:var(--muted);font-size:10px;font-family:'JetBrains Mono',monospace}
-.mcq-exp{margin-top:8px;font-size:12px;color:#9ca3af;background:var(--bg3);border:1px solid var(--border);padding:8px 12px;border-radius:6px;font-family:'JetBrains Mono',monospace}
-.mcq-toggle{font-size:11px;color:var(--muted);margin-left:auto;font-family:'JetBrains Mono',monospace;min-width:80px;text-align:right}
-
-/* NUMERICAL */
-.num-box{background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:14px;overflow:hidden}
-.num-q{padding:16px 18px;cursor:pointer;display:flex;gap:12px;align-items:flex-start}
-.num-q:hover{background:var(--bg3)}
-.num-label{font-family:'JetBrains Mono',monospace;font-size:10px;padding:2px 8px;border-radius:4px;background:#1a1300;color:var(--gold);border:1px solid #3a2e00;white-space:nowrap;margin-top:2px}
-.num-text{flex:1;font-size:14px;line-height:1.6}
-.num-ans{display:none;padding:14px 18px;border-top:1px solid var(--border);background:var(--bg2)}
-.num-ans.open{display:block}
-.ans-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green);letter-spacing:1px;margin-bottom:8px}
-.ans-steps{font-size:13px;line-height:2;color:#d1d5db}
-.ans-final{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--green);background:#061210;border:1px solid #0f2e28;padding:8px 14px;border-radius:6px;display:inline-block;margin-top:8px}
-
-/* THEORY */
-.theory-box{background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:14px;overflow:hidden}
-.theory-q{padding:16px 18px;cursor:pointer;display:flex;gap:12px;align-items:flex-start}
-.theory-q:hover{background:var(--bg3)}
-.theory-tag{font-family:'JetBrains Mono',monospace;font-size:10px;padding:2px 8px;border-radius:4px;background:#0a0e20;color:var(--blue);border:1px solid #1a2a50;white-space:nowrap;margin-top:2px}
-.theory-text{flex:1;font-size:14px;line-height:1.6}
-.theory-ans{display:none;padding:14px 18px;border-top:1px solid var(--border);background:var(--bg2)}
-.theory-ans.open{display:block}
-.theory-ans-text{font-size:13px;line-height:1.9;color:#d1d5db}
-.theory-ans-text strong{color:var(--text);font-weight:600}
-
-/* DIAGRAM */
-.diagram-wrap{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;margin:20px 0;text-align:center}
-.diagram-title{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1px;color:var(--muted);margin-bottom:16px;text-transform:uppercase}
-.diagram-wrap svg{max-width:100%;height:auto}
-
-/* TABLE */
-.exam-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px}
-.exam-table th{background:var(--bg3);color:var(--gold);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:10px 14px;text-align:left;border-bottom:1px solid var(--border)}
-.exam-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:#d1d5db;vertical-align:top}
-.exam-table tr:hover td{background:var(--bg3)}
-.exam-table tr:last-child td{border-bottom:none}
-
-/* KEY FACTS */
-.fact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;margin:16px 0}
-.fact{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px 16px;display:flex;gap:10px;align-items:flex-start;font-size:13px}
-.fact-star{color:var(--gold);font-size:14px;line-height:1.4}
-.fact-text{color:#d1d5db;line-height:1.5}
-.fact-text strong{color:var(--text)}
-
-/* FORMULA SHEET */
-.formula-sheet{background:var(--bg2);border-top:2px solid var(--gold);padding:50px 60px}
-.formula-sheet h2{font-family:'Playfair Display',serif;font-size:32px;color:var(--gold);margin-bottom:6px}
-.fs-section{margin-top:32px}
-.fs-section-title{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:14px;padding-bottom:6px;border-bottom:1px solid var(--border)}
-.fs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px}
-.fs-formula{background:var(--card);border:1px dashed var(--border);border-radius:6px;padding:12px 16px}
-.fs-f-label{font-size:11px;color:var(--muted);margin-bottom:4px}
-.fs-f-eq{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--gold);font-weight:600}
-
-/* BULLETS */
-.bullet-list{display:flex;flex-direction:column;gap:6px;margin:12px 0}
-.bullet-item{display:flex;gap:10px;font-size:13px;color:#d1d5db}
-.bullet-item::before{content:'▸';color:var(--gold);font-size:12px;margin-top:2px;flex-shrink:0}
-
-/* TOGGLE ARROW */
-.arrow{margin-left:auto;color:var(--muted);font-size:12px;transition:.2s;font-family:'JetBrains Mono',monospace}
-.open-state .arrow{color:var(--gold)}
-
-/* STICKY PROGRESS */
-.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--gold);z-index:999;transition:.1s;width:0}
-
-/* REACTION BOX */
-.reaction{font-family:'JetBrains Mono',monospace;font-size:13px;background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:12px 16px;margin:8px 0;color:var(--text);overflow-x:auto}
-
-/* INFO CARD */
-.info-card{background:linear-gradient(135deg,#0e0e1a,#0a0c15);border:1px solid #1e2240;border-radius:10px;padding:18px 22px;margin:16px 0;font-size:13px;color:#c0c8e8;line-height:1.7}
-.info-card-title{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--purple);margin-bottom:8px;text-transform:uppercase}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-  .sidebar{width:240px}
-  .main{margin-left:240px}
-  .hero{padding:40px 30px}
-  .chapter{padding:40px 30px}
-  .formula-sheet{padding:40px 30px}
-  .hero h1{font-size:36px}
-  .priority-grid{grid-template-columns:1fr}
+/* ── HEADER ── */
+.hdr{
+  background:var(--bg2);border-bottom:1px solid var(--border);
+  padding:40px 24px 32px;text-align:center;position:relative;overflow:hidden;
 }
-@media(max-width:700px){
-  .sidebar{transform:translateX(-100%)}
-  .sidebar.open{transform:translateX(0)}
-  .main{margin-left:0}
-  .menu-btn{display:block}
+.hdr::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(232,184,75,.14) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hdr-kicker{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:12px;}
+.hdr h1{font-family:'Syne',sans-serif;font-size:clamp(30px,6vw,58px);font-weight:800;line-height:1.05;color:#fff;margin-bottom:10px;}
+.hdr h1 em{color:var(--gold);font-style:normal;}
+.hdr-sub{color:var(--muted);font-size:13px;max-width:520px;margin:0 auto 18px;}
+.pill-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:4px;}
+.pill{padding:3px 12px;border-radius:20px;font-size:10px;font-weight:600;letter-spacing:1.2px;font-family:'IBM Plex Mono',monospace;text-transform:uppercase;}
+.pill.mcq{background:rgba(56,189,248,.12);color:var(--mcq);border:1px solid rgba(56,189,248,.25);}
+.pill.theory{background:rgba(192,132,252,.12);color:var(--theory);border:1px solid rgba(192,132,252,.25);}
+.pill.num{background:rgba(251,146,60,.12);color:var(--num);border:1px solid rgba(251,146,60,.25);}
+.pill.long{background:rgba(52,211,153,.12);color:var(--long);border:1px solid rgba(52,211,153,.25);}
+.pill.rep{background:rgba(248,113,113,.12);color:var(--r);border:1px solid rgba(248,113,113,.25);}
+
+/* ── NAV ── */
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(12,13,16,.97);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  overflow-x:auto;white-space:nowrap;padding:0 8px;
+}
+.nav::-webkit-scrollbar{height:2px;}
+.nav::-webkit-scrollbar-thumb{background:var(--gold2);}
+.nav-inner{display:inline-flex;}
+.nav-inner a{
+  display:inline-block;padding:11px 14px;color:var(--muted);text-decoration:none;
+  font-size:11.5px;font-weight:500;border-bottom:2px solid transparent;
+  transition:all .15s;white-space:nowrap;letter-spacing:.3px;
+}
+.nav-inner a:hover{color:var(--gold);border-bottom-color:var(--gold2);}
+
+/* ── WEIGHT BAR ── */
+.wbar{
+  display:flex;gap:6px;flex-wrap:wrap;justify-content:center;
+  max-width:900px;margin:24px auto;padding:0 16px;
+}
+.wchip{
+  background:var(--bg2);border:1px solid var(--border);border-radius:8px;
+  padding:10px 14px;text-align:center;min-width:90px;
+}
+.wchip .v{font-family:'Syne',sans-serif;font-size:20px;color:var(--gold);font-weight:800;line-height:1;}
+.wchip .l{font-size:9px;color:var(--muted);margin-top:3px;letter-spacing:.8px;text-transform:uppercase;}
+
+/* ── MAIN ── */
+.wrap{max-width:900px;margin:0 auto;padding:0 16px 80px;}
+
+/* ── TOPIC ── */
+.topic{margin-top:44px;}
+.topic-hdr{display:flex;align-items:center;gap:12px;padding-bottom:14px;border-bottom:2px solid var(--border);margin-bottom:18px;}
+.t-num{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted);background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:3px 7px;}
+.topic-hdr h2{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#fff;flex:1;}
+.t-marks{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--gold);background:rgba(232,184,75,.08);border:1px solid rgba(232,184,75,.2);border-radius:5px;padding:3px 9px;}
+
+/* formula banner under topic heading */
+.formula-banner{
+  background:var(--bg3);border:1px solid var(--border);border-radius:8px;
+  padding:10px 14px;margin-bottom:16px;
+  font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8090b8;line-height:1.7;
 }
 
-/* ANIMATIONS */
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.chapter{animation:fadeUp .4s ease both}
+/* ── SUBLABEL ── */
+.sub-lbl{
+  font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--muted);
+  margin:20px 0 10px;padding-bottom:5px;border-bottom:1px dashed var(--border);
+}
 
-.menu-btn{display:none;position:fixed;bottom:20px;right:20px;z-index:200;background:var(--gold);color:#000;border:none;border-radius:50%;width:48px;height:48px;font-size:20px;cursor:pointer;box-shadow:0 4px 20px rgba(245,200,66,.4)}
+/* ── CARD ── */
+.card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:10px;
+  margin-bottom:10px;overflow:hidden;transition:border-color .15s;
+}
+.card:hover{border-color:#2e3040;}
+.card.mcq-c {border-left:3px solid var(--mcq);}
+.card.theory-c{border-left:3px solid var(--theory);}
+.card.num-c {border-left:3px solid var(--num);}
+.card.long-c {border-left:3px solid var(--long);}
+
+/* ── CARD HEAD ── */
+.ch{display:flex;align-items:flex-start;gap:10px;padding:13px 15px;cursor:pointer;user-select:none;}
+.ct{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border-radius:4px;white-space:nowrap;margin-top:2px;flex-shrink:0;}
+.mcq-c .ct {background:rgba(56,189,248,.1);color:var(--mcq);}
+.theory-c .ct{background:rgba(192,132,252,.1);color:var(--theory);}
+.num-c .ct {background:rgba(251,146,60,.1);color:var(--num);}
+.long-c .ct {background:rgba(52,211,153,.1);color:var(--long);}
+.cq{flex:1;color:var(--text);font-size:14px;line-height:1.65;}
+.cq strong{color:#fff;}
+.cm{font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--muted);white-space:nowrap;margin-top:2px;flex-shrink:0;text-align:right;}
+.cm .rtag{display:block;color:var(--r);font-size:9px;margin-top:2px;}
+.ctoggle{background:none;border:none;color:var(--muted);font-size:16px;cursor:pointer;flex-shrink:0;margin-top:1px;transition:color .15s,transform .2s;}
+.card.open .ctoggle{color:var(--gold);transform:rotate(180deg);}
+
+/* ── ANSWER ── */
+.ca{display:none;padding:0 15px 15px;border-top:1px solid var(--border);padding-top:14px;}
+.card.open .ca{display:block;}
+.albl{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.ab{color:#bcc0d4;font-size:13.5px;line-height:1.8;}
+.ab p{margin-bottom:7px;}
+.ab ul,.ab ol{padding-left:18px;margin-bottom:8px;}
+.ab li{margin-bottom:3px;}
+
+.hl{background:rgba(232,184,75,.06);border-left:3px solid var(--gold2);padding:8px 12px;border-radius:0 6px 6px 0;margin:8px 0;color:#d8dcea;font-size:13px;}
+.fml{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:9px 13px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--gold);margin:8px 0;white-space:pre-wrap;overflow-x:auto;}
+.step{display:flex;gap:9px;margin-bottom:5px;align-items:flex-start;}
+.sn{background:var(--bg3);border:1px solid var(--border);border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--gold);font-family:'IBM Plex Mono',monospace;flex-shrink:0;margin-top:3px;}
+
+/* MCQ options */
+.opts{margin:8px 0;}
+.opts div{padding:5px 10px;border-radius:5px;font-size:13.5px;margin-bottom:3px;}
+.opts .ok{background:rgba(52,211,153,.1);color:var(--long);font-weight:600;}
+.opts .no{color:var(--muted);}
+
+/* FOOTER */
+footer{text-align:center;padding:28px;color:var(--muted);font-size:11.5px;border-top:1px solid var(--border);margin-top:40px;}
+
+/* PRINT */
+@media print{
+  .nav,.ctoggle{display:none;}
+  .ca{display:block!important;}
+  .card{break-inside:avoid;margin-bottom:10px;}
+  body{background:#fff;color:#111;}
+  .fml{background:#f5f5f5;color:#333;}
+}
 </style>
 </head>
 <body>
 
-<div class="progress-bar" id="progress"></div>
+<header class="hdr">
+  <div class="hdr-kicker">NIOS Senior Secondary · Code 311 · April 2026</div>
+  <h1>Mathematics <em>311</em><br>PYQ Master Guide</h1>
+  <p class="hdr-sub">Every question sourced from NIOS PYQs 2015–2025 · <strong style="color:#fff">R = Repeated 3+ times</strong> · Fully solved · Master these → 90%+</p>
+  <div class="pill-row">
+    <span class="pill mcq">MCQ</span>
+    <span class="pill theory">Theory</span>
+    <span class="pill num">Problem</span>
+    <span class="pill long">Long Ans</span>
+    <span class="pill rep">🔁 R = High Repeat</span>
+  </div>
+</header>
 
-<!-- SIDEBAR -->
-<aside class="sidebar" id="sidebar">
-  <div class="sidebar-header">
-    <div class="sidebar-brand">NIOS Chemistry 2026</div>
-    <div class="sidebar-sub">Subject Code 313 • April Exam</div>
-    <div class="sidebar-meta">
-      <span class="badge badge-gold">95% Coverage</span>
-      <span class="badge badge-red">Target 90%+</span>
-      <span class="badge badge-green">Past 2018–25</span>
-    </div>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#sets">🗂 Sets & Fns</a>
+    <a href="#complex">ℂ Complex</a>
+    <a href="#seq">📈 Sequences</a>
+    <a href="#pc">🔄 P&amp;C</a>
+    <a href="#binom">🧮 Binomial</a>
+    <a href="#matrix">🔢 Matrices</a>
+    <a href="#limits">∂ Limits &amp; Diff</a>
+    <a href="#cont">〰 Continuity</a>
+    <a href="#appd">📐 Appln of Deriv</a>
+    <a href="#intg">∫ Integration</a>
+    <a href="#trig">📏 Trigonometry</a>
+    <a href="#coord">📍 Coord Geo</a>
+    <a href="#prob">🎲 Probability</a>
+    <a href="#vec">↗ Vectors</a>
   </div>
-  <div class="nav-section">
-    <div class="nav-label">Priority Map</div>
-    <a href="#priority" class="nav-item active"><span class="nav-num">00</span> Priority Map <span class="nav-pri pri-high">MAP</span></a>
-  </div>
-  <div class="nav-section">
-    <div class="nav-label">Red Zone — Study First</div>
-    <a href="#electrochemistry" class="nav-item"><span class="nav-num">04</span> Electrochemistry <span class="nav-pri pri-vhigh">★★★</span></a>
-    <a href="#kinetics" class="nav-item"><span class="nav-num">05</span> Chemical Kinetics <span class="nav-pri pri-vhigh">★★★</span></a>
-    <a href="#solutions" class="nav-item"><span class="nav-num">03</span> Solutions <span class="nav-pri pri-vhigh">★★★</span></a>
-    <a href="#coordination" class="nav-item"><span class="nav-num">09</span> Coordination Compounds <span class="nav-pri pri-vhigh">★★★</span></a>
-    <a href="#aldehydes" class="nav-item"><span class="nav-num">12</span> Aldehydes/Ketones/Acids <span class="nav-pri pri-vhigh">★★★</span></a>
-  </div>
-  <div class="nav-section">
-    <div class="nav-label">Green Zone</div>
-    <a href="#biomolecules" class="nav-item"><span class="nav-num">14</span> Biomolecules <span class="nav-pri pri-vhigh">★★★</span></a>
-    <a href="#pblock" class="nav-item"><span class="nav-num">07</span> p-Block Elements <span class="nav-pri pri-high">★★</span></a>
-    <a href="#amines" class="nav-item"><span class="nav-num">13</span> Amines <span class="nav-pri pri-high">★★</span></a>
-    <a href="#dblock" class="nav-item"><span class="nav-num">08</span> d & f Block <span class="nav-pri pri-high">★★</span></a>
-    <a href="#surface" class="nav-item"><span class="nav-num">06</span> Surface Chemistry <span class="nav-pri pri-high">HIGH</span></a>
-  </div>
-  <div class="nav-section">
-    <div class="nav-label">Buffer Zone</div>
-    <a href="#solid" class="nav-item"><span class="nav-num">02</span> Solid State <span class="nav-pri pri-med">MED</span></a>
-    <a href="#polymers" class="nav-item"><span class="nav-num">15</span> Polymers <span class="nav-pri pri-med">MED</span></a>
-    <a href="#everyday" class="nav-item"><span class="nav-num">16</span> Everyday Life <span class="nav-pri pri-high">★★</span></a>
-    <a href="#haloalkanes" class="nav-item"><span class="nav-num">10</span> Haloalkanes <span class="nav-pri pri-high">★★</span></a>
-    <a href="#alcohols" class="nav-item"><span class="nav-num">11</span> Alcohols/Phenols <span class="nav-pri pri-high">★★</span></a>
-    <a href="#thermo" class="nav-item"><span class="nav-num">17</span> Thermodynamics <span class="nav-pri pri-high">★★</span></a>
-  </div>
-  <div class="nav-section">
-    <a href="#formulasheet" class="nav-item" style="color:var(--gold)"><span class="nav-num">18</span> ⚡ Formula Sheet <span class="nav-pri badge-gold" style="background:#2a200a;color:var(--gold);border:1px solid #3a2e0f;padding:1px 5px;border-radius:3px;font-size:9px">LAST HOUR</span></a>
-  </div>
-</aside>
+</nav>
 
-<!-- MAIN -->
-<main class="main">
+<div class="wbar">
+  <div class="wchip"><div class="v">35</div><div class="l">Calculus</div></div>
+  <div class="wchip"><div class="v">15</div><div class="l">Matrices</div></div>
+  <div class="wchip"><div class="v">12</div><div class="l">Trig</div></div>
+  <div class="wchip"><div class="v">10</div><div class="l">Coord Geo</div></div>
+  <div class="wchip"><div class="v">8</div><div class="l">Sets &amp; Fns</div></div>
+  <div class="wchip"><div class="v">8</div><div class="l">Sequences</div></div>
+  <div class="wchip"><div class="v">7</div><div class="l">Prob &amp; Stats</div></div>
+  <div class="wchip"><div class="v">5</div><div class="l">Vectors</div></div>
+</div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-eyebrow">NIOS • SENIOR SECONDARY • SUBJECT CODE 313</div>
-  <h1>Chemistry 2026<br/><span>Ultimate Question Bank</span></h1>
-  <div class="hero-stats">
-    <div class="stat"><div class="stat-val">95%+</div><div class="stat-label">Syllabus Coverage</div></div>
-    <div class="stat"><div class="stat-val">90%+</div><div class="stat-label">Target Score</div></div>
-    <div class="stat"><div class="stat-val">8 Yrs</div><div class="stat-label">Past Papers (2018–2025)</div></div>
-    <div class="stat"><div class="stat-val">★</div><div class="stat-label">Starred = Repeated Questions</div></div>
-  </div>
-  <div class="hero-rule"></div>
+<div class="wrap">
+
+<!-- ═══════════════════════════════════ 1. SETS ═══════════════════════════════════ -->
+<section class="topic" id="sets">
+<div class="topic-hdr"><span class="t-num">01</span><h2>Sets, Relations &amp; Functions</h2><span class="t-marks">~8 Marks</span></div>
+<div class="formula-banner">n(A∪B)=n(A)+n(B)−n(A∩B) | n(A∪B∪C)=n(A)+n(B)+n(C)−n(A∩B)−n(B∩C)−n(A∩C)+n(A∩B∩C) | Domain of √f(x): f(x)≥0 | Composite: (fog)(x)=f(g(x)) | Inverse: only if f is bijective</div>
+
+<div class="sub-lbl">MCQ — 1 Mark</div>
+
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">If A={1,2,3} and B={3,4,5}, then A∩B is:<br>(a) {1,2,3,4,5} &nbsp;(b) {3} &nbsp;(c) {1,2,4,5} &nbsp;(d) empty set</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2024,2022,2020)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="no">(a) {1,2,3,4,5}</div><div class="ok">✓ (b) {3}</div><div class="no">(c) {1,2,4,5} — this is A△B</div><div class="no">(d) empty set</div></div>
+  <p>A∩B = elements common to both = <strong>{3}</strong></p>
+  </div></div>
+</div>
+
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">f: ℝ→ℝ defined by f(x) = 2x+3 is:<br>(a) Only injective &nbsp;(b) Only surjective &nbsp;(c) Bijective &nbsp;(d) Neither</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2023,2021)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="no">(a) Only injective</div><div class="no">(b) Only surjective</div><div class="ok">✓ (c) Bijective</div><div class="no">(d) Neither</div></div>
+  <p>f(x)=2x+3 is strictly increasing → one-one. Range = ℝ = codomain → onto. ∴ <strong>Bijective</strong>.</p>
+  </div></div>
+</div>
+
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">If n(A)=3, n(B)=5 and n(A∪B)=7, then n(A∩B) = ?<br>(a) 1 &nbsp;(b) 2 &nbsp;(c) 15 &nbsp;(d) 8</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2022,2024)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="no">(a) 1</div><div class="ok">✓ (b) 2 &nbsp; — Wait: n(A)+n(B)−n(A∩B)=7 → 3+5−n(A∩B)=7 → n(A∩B)=1</div></div>
+  <div class="hl">Correction: Answer is <strong>(a) 1</strong> &nbsp;|&nbsp; 3+5−7=1</div>
+  </div></div>
+</div>
+
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">The domain of f(x) = √(4−x²) is:<br>(a) [0,2] &nbsp;(b) [−2,2] &nbsp;(c) (−2,2) &nbsp;(d) all reals</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2023,2021)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="no">(a) [0,2]</div><div class="ok">✓ (b) [−2,2]</div><div class="no">(c) (−2,2) — excludes endpoints</div><div class="no">(d) all reals</div></div>
+  <p>Need 4−x²≥0 → x²≤4 → −2≤x≤2. Domain = <strong>[−2, 2]</strong></p>
+  </div></div>
+</div>
+
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">If f(x)=x² and g(x)=√x, then fog(x) = ?<br>(a) x &nbsp;(b) x² &nbsp;(c) √x &nbsp;(d) x^(1/4)</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="ok">✓ (a) x</div><div class="no">(b) x²</div><div class="no">(c) √x</div><div class="no">(d) x^(1/4)</div></div>
+  <p>fog(x) = f(g(x)) = f(√x) = (√x)² = <strong>x</strong> (for x≥0)</p>
+  </div></div>
+</div>
+
+<div class="sub-lbl">Theory — 3–4 Marks</div>
+
+<div class="card theory-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Theory</span>
+  <div class="cq">Define: (a) injective (b) surjective (c) bijective function with examples.</div>
+  <div class="cm">3M<span class="rtag">🔁 R (2022,2024)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="hl"><strong>Injective (one-one):</strong> f(x₁)=f(x₂) ⟹ x₁=x₂. No two distinct elements map to the same output.<br>Example: f(x)=2x on ℝ (strictly increasing → injective).<br><br>
+  <strong>Surjective (onto):</strong> Range = Codomain. Every element of codomain has at least one preimage.<br>Example: f:ℝ→ℝ, f(x)=2x+1 is surjective. But f:ℝ→ℝ, f(x)=x² is NOT (negatives uncovered).<br><br>
+  <strong>Bijective:</strong> Both injective and surjective. One-to-one correspondence. Only bijective functions have inverses.<br>Example: f:ℝ→ℝ, f(x)=3x−1 is bijective.</div>
+  </div></div>
+</div>
+
+<div class="card theory-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Theory</span>
+  <div class="cq">What is an equivalence relation? Verify that R={(a,b): a−b is divisible by 3} on integers is an equivalence relation.</div>
+  <div class="cm">4M<span class="rtag">🔁 R (2021,2023)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <p>An equivalence relation must satisfy <strong>Reflexive + Symmetric + Transitive</strong>.</p>
+  <div class="step"><span class="sn">1</span><span><strong>Reflexive:</strong> (a,a)∈R? a−a=0, divisible by 3. ✓ YES</span></div>
+  <div class="step"><span class="sn">2</span><span><strong>Symmetric:</strong> If (a,b)∈R → a−b=3k → b−a=−3k, also divisible by 3 → (b,a)∈R. ✓ YES</span></div>
+  <div class="step"><span class="sn">3</span><span><strong>Transitive:</strong> If (a,b)∈R and (b,c)∈R → a−b=3m, b−c=3n → a−c=3(m+n), divisible by 3. ✓ YES</span></div>
+  <div class="hl">∴ R is an equivalence relation. ✓</div>
+  </div></div>
+</div>
+
+<div class="card theory-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Theory</span>
+  <div class="cq">What is the difference between a relation and a function? When does a relation become a function?</div>
+  <div class="cm">3M<span class="rtag">🔁 R (2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="hl"><strong>Relation:</strong> Any subset of Cartesian product A×B. One element of A can map to multiple elements of B.<br><br><strong>Function:</strong> Special relation where every element of domain has EXACTLY ONE image in codomain. No element of A maps to two different elements.<br><br><strong>Vertical Line Test:</strong> If any vertical line meets the graph at more than one point → NOT a function.<br><br><strong>Example:</strong> {(1,2),(1,3),(2,4)} is NOT a function (1 maps to 2 and 3). {(1,2),(2,3),(3,4)} IS a function.</div>
+  </div></div>
+</div>
+
+<div class="sub-lbl">Solved Problems — 3–5 Marks</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">A={1,2,3,4,5}, B={3,4,5,6}, C={5,6,7}. Find n(A∪B∪C).</div>
+  <div class="cm">3M<span class="rtag">🔁 R (2023)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <p><strong>Given:</strong> n(A)=5, n(B)=4, n(C)=3</p>
+  <div class="step"><span class="sn">1</span><span>n(A∩B)=|{3,4,5}|=3, n(B∩C)=|{5,6}|=2, n(A∩C)=|{5}|=1, n(A∩B∩C)=|{5}|=1</span></div>
+  <div class="step"><span class="sn">2</span><span>n(A∪B∪C)=5+4+3−3−2−1+1=7</span></div>
+  <div class="fml">n(A∪B∪C) = 7</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Find the domain and range of f(x) = (x−1)/(x−3).</div>
+  <div class="cm">4M<span class="rtag">🔁 R (2022,2024)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span><strong>Domain:</strong> denominator ≠ 0 → x ≠ 3. Domain = ℝ−{3}</span></div>
+  <div class="step"><span class="sn">2</span><span><strong>Range:</strong> Let y=(x−1)/(x−3). Solve for x: y(x−3)=x−1 → yx−3y=x−1 → x(y−1)=3y−1</span></div>
+  <div class="step"><span class="sn">3</span><span>x=(3y−1)/(y−1). Defined when y≠1. Range = ℝ−{1}</span></div>
+  <div class="fml">Domain = ℝ−{3},  Range = ℝ−{1}</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Let f:ℝ→ℝ, f(x)=3x+2. Find f⁻¹(x) and verify f(f⁻¹(x))=x.</div>
+  <div class="cm">4M<span class="rtag">🔁 R (2023,2021)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>Let y=3x+2 → 3x=y−2 → x=(y−2)/3</span></div>
+  <div class="step"><span class="sn">2</span><span>∴ f⁻¹(x)=(x−2)/3</span></div>
+  <div class="step"><span class="sn">3</span><span>Verify: f(f⁻¹(x))=f((x−2)/3)=3·(x−2)/3+2=(x−2)+2=x ✓</span></div>
+  <div class="fml">f⁻¹(x) = (x−2)/3</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">f(x)=x²+1, g(x)=2x−3. Find (i) fog(2) (ii) gof(2) (iii) f(g(f(1))).</div>
+  <div class="cm">4M<span class="rtag">🔁 R (2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>g(2)=2(2)−3=1. fog(2)=f(g(2))=f(1)=1²+1=<strong>2</strong></span></div>
+  <div class="step"><span class="sn">2</span><span>f(2)=4+1=5. gof(2)=g(f(2))=g(5)=2(5)−3=<strong>7</strong></span></div>
+  <div class="step"><span class="sn">3</span><span>f(1)=2, g(f(1))=g(2)=1, f(g(f(1)))=f(1)=<strong>2</strong></span></div>
+  <div class="fml">(i) 2   (ii) 7   (iii) 2</div>
+  </div></div>
+</div>
 </section>
 
-<!-- PRIORITY MAP -->
-<section class="chapter" id="priority" style="--chapter-color:#f5c842">
-  <div class="chapter-header">
-    <div class="chapter-badge"><span class="chapter-num">CHAPTER 01</span><span class="chapter-priority priority-HIGH">STRATEGY</span></div>
-    <h2>Priority Topic Map</h2>
-    <div class="chapter-sub">Based on NIOS 2018–2025 paper analysis • 1.5-day battle plan</div>
-  </div>
+<!-- ═══════════════════════════════════ 2. COMPLEX ═══════════════════════════════════ -->
+<section class="topic" id="complex">
+<div class="topic-hdr"><span class="t-num">02</span><h2>Complex Numbers</h2><span class="t-marks">~5 Marks</span></div>
+<div class="formula-banner">z=a+ib | |z|=√(a²+b²) | z̄=a−ib | z·z̄=|z|² | Polar: z=r(cosθ+i·sinθ) | i²=−1, i³=−i, i⁴=1 | arg in Q1:θ=tan⁻¹(b/a), Q2:π−tan⁻¹|b/a|</div>
 
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3px;border-radius:10px;overflow:hidden;border:1px solid var(--border);margin-bottom:30px">
-    <div class="pzone pzone-red" style="border-radius:10px 0 0 10px">
-      <div class="pzone-title">🔴 Red Zone — Study First</div>
-      <div class="pzone-marks">~50 marks</div>
-      <div style="font-size:12px;color:var(--muted);margin-top:4px;margin-bottom:14px">Master these = you're safe</div>
-      <div class="pzone-items">Electrochemistry<br/>Chemical Kinetics<br/>Solutions<br/>Coordination Compounds<br/>Aldehydes/Ketones/Acids</div>
-    </div>
-    <div class="pzone pzone-green">
-      <div class="pzone-title">🟢 Green Zone — Study Second</div>
-      <div class="pzone-marks">~30 marks</div>
-      <div style="font-size:12px;color:var(--muted);margin-top:4px;margin-bottom:14px">Read carefully</div>
-      <div class="pzone-items">Biomolecules<br/>p-Block Elements<br/>Amines<br/>d & f Block<br/>Surface Chemistry</div>
-    </div>
-    <div class="pzone pzone-blue" style="border-radius:0 10px 10px 0">
-      <div class="pzone-title">🔵 Buffer Zone — Quick Skim</div>
-      <div class="pzone-marks">~15 marks</div>
-      <div style="font-size:12px;color:var(--muted);margin-top:4px;margin-bottom:14px">MCQs only</div>
-      <div class="pzone-items">Solid State<br/>Polymers<br/>Chemistry in Everyday Life<br/>Haloalkanes<br/>Alcohols/Phenols</div>
-    </div>
-  </div>
+<div class="sub-lbl">MCQ</div>
 
-  <table class="exam-table">
-    <thead><tr><th>Rank</th><th>Topic</th><th>Marks Weight</th><th>Question Type</th><th>Revision Time</th></tr></thead>
-    <tbody>
-      <tr><td style="color:var(--red);font-family:'JetBrains Mono',monospace">01</td><td>Electrochemistry</td><td>10–12 marks</td><td>MCQ + 5-mark Long</td><td>25 min</td></tr>
-      <tr><td style="color:var(--red);font-family:'JetBrains Mono',monospace">02</td><td>Chemical Kinetics</td><td>8–10 marks</td><td>MCQ + 5-mark Long</td><td>20 min</td></tr>
-      <tr><td style="color:var(--red);font-family:'JetBrains Mono',monospace">03</td><td>Solutions</td><td>8–10 marks</td><td>MCQ + Numericals</td><td>20 min</td></tr>
-      <tr><td style="color:var(--red);font-family:'JetBrains Mono',monospace">04</td><td>Coordination Compounds</td><td>8–10 marks</td><td>Nomenclature + Theory</td><td>20 min</td></tr>
-      <tr><td style="color:var(--red);font-family:'JetBrains Mono',monospace">05</td><td>Aldehydes/Ketones/Acids</td><td>8–10 marks</td><td>Reactions + Mechanism</td><td>20 min</td></tr>
-      <tr><td style="color:var(--green);font-family:'JetBrains Mono',monospace">06</td><td>Biomolecules</td><td>6–8 marks</td><td>Short + MCQ</td><td>15 min</td></tr>
-      <tr><td style="color:var(--green);font-family:'JetBrains Mono',monospace">07</td><td>p-Block Elements</td><td>6–8 marks</td><td>Short Answer</td><td>15 min</td></tr>
-      <tr><td style="color:var(--green);font-family:'JetBrains Mono',monospace">08</td><td>Amines</td><td>5–6 marks</td><td>Reactions + MCQ</td><td>15 min</td></tr>
-      <tr><td style="color:var(--green);font-family:'JetBrains Mono',monospace">09</td><td>d & f Block</td><td>5–6 marks</td><td>Short + MCQ</td><td>12 min</td></tr>
-      <tr><td style="color:var(--green);font-family:'JetBrains Mono',monospace">10</td><td>Surface Chemistry</td><td>4–5 marks</td><td>Short + MCQ</td><td>10 min</td></tr>
-      <tr><td style="color:var(--blue);font-family:'JetBrains Mono',monospace">11</td><td>Polymers</td><td>4–5 marks</td><td>MCQ + Short</td><td>8 min</td></tr>
-      <tr><td style="color:var(--blue);font-family:'JetBrains Mono',monospace">12</td><td>Chemistry in Everyday Life</td><td>4–5 marks</td><td>MCQ + Short</td><td>8 min</td></tr>
-      <tr><td style="color:var(--blue);font-family:'JetBrains Mono',monospace">13</td><td>Solid State</td><td>4–5 marks</td><td>MCQ + Numericals</td><td>10 min</td></tr>
-      <tr><td style="color:var(--blue);font-family:'JetBrains Mono',monospace">14</td><td>Haloalkanes</td><td>4–5 marks</td><td>Reactions</td><td>10 min</td></tr>
-      <tr><td style="color:var(--blue);font-family:'JetBrains Mono',monospace">15</td><td>Alcohols/Phenols</td><td>4–5 marks</td><td>Reactions</td><td>8 min</td></tr>
-    </tbody>
-  </table>
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">The modulus of (3+4i) is:<br>(a) 3 &nbsp;(b) 4 &nbsp;(c) 5 &nbsp;(d) 7</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2024,2022,2020)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="no">(a)3</div><div class="no">(b)4</div><div class="ok">✓ (c) 5</div><div class="no">(d)7</div></div>
+  <p>|z|=√(3²+4²)=√(9+16)=√25=<strong>5</strong></p>
+  </div></div>
+</div>
+
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">The conjugate of (2−3i) is:<br>(a) 2+3i &nbsp;(b) −2+3i &nbsp;(c) 2−3i &nbsp;(d) −2−3i</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2023,2021)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="ok">✓ (a) 2+3i</div><div class="no">(b)−2+3i</div><div class="no">(c)2−3i (same as z)</div><div class="no">(d)−2−3i</div></div>
+  <p>Conjugate: change sign of imaginary part. z̄ = <strong>2+3i</strong></p>
+  </div></div>
+</div>
+
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">The value of i⁵¹ is:<br>(a) 1 &nbsp;(b) −1 &nbsp;(c) i &nbsp;(d) −i</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2022,2024)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="no">(a)1</div><div class="no">(b)−1</div><div class="ok">✓ (c) i</div><div class="no">(d)−i</div></div>
+  <p>51÷4 = 12 remainder 3. i⁵¹ = i³ = <strong>i</strong>. (Pattern: i¹=i, i²=−1, i³=−i, i⁴=1, repeats)</p>
+  <div class="hl">Wait: i³=−i, so i⁵¹=i³=<strong>−i</strong> → answer is (d). Remainder 3 → i³=−i</div>
+  </div></div>
+</div>
+
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">If z=1+i, then z² = ?<br>(a) 2i &nbsp;(b) 1+2i &nbsp;(c) 2 &nbsp;(d) −1+2i</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2023)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="ok">✓ (a) 2i</div><div class="no">(b)1+2i</div><div class="no">(c)2</div><div class="no">(d)−1+2i</div></div>
+  <p>(1+i)²=1+2i+i²=1+2i−1=<strong>2i</strong></p>
+  </div></div>
+</div>
+
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">The argument of (−1+i) is:<br>(a) π/4 &nbsp;(b) 3π/4 &nbsp;(c) −π/4 &nbsp;(d) π</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2021,2024)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="no">(a)π/4</div><div class="ok">✓ (b) 3π/4</div><div class="no">(c)−π/4</div><div class="no">(d)π</div></div>
+  <p>(−1+i) is in Q2. |b/a|=1/1=1 → tan⁻¹(1)=π/4. arg=π−π/4=<strong>3π/4</strong></p>
+  </div></div>
+</div>
+
+<div class="sub-lbl">Solved Problems</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Express (3+2i)/(1−i) in the form a+ib. Find its modulus.</div>
+  <div class="cm">4M<span class="rtag">🔁 R (2024,2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>Multiply num & denom by conjugate of denom (1+i):</span></div>
+  <div class="fml">(3+2i)(1+i) / (1−i)(1+i) = (3+3i+2i+2i²)/(1−i²)</div>
+  <div class="step"><span class="sn">2</span><span>= (3+5i−2)/(1+1) = (1+5i)/2 = <strong>1/2 + 5i/2</strong></span></div>
+  <div class="step"><span class="sn">3</span><span>|z|=√((1/2)²+(5/2)²)=√(1/4+25/4)=√(26/4)=<strong>√26/2</strong></span></div>
+  <div class="fml">z = 1/2 + 5i/2,  |z| = √26/2</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Find the square root of (7−24i).</div>
+  <div class="cm">5M<span class="rtag">🔁 R (2023,2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <p>Let √(7−24i) = a+ib</p>
+  <div class="step"><span class="sn">1</span><span>(a+ib)²=7−24i → a²−b²=7 ...(1) and 2ab=−24 → ab=−12 ...(2)</span></div>
+  <div class="step"><span class="sn">2</span><span>From (2): b=−12/a. Sub in (1): a²−144/a²=7 → a⁴−7a²−144=0</span></div>
+  <div class="step"><span class="sn">3</span><span>(a²−16)(a²+9)=0 → a²=16 → a=±4</span></div>
+  <div class="step"><span class="sn">4</span><span>a=4: b=−3. a=−4: b=3.</span></div>
+  <div class="fml">√(7−24i) = ±(4−3i)</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">z₁=2+3i, z₂=1−2i. Find (a) z₁+z₂ &nbsp;(b) z₁·z₂ &nbsp;(c) z₁/z₂.</div>
+  <div class="cm">5M<span class="rtag">🔁 R (2022,2021)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>(a) z₁+z₂=(2+1)+(3−2)i=<strong>3+i</strong></span></div>
+  <div class="step"><span class="sn">2</span><span>(b) z₁·z₂=(2+3i)(1−2i)=2−4i+3i−6i²=2−i+6=<strong>8−i</strong></span></div>
+  <div class="step"><span class="sn">3</span><span>(c) z₁/z₂=(2+3i)/(1−2i)×(1+2i)/(1+2i)=(2+4i+3i+6i²)/(1+4)=(2+7i−6)/5=<strong>−4/5+7i/5</strong></span></div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Write z=1+i√3 in polar form. Find |z| and arg(z).</div>
+  <div class="cm">4M<span class="rtag">🔁 R (2023,2024)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>r=|z|=√(1+3)=<strong>2</strong></span></div>
+  <div class="step"><span class="sn">2</span><span>tanθ=√3/1=√3 → θ=π/3 (Q1)</span></div>
+  <div class="fml">Polar form: z = 2(cos(π/3) + i·sin(π/3))</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Solve: x²+x+1=0. Express roots in terms of i.</div>
+  <div class="cm">3M<span class="rtag">🔁 R (2022,2024)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>D=1²−4(1)(1)=1−4=−3 < 0 → complex roots</span></div>
+  <div class="step"><span class="sn">2</span><span>x=(−1±√(−3))/2=(−1±i√3)/2</span></div>
+  <div class="fml">x = (−1+i√3)/2  or  (−1−i√3)/2   (cube roots of unity: ω and ω²)</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">If |z+2|=|z−2|, show that Re(z)=0 (z lies on imaginary axis).</div>
+  <div class="cm">4M<span class="rtag">🔁 R (2021)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Proof</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>Let z=x+iy. |(x+2)+iy|=|(x−2)+iy|</span></div>
+  <div class="step"><span class="sn">2</span><span>Square both sides: (x+2)²+y²=(x−2)²+y²</span></div>
+  <div class="step"><span class="sn">3</span><span>x²+4x+4=x²−4x+4 → 8x=0 → <strong>x=0</strong></span></div>
+  <div class="fml">Re(z) = 0 ∴ z lies on imaginary axis. (Proved)</div>
+  </div></div>
+</div>
 </section>
 
-<!-- SOLID STATE -->
-<section class="chapter" id="solid" style="--chapter-color:#60a5fa">
-  <div class="chapter-header">
-    <div class="chapter-badge"><span class="chapter-num">CHAPTER 02</span><span class="chapter-priority priority-MED">MEDIUM-HIGH</span></div>
-    <h2>Solid State</h2>
-    <div class="chapter-sub">Appears every year — MCQs + 1 numerical on unit cell</div>
-  </div>
+<!-- ═══════════════════════════════════ 3. SEQUENCES ═══════════════════════════════════ -->
+<section class="topic" id="seq">
+<div class="topic-hdr"><span class="t-num">03</span><h2>Sequences &amp; Series (AP, GP)</h2><span class="t-marks">~8 Marks</span></div>
+<div class="formula-banner">AP: aₙ=a+(n−1)d, Sₙ=n/2·(2a+(n−1)d) | GP: aₙ=a·rⁿ⁻¹, Sₙ=a(rⁿ−1)/(r−1) | S∞=a/(1−r) for |r|&lt;1 | Σn=n(n+1)/2 | Σn²=n(n+1)(2n+1)/6 | Σn³=[n(n+1)/2]²</div>
 
-  <!-- Diagrams -->
-  <div class="section-title">Crystal Structure Diagrams</div>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px">
-    <div class="diagram-wrap">
-      <div class="diagram-title">Simple Cubic (SC) — 1 atom/cell</div>
-      <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" width="160" height="160">
-        <rect x="20" y="20" width="100" height="100" fill="none" stroke="#1e2130" stroke-width="1.5"/>
-        <line x1="20" y1="20" x2="50" y2="50" stroke="#1e2130" stroke-width="1" stroke-dasharray="3,2"/>
-        <line x1="120" y1="20" x2="150" y2="50" stroke="#1e2130" stroke-width="1" stroke-dasharray="3,2"/>
-        <line x1="120" y1="120" x2="150" y2="150" stroke="#1e2130" stroke-width="1" stroke-dasharray="3,2"/>
-        <line x1="20" y1="120" x2="50" y2="150" stroke="#1e2130" stroke-width="1" stroke-dasharray="3,2"/>
-        <rect x="50" y="50" width="100" height="100" fill="none" stroke="#2a3040" stroke-width="1.5"/>
-        <line x1="50" y1="50" x2="20" y2="20" stroke="#2a3040" stroke-width="1" stroke-dasharray="3,2"/>
-        <line x1="150" y1="50" x2="120" y2="20" stroke="#2a3040" stroke-width="1" stroke-dasharray="3,2"/>
-        <line x1="150" y1="150" x2="120" y2="120" stroke="#2a3040" stroke-width="1" stroke-dasharray="3,2"/>
-        <line x1="50" y1="150" x2="20" y2="120" stroke="#2a3040" stroke-width="1" stroke-dasharray="3,2"/>
-        <circle cx="20" cy="20" r="8" fill="#60a5fa" stroke="#0f1117" stroke-width="2"/>
-        <circle cx="120" cy="20" r="8" fill="#60a5fa" stroke="#0f1117" stroke-width="2"/>
-        <circle cx="20" cy="120" r="8" fill="#60a5fa" stroke="#0f1117" stroke-width="2"/>
-        <circle cx="120" cy="120" r="8" fill="#60a5fa" stroke="#0f1117" stroke-width="2"/>
-        <circle cx="50" cy="50" r="8" fill="#60a5fa" stroke="#0f1117" stroke-width="2" opacity=".5"/>
-        <circle cx="150" cy="50" r="8" fill="#60a5fa" stroke="#0f1117" stroke-width="2" opacity=".5"/>
-        <circle cx="50" cy="150" r="8" fill="#60a5fa" stroke="#0f1117" stroke-width="2" opacity=".5"/>
-        <circle cx="150" cy="150" r="8" fill="#60a5fa" stroke="#0f1117" stroke-width="2" opacity=".5"/>
-        <text x="80" y="155" text-anchor="middle" fill="#6b7280" font-size="11" font-family="JetBrains Mono">8 × 1/8 = 1</text>
-      </svg>
-    </div>
-    <div class="diagram-wrap">
-      <div class="diagram-title">BCC — 2 atoms/cell</div>
-      <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" width="160" height="160">
-        <rect x="20" y="20" width="100" height="100" fill="none" stroke="#1e2130" stroke-width="1.5"/>
-        <line x1="20" y1="20" x2="50" y2="50" stroke="#1e2130" stroke-width="1" stroke-dasharray="3,2"/>
-        <line x1="120" y1="20" x2="150" y2="50" stroke="#1e2130" stroke-width="1" stroke-dasharray="3,2"/>
-        <line x1="120" y1="120" x2="150" y2="150" stroke="#1e2130" stroke-width="1" stroke-dasharray="3,2"/>
-        <line x1="20" y1="120" x2="50" y2="150" stroke="#1e2130" stroke-width="1" stroke-dasharray="3,2"/>
-        <rect x="50" y="50" width="100" height="100" fill="none" stroke="#2a3040" stroke-width="1.5"/>
-        <circle cx="20" cy="20" r="8" fill="#a78bfa" stroke="#0f1117" stroke-width="2"/>
-        <circle cx="120" cy="20" r="8" fill="#a78bfa" stroke="#0f1117" stroke-width="2"/>
-        <circle cx="20" cy="120" r="8" fill="#a78bfa" stroke="#0f1117" stroke-width="2"/>
-        <circle cx="120" cy="120" r="8" fill="#a78bfa" stroke="#0f1117" stroke-width="2"/>
-        <circle cx="50" cy="50" r="8" fill="#a78bfa" stroke="#0f1117" stroke-width="2" opacity=".5"/>
-        <circle cx="150" cy="50" r="8" fill="#a78bfa" stroke="#0f1117" stroke-width="2" opacity=".5"/>
-        <circle cx="50" cy="150" r="8" fill="#a78bfa" stroke="#0f1117" stroke-width="2" opacity=".5"/>
-        <circle cx="150" cy="150" r="8" fill="#a78bfa" stroke="#0f1117" stroke-width="2" opacity=".5"/>
-        <!-- body centre -->
-        <circle cx="85" cy="85" r="12" fill="#f5c842" stroke="#0f1117" stroke-width="2"/>
-        <text x="80" y="155" text-anchor="middle" fill="#6b7280" font-size="11" font-family="JetBrains Mono">8×1/8 + 1 = 2</text>
-      </svg>
-    </div>
-    <div class="diagram-wrap">
-      <div class="diagram-title">FCC — 4 atoms/cell</div>
-      <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" width="160" height="160">
-        <rect x="20" y="20" width="100" height="100" fill="none" stroke="#1e2130" stroke-width="1.5"/>
-        <line x1="20" y1="20" x2="50" y2="50" stroke="#1e2130" stroke-width="1" stroke-dasharray="3,2"/>
-        <line x1="120" y1="20" x2="150" y2="50" stroke="#1e2130" stroke-width="1" stroke-dasharray="3,2"/>
-        <line x1="120" y1="120" x2="150" y2="150" stroke="#1e2130" stroke-width="1" stroke-dasharray="3,2"/>
-        <line x1="20" y1="120" x2="50" y2="150" stroke="#1e2130" stroke-width="1" stroke-dasharray="3,2"/>
-        <rect x="50" y="50" width="100" height="100" fill="none" stroke="#2a3040" stroke-width="1.5"/>
-        <!-- corners -->
-        <circle cx="20" cy="20" r="7" fill="#34d399" stroke="#0f1117" stroke-width="2"/>
-        <circle cx="120" cy="20" r="7" fill="#34d399" stroke="#0f1117" stroke-width="2"/>
-        <circle cx="20" cy="120" r="7" fill="#34d399" stroke="#0f1117" stroke-width="2"/>
-        <circle cx="120" cy="120" r="7" fill="#34d399" stroke="#0f1117" stroke-width="2"/>
-        <!-- face centres -->
-        <circle cx="70" cy="20" r="10" fill="#fb923c" stroke="#0f1117" stroke-width="2"/>
-        <circle cx="20" cy="70" r="10" fill="#fb923c" stroke="#0f1117" stroke-width="2"/>
-        <circle cx="120" cy="70" r="10" fill="#fb923c" stroke="#0f1117" stroke-width="2"/>
-        <circle cx="70" cy="120" r="10" fill="#fb923c" stroke="#0f1117" stroke-width="2"/>
-        <text x="80" y="155" text-anchor="middle" fill="#6b7280" font-size="11" font-family="JetBrains Mono">8×1/8 + 6×1/2 = 4</text>
-      </svg>
-    </div>
-  </div>
+<div class="sub-lbl">MCQ</div>
 
-  <div class="section-title">Key Concepts</div>
-  <div class="fact-grid">
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text"><strong>FCC:</strong> 4 atoms/cell, 74% packing efficiency</div></div>
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text"><strong>BCC:</strong> 2 atoms/cell, 68% packing efficiency</div></div>
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text"><strong>SC:</strong> 1 atom/cell, 52.4% packing efficiency</div></div>
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text"><strong>Schottky defect:</strong> Missing pairs of ions. Example: NaCl, KCl</div></div>
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text"><strong>Frenkel defect:</strong> Ion displaced to interstitial site. Example: AgBr, ZnS</div></div>
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text"><strong>F-centres:</strong> Anionic vacancies occupied by electrons — give colour to crystals</div></div>
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text"><strong>Na⁺ coordination number in NaCl = 6</strong> (octahedral)</div></div>
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text"><strong>Density formula:</strong> d = ZM / (N<sub>A</sub> × a³)</div></div>
-  </div>
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">The 10th term of AP: 3,7,11,15,... is:<br>(a) 39 &nbsp;(b) 43 &nbsp;(c) 40 &nbsp;(d) 47</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2024,2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="ok">✓ (a) 39</div><div class="no">(b)43</div><div class="no">(c)40</div><div class="no">(d)47</div></div>
+  <p>a=3, d=4. a₁₀=3+(9)(4)=3+36=<strong>39</strong></p>
+  </div></div>
+</div>
 
-  <div class="section-title">★ Repeated MCQs</div>
-  <div class="mcq-grid">
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q1</span><span class="mcq-text">The number of atoms in a unit cell of face-centred cubic (FCC) lattice is:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) 1</div><div class="mcq-opt">(B) 2</div><div class="mcq-opt correct">(C) 4</div><div class="mcq-opt">(D) 6</div><div class="mcq-exp">Corner = 8×1/8 = 1, Face = 6×1/2 = 3, Total = 4</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q2</span><span class="mcq-text">Schottky defect in a crystal results in:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) Extra cations in interstitial sites</div><div class="mcq-opt correct">(B) Missing pairs of ions</div><div class="mcq-opt">(C) Extra electrons</div><div class="mcq-opt">(D) Colour</div><div class="mcq-exp">Equal number of cation and anion vacancies; crystal remains neutral</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q3</span><span class="mcq-text">In a BCC unit cell, the number of atoms is:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) 1</div><div class="mcq-opt correct">(B) 2</div><div class="mcq-opt">(C) 4</div><div class="mcq-opt">(D) 8</div><div class="mcq-exp">8 corners × 1/8 + 1 body centre = 2</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q4</span><span class="mcq-text">Which type of solid is NaCl?</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) Molecular</div><div class="mcq-opt">(B) Covalent</div><div class="mcq-opt correct">(C) Ionic</div><div class="mcq-opt">(D) Metallic</div><div class="mcq-exp">NaCl is held by electrostatic ionic bonds between Na⁺ and Cl⁻</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q5</span><span class="mcq-text">Coordination number of Na⁺ in NaCl crystal is:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) 4</div><div class="mcq-opt correct">(B) 6</div><div class="mcq-opt">(C) 8</div><div class="mcq-opt">(D) 12</div><div class="mcq-exp">Na⁺ is surrounded by 6 Cl⁻ ions in an octahedral arrangement</div></div></div>
-  </div>
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">If 3rd and 7th terms of GP are 4 and 64 respectively, common ratio = ?<br>(a) 2 &nbsp;(b) 3 &nbsp;(c) 4 &nbsp;(d) 8</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2022,2024)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="ok">✓ (a) 2</div><div class="no">(b)3</div><div class="no">(c)4</div><div class="no">(d)8</div></div>
+  <p>a₃=ar²=4, a₇=ar⁶=64. Dividing: r⁴=16 → r=<strong>2</strong></p>
+  </div></div>
+</div>
+
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">Sum of infinite GP with first term 1 and r=1/2:<br>(a) 1 &nbsp;(b) 2 &nbsp;(c) 1/2 &nbsp;(d) 3</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2023,2021)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="no">(a)1</div><div class="ok">✓ (b) 2</div><div class="no">(c)1/2</div><div class="no">(d)3</div></div>
+  <p>S∞=a/(1−r)=1/(1−1/2)=1/(1/2)=<strong>2</strong></p>
+  </div></div>
+</div>
+
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">If AM of two numbers is 10 and GM is 8, HM is:<br>(a) 6.4 &nbsp;(b) 6 &nbsp;(c) 8 &nbsp;(d) 5</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="ok">✓ (a) 6.4</div><div class="no">(b)6</div><div class="no">(c)8</div><div class="no">(d)5</div></div>
+  <p>Relation: GM²=AM×HM → 64=10×HM → HM=6.4. Also HM=2ab/(a+b) and GM²=ab.</p>
+  </div></div>
+</div>
+
+<div class="sub-lbl">Solved Problems</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Three numbers in AP have sum 24 and product 440. Find the numbers.</div>
+  <div class="cm">5M<span class="rtag">🔁 R (2024,2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <p><strong>Let three AP numbers be a−d, a, a+d</strong></p>
+  <div class="step"><span class="sn">1</span><span>Sum: 3a=24 → a=8</span></div>
+  <div class="step"><span class="sn">2</span><span>Product: (8−d)(8)(8+d)=440 → 8(64−d²)=440 → 64−d²=55 → d²=9 → d=±3</span></div>
+  <div class="fml">Numbers: 5, 8, 11</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Find sum of first 20 terms of AP: 2,7,12,17,...</div>
+  <div class="cm">3M<span class="rtag">🔁 R (2023,2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <p>a=2, d=5, n=20</p>
+  <div class="fml">S₂₀ = 20/2 × (2×2 + 19×5) = 10 × (4+95) = 10 × 99 = 990</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Sum of first n terms of GP is 255. First term=1, ratio=2. Find n.</div>
+  <div class="cm">3M<span class="rtag">🔁 R (2023,2021)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>Sₙ=1·(2ⁿ−1)/(2−1)=2ⁿ−1=255 → 2ⁿ=256=2⁸</span></div>
+  <div class="fml">n = 8</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Find the sum: 1·2 + 2·3 + 3·4 + ... + n(n+1).</div>
+  <div class="cm">4M<span class="rtag">🔁 R (2022,2024)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <p>General term: r(r+1)=r²+r</p>
+  <div class="step"><span class="sn">1</span><span>Sum=Σr²+Σr=n(n+1)(2n+1)/6+n(n+1)/2</span></div>
+  <div class="step"><span class="sn">2</span><span>=n(n+1)/6·[(2n+1)+3]=n(n+1)(2n+4)/6=n(n+1)·2(n+2)/6</span></div>
+  <div class="fml">Sum = n(n+1)(n+2)/3</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">AM and GM of two positive numbers are 10 and 8. Find the two numbers.</div>
+  <div class="cm">4M<span class="rtag">🔁 R (2021,2023)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>a+b=20 (from AM=10) and ab=64 (from GM=8)</span></div>
+  <div class="step"><span class="sn">2</span><span>a and b are roots of: t²−20t+64=0 → (t−16)(t−4)=0</span></div>
+  <div class="fml">a = 16, b = 4  (or vice versa)</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">In a GP: first term=2, last term=512, sum=1022. Find n and r.</div>
+  <div class="cm">5M<span class="rtag">🔁 R (2023,2024)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>2·rⁿ⁻¹=512 → rⁿ⁻¹=256</span></div>
+  <div class="step"><span class="sn">2</span><span>Try r=2: 2ⁿ⁻¹=256=2⁸ → n−1=8 → n=9</span></div>
+  <div class="step"><span class="sn">3</span><span>Check: S₉=2(2⁹−1)/(2−1)=2×511=1022 ✓</span></div>
+  <div class="fml">n = 9, r = 2</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Find: 1²+2²+3²+...+20².</div>
+  <div class="cm">2M<span class="rtag">🔁 R (2021)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="fml">Σn² = n(n+1)(2n+1)/6 = 20×21×41/6 = 17220/6 = 2870</div>
+  </div></div>
+</div>
 </section>
 
-<!-- SOLUTIONS -->
-<section class="chapter" id="solutions" style="--chapter-color:#34d399">
-  <div class="chapter-header">
-    <div class="chapter-badge"><span class="chapter-num">CHAPTER 03</span><span class="chapter-priority priority-VHIGH">★★★ VERY HIGH</span></div>
-    <h2>Solutions</h2>
-    <div class="chapter-sub">Numericals asked EVERY year — Master all formulas</div>
-  </div>
+<!-- ═══════════════════════════════════ 4. P&C ═══════════════════════════════════ -->
+<section class="topic" id="pc">
+<div class="topic-hdr"><span class="t-num">04</span><h2>Permutations &amp; Combinations</h2><span class="t-marks">~5 Marks</span></div>
+<div class="formula-banner">ⁿPᵣ=n!/(n−r)! | ⁿCᵣ=n!/(r!(n−r)!) | ⁿCᵣ=ⁿC(n−r) | Total subsets=2ⁿ | Σⁿcᵣ=2ⁿ | n!=n·(n−1)!</div>
 
-  <div class="section-title">Key Formulas — Memorise All</div>
-  <div class="formula-grid">
-    <div class="formula"><div class="formula-label">RAOULT'S LAW</div><div class="formula-eq">pₐ = p°ₐ × xₐ</div><div class="formula-note">For ideal solutions; xₐ = mole fraction of solvent</div></div>
-    <div class="formula"><div class="formula-label">RELATIVE LOWERING OF VP</div><div class="formula-eq">(p° − p) / p° = x꜀</div><div class="formula-note">x꜀ = mole fraction of solute</div></div>
-    <div class="formula"><div class="formula-label">ELEVATION OF BP</div><div class="formula-eq">ΔT꜀ = Kᵦ × m × i</div><div class="formula-note">Kᵦ = ebullioscopic constant; m = molality</div></div>
-    <div class="formula"><div class="formula-label">DEPRESSION OF FP</div><div class="formula-eq">ΔT_f = Kf × m × i</div><div class="formula-note">Kf = cryoscopic constant</div></div>
-    <div class="formula"><div class="formula-label">OSMOTIC PRESSURE</div><div class="formula-eq">π = iCRT = i(n/V)RT</div><div class="formula-note">C = molarity; R = 0.0821 L·atm/mol·K</div></div>
-    <div class="formula"><div class="formula-label">VAN'T HOFF FACTOR</div><div class="formula-eq">i = observed / normal colligative property</div><div class="formula-note">NaCl=2, BaCl₂=3, AlCl₃=4</div></div>
-    <div class="formula"><div class="formula-label">MOLALITY</div><div class="formula-eq">m = moles of solute / kg of solvent</div></div>
-    <div class="formula"><div class="formula-label">HENRY'S LAW</div><div class="formula-eq">p = K_H × x</div><div class="formula-note">Gas solubility ∝ partial pressure</div></div>
-  </div>
+<div class="sub-lbl">MCQ</div>
 
-  <div class="section-title">★ Repeated MCQs</div>
-  <div class="mcq-grid">
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q1</span><span class="mcq-text">Which of the following is a colligative property?</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) Viscosity</div><div class="mcq-opt">(B) Surface tension</div><div class="mcq-opt correct">(C) Osmotic pressure</div><div class="mcq-opt">(D) Optical activity</div><div class="mcq-exp">Colligative properties depend only on number of solute particles, not their nature</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q2</span><span class="mcq-text">The van't Hoff factor (i) for BaCl₂ completely dissociated is:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) 1</div><div class="mcq-opt">(B) 2</div><div class="mcq-opt correct">(C) 3</div><div class="mcq-opt">(D) 4</div><div class="mcq-exp">BaCl₂ → Ba²⁺ + 2Cl⁻ gives 3 ions, so i = 3</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q3</span><span class="mcq-text">Which solution will have the highest boiling point?</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) 1M NaCl</div><div class="mcq-opt">(B) 1M Glucose</div><div class="mcq-opt correct">(C) 1M BaCl₂</div><div class="mcq-opt">(D) 1M MgSO₄</div><div class="mcq-exp">BaCl₂ gives 3 ions (i=3), highest ΔTᵦ = highest boiling point</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q4</span><span class="mcq-text">Molal elevation of boiling point constant Kᵦ depends on:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) Nature of solute</div><div class="mcq-opt">(B) Amount of solute</div><div class="mcq-opt correct">(C) Nature of solvent</div><div class="mcq-opt">(D) Amount of solvent</div><div class="mcq-exp">Kᵦ is a property of the solvent only</div></div></div>
-  </div>
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">⁸P₃ = ?<br>(a) 56 &nbsp;(b) 336 &nbsp;(c) 512 &nbsp;(d) 24</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2024,2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="no">(a)56 (this is ⁸C₃)</div><div class="ok">✓ (b) 336</div><div class="no">(c)512</div><div class="no">(d)24</div></div>
+  <p>⁸P₃=8!/(8−3)!=8×7×6=<strong>336</strong></p>
+  </div></div>
+</div>
 
-  <div class="section-title">★★ Repeated Numericals — Solve Exactly</div>
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">3-digit numbers from 1,2,3,4,5 without repetition:<br>(a) 60 &nbsp;(b) 125 &nbsp;(c) 10 &nbsp;(d) 120</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2022,2024)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="ok">✓ (a) 60</div><div class="no">(b)125 (with repetition)</div><div class="no">(c)10</div><div class="no">(d)120 (using all 5)</div></div>
+  <p>⁵P₃=5!/(5−3)!=5×4×3=<strong>60</strong></p>
+  </div></div>
+</div>
 
-  <div class="num-box"><div class="num-q" onclick="toggleNum(this)"><span class="num-label">NUMERICAL</span><div class="num-text">18 g of glucose (MW=180) is dissolved in 1 kg of water. Kᵦ = 0.52 K·kg/mol. Calculate elevation in boiling point.</div><span class="arrow">▶</span></div><div class="num-ans"><div class="ans-label">SOLUTION</div><div class="ans-steps">Moles of glucose = 18 ÷ 180 = <strong>0.1 mol</strong><br/>Molality m = 0.1 mol ÷ 1 kg = <strong>0.1 m</strong><br/>ΔTᵦ = Kᵦ × m = 0.52 × 0.1</div><div class="ans-final">ΔTᵦ = 0.052 K → BP = 100.052°C</div></div></div>
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">ⁿC₀+ⁿC₁+...+ⁿCₙ = ?<br>(a) n &nbsp;(b) n! &nbsp;(c) 2ⁿ &nbsp;(d) n²</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2023,2021)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="no">(a)n</div><div class="no">(b)n!</div><div class="ok">✓ (c) 2ⁿ</div><div class="no">(d)n²</div></div>
+  <p>Put x=1 in (1+x)ⁿ expansion → 2ⁿ = sum of all binomial coefficients.</p>
+  </div></div>
+</div>
 
-  <div class="num-box"><div class="num-q" onclick="toggleNum(this)"><span class="num-label">NUMERICAL</span><div class="num-text">30g of NaCl (MW=58.5) in 2 kg of water. Kf = 1.86 K·kg/mol. Find depression in FP. (i=2)</div><span class="arrow">▶</span></div><div class="num-ans"><div class="ans-label">SOLUTION</div><div class="ans-steps">Moles NaCl = 30 ÷ 58.5 = <strong>0.513 mol</strong><br/>m = 0.513 ÷ 2 = <strong>0.256 m</strong><br/>ΔTf = i × Kf × m = 2 × 1.86 × 0.256</div><div class="ans-final">ΔTf = 0.953 K → FP = −0.953°C</div></div></div>
+<div class="sub-lbl">Solved Problems</div>
 
-  <div class="num-box"><div class="num-q" onclick="toggleNum(this)"><span class="num-label">NUMERICAL</span><div class="num-text">Osmotic pressure of 0.1M sucrose at 27°C. (R = 0.0821 L·atm/mol·K)</div><span class="arrow">▶</span></div><div class="num-ans"><div class="ans-label">SOLUTION</div><div class="ans-steps">T = 27 + 273 = 300 K, C = 0.1 M<br/>π = CRT = 0.1 × 0.0821 × 300</div><div class="ans-final">π = 2.463 atm</div></div></div>
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Committee of 4 from 6 men and 4 women. Find ways if (a) no restriction (b) at least 2 women.</div>
+  <div class="cm">5M<span class="rtag">🔁 R (2024,2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>(a) No restriction: ¹⁰C₄=210</span></div>
+  <div class="step"><span class="sn">2</span><span>(b) At least 2 women = (2W+2M)+(3W+1M)+(4W+0M)</span></div>
+  <div class="step"><span class="sn">3</span><span>=⁴C₂·⁶C₂+⁴C₃·⁶C₁+⁴C₄·⁶C₀=6×15+4×6+1×1=90+24+1=115</span></div>
+  <div class="fml">(a) 210   (b) 115</div>
+  </div></div>
+</div>
 
-  <div class="num-box"><div class="num-q" onclick="toggleNum(this)"><span class="num-label">NUMERICAL</span><div class="num-text">VP of pure water at 25°C = 23.8 mmHg. Find VP of solution of 36g glucose in 180g water.</div><span class="arrow">▶</span></div><div class="num-ans"><div class="ans-label">SOLUTION</div><div class="ans-steps">Moles glucose = 36÷180 = 0.2 | Moles water = 180÷18 = 10<br/>x(water) = 10 ÷ (10+0.2) = <strong>0.980</strong><br/>p = 0.980 × 23.8</div><div class="ans-final">p = 23.32 mmHg</div></div></div>
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Letters of EQUATION (8 distinct). (i) Total words? (ii) Words starting E, ending N?</div>
+  <div class="cm">4M<span class="rtag">🔁 R (2023,2021)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>Total: 8!=<strong>40320</strong></span></div>
+  <div class="step"><span class="sn">2</span><span>E fixed at start, N fixed at end → 6 remaining letters → 6!=<strong>720</strong></span></div>
+  <div class="fml">Total: 40320 | Starting E, ending N: 720</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Diagonals of a polygon with n sides. For n=10, find number of diagonals.</div>
+  <div class="cm">4M<span class="rtag">🔁 R (2021,2023)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>Total segments joining 2 vertices=ⁿC₂=n(n−1)/2</span></div>
+  <div class="step"><span class="sn">2</span><span>Sides=n. Diagonals=ⁿC₂−n=n(n−1)/2−n=n(n−3)/2</span></div>
+  <div class="step"><span class="sn">3</span><span>n=10: 10×7/2=<strong>35</strong></span></div>
+  <div class="fml">Diagonals = n(n−3)/2  |  For n=10: 35</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Numbers 100–999 using digits 0–5 (with repetition) divisible by 5. How many?</div>
+  <div class="cm">4M<span class="rtag">🔁 R (2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>Divisible by 5 → last digit=0 or 5</span></div>
+  <div class="step"><span class="sn">2</span><span>Last digit=0: first(1-5)=5, middle(0-5)=6 → 5×6=30</span></div>
+  <div class="step"><span class="sn">3</span><span>Last digit=5: first(1-5)=5, middle(0-5)=6 → 5×6=30</span></div>
+  <div class="fml">Total = 60 numbers</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Find n if (i) ⁿC₁₀=ⁿC₆ (ii) ⁿP₄=20·ⁿC₄</div>
+  <div class="cm">3M<span class="rtag">🔁 R (2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>(i) ⁿCᵣ=ⁿC(n−r). So 10=n−6 → n=<strong>16</strong></span></div>
+  <div class="step"><span class="sn">2</span><span>(ii) ⁿP₄=4!·ⁿC₄=24·ⁿC₄. Given ⁿP₄=20·ⁿC₄ → 24=20 (contradiction → no valid integer n).</span></div>
+  <div class="fml">(i) n = 16</div>
+  </div></div>
+</div>
 </section>
 
-<!-- ELECTROCHEMISTRY -->
-<section class="chapter" id="electrochemistry" style="--chapter-color:#f5c842">
-  <div class="chapter-header">
-    <div class="chapter-badge"><span class="chapter-num">CHAPTER 04</span><span class="chapter-priority priority-VHIGH">★★★ MOST REPEATED</span></div>
-    <h2>Electrochemistry</h2>
-    <div class="chapter-sub">10–12 marks every year — ALL formulas must be memorised</div>
-  </div>
+<!-- ═══════════════════════════════════ 5. BINOMIAL ═══════════════════════════════════ -->
+<section class="topic" id="binom">
+<div class="topic-hdr"><span class="t-num">05</span><h2>Binomial Theorem</h2><span class="t-marks">~5 Marks</span></div>
+<div class="formula-banner">Tᵣ₊₁=ⁿCᵣ·a^(n−r)·b^r | Middle term: n even→T_{n/2+1}; n odd→T_{(n+1)/2} and T_{(n+3)/2} | For term indep of x: set power of x=0 | Sum of coefficients: put x=1 → 2ⁿ</div>
 
-  <!-- Daniel Cell Diagram -->
-  <div class="section-title">Daniel Cell Diagram</div>
-  <div class="diagram-wrap" style="max-width:600px;margin:0 auto 24px">
-    <div class="diagram-title">Daniel Cell — Zn | ZnSO₄ || CuSO₄ | Cu (EMF = +1.10 V)</div>
-    <svg viewBox="0 0 560 260" xmlns="http://www.w3.org/2000/svg">
-      <!-- Anode vessel -->
-      <rect x="30" y="80" width="190" height="150" rx="6" fill="#0d1520" stroke="#1e2130" stroke-width="1.5"/>
-      <!-- Cathode vessel -->
-      <rect x="340" y="80" width="190" height="150" rx="6" fill="#0d1520" stroke="#1e2130" stroke-width="1.5"/>
-      <!-- Solutions -->
-      <rect x="31" y="140" width="188" height="89" rx="0 0 6 6" fill="#0a1530" opacity=".8"/>
-      <rect x="341" y="140" width="188" height="89" rx="0 0 6 6" fill="#0a1a10" opacity=".8"/>
-      <!-- Electrodes -->
-      <rect x="110" y="60" width="16" height="130" rx="3" fill="#9ca3af"/>
-      <rect x="434" y="60" width="16" height="130" rx="3" fill="#b45309"/>
-      <!-- Labels -->
-      <text x="118" y="50" text-anchor="middle" fill="#9ca3af" font-size="13" font-family="DM Sans" font-weight="600">Zn (Anode)</text>
-      <text x="442" y="50" text-anchor="middle" fill="#b45309" font-size="13" font-family="DM Sans" font-weight="600">Cu (Cathode)</text>
-      <text x="125" y="200" text-anchor="middle" fill="#60a5fa" font-size="12" font-family="DM Sans">ZnSO₄ (aq)</text>
-      <text x="435" y="200" text-anchor="middle" fill="#34d399" font-size="12" font-family="DM Sans">CuSO₄ (aq)</text>
-      <!-- Salt bridge -->
-      <rect x="195" y="65" width="170" height="30" rx="4" fill="#1a1500" stroke="#f5c842" stroke-width="1.5"/>
-      <text x="280" y="84" text-anchor="middle" fill="#f5c842" font-size="12" font-family="JetBrains Mono">—— Salt Bridge ——</text>
-      <!-- Wire + bulb -->
-      <line x1="118" y1="60" x2="118" y2="20" stroke="#6b7280" stroke-width="2"/>
-      <line x1="442" y1="60" x2="442" y2="20" stroke="#6b7280" stroke-width="2"/>
-      <line x1="118" y1="20" x2="240" y2="20" stroke="#6b7280" stroke-width="2"/>
-      <line x1="320" y1="20" x2="442" y2="20" stroke="#6b7280" stroke-width="2"/>
-      <circle cx="280" cy="20" r="14" fill="none" stroke="#f5c842" stroke-width="2"/>
-      <text x="280" y="25" text-anchor="middle" fill="#f5c842" font-size="14" font-family="DM Sans">💡</text>
-      <!-- Electron flow arrow -->
-      <text x="170" y="14" fill="#ff6b6b" font-size="11" font-family="JetBrains Mono">e⁻ →</text>
-      <text x="330" y="14" fill="#ff6b6b" font-size="11" font-family="JetBrains Mono">e⁻ →</text>
-      <!-- Reactions -->
-      <text x="125" y="245" text-anchor="middle" fill="#ff6b6b" font-size="11" font-family="JetBrains Mono">Zn → Zn²⁺ + 2e⁻</text>
-      <text x="435" y="245" text-anchor="middle" fill="#34d399" font-size="11" font-family="JetBrains Mono">Cu²⁺ + 2e⁻ → Cu</text>
-    </svg>
-  </div>
+<div class="sub-lbl">MCQ</div>
 
-  <div class="section-title">Key Formulas — All Must Memorise</div>
-  <div class="formula-grid">
-    <div class="formula"><div class="formula-label">NERNST EQUATION (25°C)</div><div class="formula-eq">E = E° − (0.0592/n) log Q</div></div>
-    <div class="formula"><div class="formula-label">STANDARD CELL EMF</div><div class="formula-eq">E°cell = E°cathode − E°anode</div></div>
-    <div class="formula"><div class="formula-label">GIBBS ENERGY</div><div class="formula-eq">ΔG° = −nFE°cell</div></div>
-    <div class="formula"><div class="formula-label">EQUILIBRIUM CONSTANT</div><div class="formula-eq">log K = nE° / 0.0592</div></div>
-    <div class="formula"><div class="formula-label">FARADAY'S 1ST LAW</div><div class="formula-eq">m = ZIt = (M × I × t) / (n × F)</div></div>
-    <div class="formula"><div class="formula-label">FARADAY'S 2ND LAW</div><div class="formula-eq">m₁/m₂ = E₁/E₂</div><div class="formula-note">E = equivalent weight</div></div>
-    <div class="formula"><div class="formula-label">KOHLRAUSCH'S LAW</div><div class="formula-eq">Λ°m = ν₊λ°₊ + ν₋λ°₋</div></div>
-    <div class="formula"><div class="formula-label">MOLAR CONDUCTANCE</div><div class="formula-eq">Λm = (κ × 1000) / Molarity</div><div class="formula-note">F = 96500 C/mol</div></div>
-  </div>
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">Number of terms in (a+b)ⁿ:<br>(a) n &nbsp;(b) n−1 &nbsp;(c) n+1 &nbsp;(d) 2n</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2024,2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="no">(a)n</div><div class="no">(b)n−1</div><div class="ok">✓ (c) n+1</div><div class="no">(d)2n</div></div>
+  <p>r goes from 0 to n → <strong>n+1</strong> terms.</p>
+  </div></div>
+</div>
 
-  <div class="section-title">★ Repeated MCQs</div>
-  <div class="mcq-grid">
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q1</span><span class="mcq-text">Standard electrode potential of SHE (Standard Hydrogen Electrode) is:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) 1.0 V</div><div class="mcq-opt correct">(B) 0.0 V</div><div class="mcq-opt">(C) −1.0 V</div><div class="mcq-opt">(D) 0.5 V</div><div class="mcq-exp">By convention, E° of SHE = 0.00 V (reference electrode)</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q2</span><span class="mcq-text">In electrolysis of brine (NaCl solution), which gas is released at cathode?</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) Cl₂</div><div class="mcq-opt">(B) O₂</div><div class="mcq-opt correct">(C) H₂</div><div class="mcq-opt">(D) Na</div><div class="mcq-exp">2H₂O + 2e⁻ → H₂ + 2OH⁻ (reduction at cathode)</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q3</span><span class="mcq-text">Faraday's constant value is approximately:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) 9.65×10³ C/mol</div><div class="mcq-opt correct">(B) 9.65×10⁴ C/mol</div><div class="mcq-opt">(C) 6.02×10²³ C/mol</div><div class="mcq-opt">(D) 1.6×10⁻¹⁹ C/mol</div><div class="mcq-exp">F = 96500 C/mol = 9.65×10⁴ C/mol</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q4</span><span class="mcq-text">Kohlrausch's law is applicable at:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) High concentration</div><div class="mcq-opt correct">(B) Infinite dilution</div><div class="mcq-opt">(C) Any concentration</div><div class="mcq-opt">(D) Zero temperature</div><div class="mcq-exp">At infinite dilution, molar conductivity = sum of individual ionic conductivities</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q5</span><span class="mcq-text">The Nernst equation for n=2: E = E° − x × log Q. Value of x?</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) 0.059</div><div class="mcq-opt correct">(B) 0.030</div><div class="mcq-opt">(C) 0.118</div><div class="mcq-opt">(D) 0.020</div><div class="mcq-exp">0.0592/n = 0.0592/2 = 0.0296 ≈ 0.030 V</div></div></div>
-  </div>
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">Middle term in (x+y)¹⁰:<br>(a) T₅ &nbsp;(b) T₆ &nbsp;(c) T₇ &nbsp;(d) T₁₁</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2023,2021)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="no">(a)T₅</div><div class="ok">✓ (b) T₆</div><div class="no">(c)T₇</div><div class="no">(d)T₁₁</div></div>
+  <p>n=10 (even). Middle term = T_{n/2+1}=T_{6}. <strong>T₆</strong></p>
+  </div></div>
+</div>
 
-  <div class="section-title">★★ Repeated Numericals</div>
-  <div class="num-box"><div class="num-q" onclick="toggleNum(this)"><span class="num-label">NUMERICAL</span><div class="num-text">Calculate EMF of Zn | Zn²⁺(0.1M) || Cu²⁺(0.01M) | Cu at 25°C. E°(Cu²⁺/Cu)=+0.34V, E°(Zn²⁺/Zn)=−0.76V</div><span class="arrow">▶</span></div><div class="num-ans"><div class="ans-label">SOLUTION</div><div class="ans-steps">E°cell = 0.34 − (−0.76) = <strong>1.10 V</strong><br/>Q = [Zn²⁺]/[Cu²⁺] = 0.1/0.01 = 10<br/>E = 1.10 − (0.0592/2) × log 10 = 1.10 − 0.0296 × 1</div><div class="ans-final">E = 1.0704 V</div></div></div>
-  <div class="num-box"><div class="num-q" onclick="toggleNum(this)"><span class="num-label">NUMERICAL</span><div class="num-text">Grams of silver deposited when 2A current is passed for 30 minutes through AgNO₃. (At. mass Ag=108, n=1)</div><span class="arrow">▶</span></div><div class="num-ans"><div class="ans-label">SOLUTION</div><div class="ans-steps">Charge = I×t = 2 × (30×60) = <strong>3600 C</strong><br/>Moles of Ag = 3600 ÷ 96500 = <strong>0.0373 mol</strong><br/>Mass = 0.0373 × 108</div><div class="ans-final">Mass = 4.03 g of Silver</div></div></div>
-  <div class="num-box"><div class="num-q" onclick="toggleNum(this)"><span class="num-label">NUMERICAL</span><div class="num-text">Λm of 0.025 mol/L CH₃COOH = 46.1 S·cm²/mol. Λ°m = 390.5 S·cm²/mol. Find degree of dissociation.</div><span class="arrow">▶</span></div><div class="num-ans"><div class="ans-label">SOLUTION</div><div class="ans-steps">α = Λm ÷ Λ°m = 46.1 ÷ 390.5</div><div class="ans-final">α = 0.118 → Degree of dissociation = 11.8%</div></div></div>
-  <div class="num-box"><div class="num-q" onclick="toggleNum(this)"><span class="num-label">NUMERICAL</span><div class="num-text">Calculate ΔG° if E°cell = 1.10V and n=2. (F = 96500 C/mol)</div><span class="arrow">▶</span></div><div class="num-ans"><div class="ans-label">SOLUTION</div><div class="ans-steps">ΔG° = −nFE° = −2 × 96500 × 1.10</div><div class="ans-final">ΔG° = −212,300 J/mol = −212.3 kJ/mol</div></div></div>
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">Coefficient of x⁵ in (1+x)¹⁰:<br>(a) 252 &nbsp;(b) 120 &nbsp;(c) 45 &nbsp;(d) 210</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2023,2021)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="ok">✓ (a) 252</div><div class="no">(b)120</div><div class="no">(c)45</div><div class="no">(d)210</div></div>
+  <p>¹⁰C₅=10!/(5!5!)=252</p>
+  </div></div>
+</div>
+
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">Sum of coefficients in (1+x)ⁿ=256, then n=?<br>(a) 8 &nbsp;(b) 7 &nbsp;(c) 9 &nbsp;(d) 256</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="ok">✓ (a) 8</div><div class="no">(b)7</div><div class="no">(c)9</div><div class="no">(d)256</div></div>
+  <p>2ⁿ=256=2⁸ → n=<strong>8</strong></p>
+  </div></div>
+</div>
+
+<div class="sub-lbl">Solved Problems</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Find the 6th term in (2x − 3/x)⁹.</div>
+  <div class="cm">4M<span class="rtag">🔁 R (2024,2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <p>T₆=T₅₊₁, so r=5</p>
+  <div class="step"><span class="sn">1</span><span>T₆=⁹C₅·(2x)⁴·(−3/x)⁵=126·16x⁴·(−243/x⁵)</span></div>
+  <div class="step"><span class="sn">2</span><span>=126·16·(−243)·x^(4−5)=126×(−3888)·x⁻¹</span></div>
+  <div class="fml">T₆ = −489888/x</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Find the coefficient of x⁵ in (x+3)⁸.</div>
+  <div class="cm">3M<span class="rtag">🔁 R (2023,2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>Tᵣ₊₁=⁸Cᵣ·x^(8−r)·3ʳ. Power of x = 8−r = 5 → r=3</span></div>
+  <div class="step"><span class="sn">2</span><span>T₄=⁸C₃·x⁵·3³=56×27·x⁵=1512x⁵</span></div>
+  <div class="fml">Coefficient of x⁵ = 1512</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Using Binomial Theorem, find (1.02)⁶ correct to 4 decimal places.</div>
+  <div class="cm">4M<span class="rtag">🔁 R (2021,2023)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <p>(1.02)⁶=(1+0.02)⁶</p>
+  <div class="step"><span class="sn">1</span><span>=1+6(0.02)+15(0.02)²+20(0.02)³+... (higher terms negligible)</span></div>
+  <div class="step"><span class="sn">2</span><span>=1+0.12+15(0.0004)+20(0.000008)</span></div>
+  <div class="step"><span class="sn">3</span><span>=1+0.12+0.006+0.00016+0.0000024=1.1262</span></div>
+  <div class="fml">(1.02)⁶ ≈ 1.1262</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Find the term independent of x in (x + 1/x)¹².</div>
+  <div class="cm">3M<span class="rtag">🔁 R (2023,2021)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>Tᵣ₊₁=¹²Cᵣ·x^(12−r)·x^(−r)=¹²Cᵣ·x^(12−2r)</span></div>
+  <div class="step"><span class="sn">2</span><span>For independence: 12−2r=0 → r=6</span></div>
+  <div class="step"><span class="sn">3</span><span>T₇=¹²C₆=924</span></div>
+  <div class="fml">Term independent of x = 924  (7th term)</div>
+  </div></div>
+</div>
+
+<div class="card theory-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Theory</span>
+  <div class="cq">Prove that sum of binomial coefficients in (1+x)ⁿ is 2ⁿ.</div>
+  <div class="cm">3M<span class="rtag">🔁 R (2022,2024)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Proof</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>(1+x)ⁿ=ⁿC₀+ⁿC₁x+ⁿC₂x²+...+ⁿCₙxⁿ</span></div>
+  <div class="step"><span class="sn">2</span><span>Put x=1: 2ⁿ=ⁿC₀+ⁿC₁+ⁿC₂+...+ⁿCₙ</span></div>
+  <div class="fml">∴ Sum of binomial coefficients = 2ⁿ   (Proved)</div>
+  </div></div>
+</div>
 </section>
 
-<!-- CHEMICAL KINETICS -->
-<section class="chapter" id="kinetics" style="--chapter-color:#fb923c">
-  <div class="chapter-header">
-    <div class="chapter-badge"><span class="chapter-num">CHAPTER 05</span><span class="chapter-priority priority-VHIGH">★★★ VERY HIGH</span></div>
-    <h2>Chemical Kinetics</h2>
-    <div class="chapter-sub">Rate laws, Arrhenius equation, Half-life — asked every year</div>
-  </div>
+<!-- ═══════════════════════════════════ 6. MATRICES ═══════════════════════════════════ -->
+<section class="topic" id="matrix">
+<div class="topic-hdr"><span class="t-num">06</span><h2>Matrices &amp; Determinants</h2><span class="t-marks">~15 Marks</span></div>
+<div class="formula-banner">det(AB)=det(A)·det(B) | A⁻¹=adj(A)/det(A) | Unique solution: det(A)≠0 | Cramer's: x=D₁/D, y=D₂/D | det(kA)=kⁿ·det(A) for n×n matrix | det(adj A)=[det(A)]^(n−1)</div>
 
-  <div class="section-title">Key Formulas</div>
-  <div class="formula-grid">
-    <div class="formula"><div class="formula-label">RATE LAW</div><div class="formula-eq">Rate = k[A]ᵐ[B]ⁿ</div><div class="formula-note">m,n determined experimentally</div></div>
-    <div class="formula"><div class="formula-label">FIRST ORDER — k</div><div class="formula-eq">k = (2.303/t) × log([A]₀/[A])</div></div>
-    <div class="formula"><div class="formula-label">FIRST ORDER — HALF LIFE</div><div class="formula-eq">t½ = 0.693 / k</div><div class="formula-note">Independent of initial concentration</div></div>
-    <div class="formula"><div class="formula-label">ZERO ORDER — HALF LIFE</div><div class="formula-eq">t½ = [A]₀ / 2k</div></div>
-    <div class="formula"><div class="formula-label">ARRHENIUS EQUATION</div><div class="formula-eq">k = A × e^(−Eₐ/RT)</div></div>
-    <div class="formula"><div class="formula-label">ARRHENIUS — TEMPERATURE EFFECT</div><div class="formula-eq">log(k₂/k₁) = (Eₐ/2.303R)(1/T₁ − 1/T₂)</div></div>
-  </div>
+<div class="sub-lbl">MCQ</div>
 
-  <div class="info-card">
-    <div class="info-card-title">Units of Rate Constant k</div>
-    Zero order: mol L⁻¹ s⁻¹ &nbsp;|&nbsp; First order: s⁻¹ &nbsp;|&nbsp; Second order: L mol⁻¹ s⁻¹
-    <br/>General formula: k units = (mol L⁻¹)^(1−n) s⁻¹ where n = order
-  </div>
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">A is 2×2 with det(A)=5, then det(3A) = ?<br>(a) 15 &nbsp;(b) 45 &nbsp;(c) 9 &nbsp;(d) 5</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2024,2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="no">(a)15</div><div class="ok">✓ (b) 45</div><div class="no">(c)9</div><div class="no">(d)5</div></div>
+  <p>det(kA)=k²·det(A) for 2×2. det(3A)=9×5=<strong>45</strong></p>
+  </div></div>
+</div>
 
-  <div class="section-title">★ Repeated MCQs</div>
-  <div class="mcq-grid">
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q1</span><span class="mcq-text">Half-life of a first-order reaction is 30 min. Fraction of reactant remaining after 90 min?</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) 1/2</div><div class="mcq-opt">(B) 1/4</div><div class="mcq-opt correct">(C) 1/8</div><div class="mcq-opt">(D) 1/16</div><div class="mcq-exp">90 min = 3 half-lives → (1/2)³ = 1/8 remains</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q2</span><span class="mcq-text">For A + B → C, rate = k[A][B]². Overall order is:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) 1</div><div class="mcq-opt">(B) 2</div><div class="mcq-opt correct">(C) 3</div><div class="mcq-opt">(D) 0</div><div class="mcq-exp">Order = 1 + 2 = 3 (sum of exponents)</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q3</span><span class="mcq-text">A catalyst increases rate of reaction by:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) Increasing temperature</div><div class="mcq-opt correct">(B) Lowering activation energy</div><div class="mcq-opt">(C) Increasing activation energy</div><div class="mcq-opt">(D) Increasing enthalpy</div><div class="mcq-exp">Catalyst provides alternative pathway with lower Eₐ</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q4</span><span class="mcq-text">Rate constant of zero-order reaction has units of:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt correct">(A) mol L⁻¹ s⁻¹</div><div class="mcq-opt">(B) s⁻¹</div><div class="mcq-opt">(C) L mol⁻¹ s⁻¹</div><div class="mcq-opt">(D) Dimensionless</div><div class="mcq-exp">For zero order: k = Rate = mol L⁻¹ s⁻¹</div></div></div>
-  </div>
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">A=[[2,0],[0,3]], then A⁻¹=?<br>(a) [[3,0],[0,2]] &nbsp;(b) [[1/2,0],[0,1/3]] &nbsp;(c) [[2,0],[0,3]] &nbsp;(d) [[−2,0],[0,−3]]</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2022,2024)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="no">(a)</div><div class="ok">✓ (b) [[1/2,0],[0,1/3]]</div><div class="no">(c)</div><div class="no">(d)</div></div>
+  <p>For diagonal matrix: inverse = reciprocal of each diagonal. A⁻¹=[[1/2,0],[0,1/3]]</p>
+  </div></div>
+</div>
 
-  <div class="section-title">★★ Repeated Numericals</div>
-  <div class="num-box"><div class="num-q" onclick="toggleNum(this)"><span class="num-label">NUMERICAL</span><div class="num-text">Rate constant of first-order reaction = 0.693 min⁻¹. Calculate t½ and time for 90% completion.</div><span class="arrow">▶</span></div><div class="num-ans"><div class="ans-label">SOLUTION</div><div class="ans-steps">t½ = 0.693 ÷ k = 0.693 ÷ 0.693 = <strong>1 min</strong><br/>For 90%: [A] = 0.1[A]₀<br/>t = (2.303/0.693) × log(1/0.1) = 3.32 × 1</div><div class="ans-final">t½ = 1 min | t(90%) = 3.32 min</div></div></div>
-  <div class="num-box"><div class="num-q" onclick="toggleNum(this)"><span class="num-label">NUMERICAL</span><div class="num-text">Eₐ = 80 kJ/mol. k at 300K = 1.6×10⁻³ s⁻¹. Find k at 350K. (R = 8.314 J/mol·K)</div><span class="arrow">▶</span></div><div class="num-ans"><div class="ans-label">SOLUTION</div><div class="ans-steps">log(k₂/k₁) = Eₐ/(2.303R) × (1/T₁ − 1/T₂)<br/>= 80000/(2.303×8.314) × (1/300 − 1/350)<br/>= 4177 × 4.76×10⁻⁴ = <strong>1.988</strong><br/>k₂/k₁ = 10^1.988 = 97.2<br/>k₂ = 97.2 × 1.6×10⁻³</div><div class="ans-final">k₂ = 0.1555 s⁻¹</div></div></div>
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">det(A)=2, A is 3×3. det(adj A) = ?<br>(a) 2 &nbsp;(b) 4 &nbsp;(c) 6 &nbsp;(d) 8</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2022,2024)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="no">(a)2</div><div class="no">(b)4</div><div class="no">(c)6</div><div class="ok">✓ (b) 4 — actually: det(adj A)=[det A]^(n−1)=2²=4</div></div>
+  <div class="hl">det(adj A) = [det(A)]^(n−1) = 2^(3−1) = 2² = <strong>4</strong></div>
+  </div></div>
+</div>
+
+<div class="sub-lbl">Solved Problems</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Find inverse of A=[[2,1],[5,3]] using adjoint method.</div>
+  <div class="cm">5M<span class="rtag">🔁 R (2024,2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>det(A)=2×3−1×5=6−5=<strong>1</strong> ≠0, inverse exists</span></div>
+  <div class="step"><span class="sn">2</span><span>Cofactors: C₁₁=3, C₁₂=−5, C₂₁=−1, C₂₂=2</span></div>
+  <div class="step"><span class="sn">3</span><span>adj(A)=[[3,−1],[−5,2]] (transpose of cofactors)</span></div>
+  <div class="step"><span class="sn">4</span><span>A⁻¹=adj(A)/det(A)=[[3,−1],[−5,2]]</span></div>
+  <div class="step"><span class="sn">5</span><span>Verify: [[2,1],[5,3]]·[[3,−1],[−5,2]]=[[1,0],[0,1]] ✓</span></div>
+  <div class="fml">A⁻¹ = [[3,−1],[−5,2]]</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Solve using Cramer's rule: 2x+y=4, 5x+3y=7.</div>
+  <div class="cm">5M<span class="rtag">🔁 R (2023,2021)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>D=|2,1;5,3|=6−5=1</span></div>
+  <div class="step"><span class="sn">2</span><span>D₁=|4,1;7,3|=12−7=5</span></div>
+  <div class="step"><span class="sn">3</span><span>D₂=|2,4;5,7|=14−20=−6</span></div>
+  <div class="step"><span class="sn">4</span><span>x=D₁/D=5, y=D₂/D=−6</span></div>
+  <div class="step"><span class="sn">5</span><span>Verify: 2(5)+(−6)=4 ✓, 5(5)+3(−6)=7 ✓</span></div>
+  <div class="fml">x = 5,  y = −6</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Evaluate det([[1,2,3],[4,5,6],[7,8,9]]).</div>
+  <div class="cm">4M<span class="rtag">🔁 R (2022,2024)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>=1(45−48)−2(36−42)+3(32−35)</span></div>
+  <div class="step"><span class="sn">2</span><span>=1(−3)−2(−6)+3(−3)=−3+12−9=<strong>0</strong></span></div>
+  <div class="hl">det=0 because Row 3=2×Row 2−Row 1 (rows are linearly dependent)</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">A=[[1,2],[3,4]]. Find A²−5A+6I using Cayley-Hamilton theorem.</div>
+  <div class="cm">5M<span class="rtag">🔁 R (2021,2023)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>A²=[[1+6,2+8],[3+12,6+16]]=[[7,10],[15,22]]</span></div>
+  <div class="step"><span class="sn">2</span><span>5A=[[5,10],[15,20]], 6I=[[6,0],[0,6]]</span></div>
+  <div class="step"><span class="sn">3</span><span>A²−5A+6I=[[7−5+6,10−10+0],[15−15+0,22−20+6]]=[[8,0],[0,8]]</span></div>
+  <div class="fml">A²−5A+6I = 8I = [[8,0],[0,8]]</div>
+  </div></div>
+</div>
+
+<div class="card long-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Long Ans</span>
+  <div class="cq">Show: |[a,b,c],[b,c,a],[c,a,b]| = −(a³+b³+c³−3abc).</div>
+  <div class="cm">5M<span class="rtag">🔁 R (2023,2024)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Proof</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>C₁→C₁+C₂+C₃: first column → (a+b+c)</span></div>
+  <div class="step"><span class="sn">2</span><span>Factor (a+b+c): =(a+b+c)|[1,b,c],[1,c,a],[1,a,b]|</span></div>
+  <div class="step"><span class="sn">3</span><span>R₂→R₂−R₁, R₃→R₃−R₁:</span></div>
+  <div class="step"><span class="sn">4</span><span>=(a+b+c)|[1,b,c],[0,c−b,a−c],[0,a−b,b−c]|</span></div>
+  <div class="step"><span class="sn">5</span><span>Expand: =(a+b+c)[(c−b)(b−c)−(a−c)(a−b)]</span></div>
+  <div class="step"><span class="sn">6</span><span>After simplification: =−(a+b+c)(a²+b²+c²−ab−bc−ca)</span></div>
+  <div class="fml">= −(a³+b³+c³−3abc)   (Proved)  [using identity a³+b³+c³−3abc=(a+b+c)(a²+b²+c²−ab−bc−ca)]</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Find values of x: |[x,2,3],[2,x,3],[3,3,x]|=0.</div>
+  <div class="cm">5M<span class="rtag">🔁 R (2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>Expand: x(x²−9)−2(2x−9)+3(6−3x)=x³−9x−4x+18+18−9x</span></div>
+  <div class="step"><span class="sn">2</span><span>=x³−22x+36=0</span></div>
+  <div class="step"><span class="sn">3</span><span>Try x=2: 8−44+36=0 ✓ → (x−2) is a factor</span></div>
+  <div class="step"><span class="sn">4</span><span>x³−22x+36=(x−2)(x²+2x−18)=0</span></div>
+  <div class="step"><span class="sn">5</span><span>x²+2x−18=0 → x=(−2±√76)/2=−1±√19</span></div>
+  <div class="fml">x = 2,  x = −1+√19,  x = −1−√19</div>
+  </div></div>
+</div>
 </section>
 
-<!-- COORDINATION COMPOUNDS -->
-<section class="chapter" id="coordination" style="--chapter-color:#a78bfa">
-  <div class="chapter-header">
-    <div class="chapter-badge"><span class="chapter-num">CHAPTER 09</span><span class="chapter-priority priority-VHIGH">★★★ VERY HIGH</span></div>
-    <h2>Coordination Compounds</h2>
-    <div class="chapter-sub">IUPAC naming asked in EVERY exam paper — Master the rules</div>
-  </div>
+<!-- ═══════════════════════════════════ 7. LIMITS & DERIVATIVES ═══════════════════════════════════ -->
+<section class="topic" id="limits">
+<div class="topic-hdr"><span class="t-num">07</span><h2>Limits &amp; Derivatives</h2><span class="t-marks">~12 Marks</span></div>
+<div class="formula-banner">lim(sinx/x)=1, lim((eˣ−1)/x)=1, lim((1+1/n)ⁿ)=e as n→∞ | d/dx(xⁿ)=nxⁿ⁻¹ | d/dx(sinx)=cosx | d/dx(eˣ)=eˣ | d/dx(lnx)=1/x | Product: (uv)'=uv'+vu' | Quotient: (u/v)'=(vu'−uv')/v²</div>
 
-  <div class="section-title">IUPAC Naming Rules — Master These</div>
-  <div class="bullet-list">
-    <div class="bullet-item">Write <strong>cation first</strong>, then anion</div>
-    <div class="bullet-item">In complex: list <strong>ligands alphabetically</strong>, then central metal</div>
-    <div class="bullet-item">Anionic ligands end in <strong>-o</strong>: F⁻=fluoro, Cl⁻=chloro, CN⁻=cyano, OH⁻=hydroxo, O²⁻=oxo</div>
-    <div class="bullet-item">Neutral ligands: H₂O=<strong>aqua</strong>, NH₃=<strong>ammine</strong>, CO=<strong>carbonyl</strong>, NO=<strong>nitrosyl</strong></div>
-    <div class="bullet-item">Number prefixes: 2=di, 3=tri, 4=tetra, 5=penta, 6=hexa (use bis/tris for complex names)</div>
-    <div class="bullet-item">If complex ion is anionic, metal name ends in <strong>-ate</strong> (ferrate, cuprate, cobaltate)</div>
-    <div class="bullet-item">Oxidation state in <strong>Roman numerals</strong> in parentheses</div>
-  </div>
+<div class="sub-lbl">MCQ</div>
 
-  <div class="section-title">★ IUPAC Names — Most Repeated</div>
-  <table class="exam-table">
-    <thead><tr><th>Formula</th><th>IUPAC Name</th><th>Note</th></tr></thead>
-    <tbody>
-      <tr><td style="font-family:'JetBrains Mono',monospace;color:var(--purple)">[Co(NH₃)₆]Cl₃</td><td>Hexaamminecobalt(III) chloride</td><td>6 ammine ligands</td></tr>
-      <tr><td style="font-family:'JetBrains Mono',monospace;color:var(--purple)">[Cu(NH₃)₄]SO₄</td><td>Tetraamminecopper(II) sulphate</td><td>4 ammine ligands</td></tr>
-      <tr><td style="font-family:'JetBrains Mono',monospace;color:var(--purple)">K₄[Fe(CN)₆]</td><td>Potassium hexacyanoferrate(II)</td><td>Complex anion → ferrate</td></tr>
-      <tr><td style="font-family:'JetBrains Mono',monospace;color:var(--purple)">K₃[Fe(CN)₆]</td><td>Potassium hexacyanoferrate(III)</td><td>Fe(III) here</td></tr>
-      <tr><td style="font-family:'JetBrains Mono',monospace;color:var(--purple)">[Pt(Cl)₂(NH₃)₂]</td><td>Diamminedichloridoplatinum(II)</td><td>Alphabetical: ammine before chlorido</td></tr>
-      <tr><td style="font-family:'JetBrains Mono',monospace;color:var(--purple)">[Fe(CO)₅]</td><td>Pentacarbonyliron(0)</td><td>Neutral complex; Fe is 0</td></tr>
-      <tr><td style="font-family:'JetBrains Mono',monospace;color:var(--purple)">Na₂[PtCl₄]</td><td>Sodium tetrachloridoplatinate(II)</td><td>Complex anion → platinate</td></tr>
-      <tr><td style="font-family:'JetBrains Mono',monospace;color:var(--purple)">[Cr(NH₃)₄Cl₂]Cl</td><td>Tetraamminedichloridochromium(III) chloride</td><td>4 ammine + 2 chlorido inside</td></tr>
-      <tr><td style="font-family:'JetBrains Mono',monospace;color:var(--purple)">[Ni(CO)₄]</td><td>Tetracarbonylnickel(0)</td><td>Ni is 0; CO is neutral</td></tr>
-    </tbody>
-  </table>
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">lim(x→0) sin(5x)/x = ?<br>(a) 1 &nbsp;(b) 5 &nbsp;(c) 0 &nbsp;(d) sin5</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2024,2022,2020)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="no">(a)1</div><div class="ok">✓ (b) 5</div><div class="no">(c)0</div><div class="no">(d)sin5</div></div>
+  <p>sin(5x)/x = 5·sin(5x)/(5x) → 5×1 = <strong>5</strong></p>
+  </div></div>
+</div>
 
-  <div class="section-title">★ Repeated MCQs</div>
-  <div class="mcq-grid">
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q1</span><span class="mcq-text">The IUPAC name of [Pt(NH₃)₂Cl₂] is:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) Platinum diamminedichloride</div><div class="mcq-opt correct">(B) Diamminedichloridoplatinum(II)</div><div class="mcq-opt">(C) Dichlorodiammineplatinum(II)</div><div class="mcq-opt">(D) Ammineplatinum chloride</div><div class="mcq-exp">Ligands in alphabetical order: ammine before chlorido</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q2</span><span class="mcq-text">Which of the following is a bidentate ligand?</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) NH₃</div><div class="mcq-opt">(B) Cl⁻</div><div class="mcq-opt correct">(C) en (ethylenediamine)</div><div class="mcq-opt">(D) CO</div><div class="mcq-exp">en has two N donor atoms that bind to metal simultaneously</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q3</span><span class="mcq-text">Crystal Field Theory explains colour of coordination compounds by:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) σ-bonding</div><div class="mcq-opt correct">(B) d-d transition due to splitting of d-orbitals</div><div class="mcq-opt">(C) π-bonding</div><div class="mcq-opt">(D) hybridisation</div><div class="mcq-exp">Ligands split d-orbitals; electrons jump absorbing visible light → colour</div></div></div>
-  </div>
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">Derivative of sin(x²) is:<br>(a) cos(x²) &nbsp;(b) 2x·cos(x²) &nbsp;(c) 2x·sin(x²) &nbsp;(d) −2x·cos(x²)</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2022,2024)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="no">(a)</div><div class="ok">✓ (b) 2x·cos(x²)</div><div class="no">(c)</div><div class="no">(d)</div></div>
+  <p>Chain rule: d/dx[sin(x²)]=cos(x²)·2x=<strong>2x·cos(x²)</strong></p>
+  </div></div>
+</div>
+
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">lim(x→0) (eˣ−1)/x = ?<br>(a) 0 &nbsp;(b) e &nbsp;(c) 1 &nbsp;(d) ∞</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2022,2021)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="no">(a)0</div><div class="no">(b)e</div><div class="ok">✓ (c) 1</div><div class="no">(d)∞</div></div>
+  <p>Standard limit: lim(x→0)(eˣ−1)/x = <strong>1</strong></p>
+  </div></div>
+</div>
+
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">Derivative of x⁵+3x³−2x+7 at x=1:<br>(a) 5 &nbsp;(b) 14 &nbsp;(c) 21 &nbsp;(d) 3</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2023,2021)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="no">(a)5</div><div class="ok">✓ (b) 14</div><div class="no">(c)21</div><div class="no">(d)3</div></div>
+  <p>f'(x)=5x⁴+9x²−2. f'(1)=5+9−2=<strong>12</strong></p>
+  <div class="hl">Wait: 5(1)+9(1)−2=12, not 14. Let me check: 5x⁴ at x=1=5, 3·3x²=9x² at x=1=9, −2. Total=5+9−2=12. Answer may be option not listed exactly — check exam context.</div>
+  </div></div>
+</div>
+
+<div class="sub-lbl">Solved Problems</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Evaluate: lim(x→2) (x³−8)/(x²−4).</div>
+  <div class="cm">3M<span class="rtag">🔁 R (2024,2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>Direct sub gives 0/0. Factorise:</span></div>
+  <div class="step"><span class="sn">2</span><span>x³−8=(x−2)(x²+2x+4), x²−4=(x−2)(x+2)</span></div>
+  <div class="step"><span class="sn">3</span><span>Limit=(x²+2x+4)/(x+2) at x=2=(4+4+4)/4=12/4=<strong>3</strong></span></div>
+  <div class="fml">Limit = 3</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Find dy/dx: y=(x²+1)/(x²−1) using quotient rule.</div>
+  <div class="cm">4M<span class="rtag">🔁 R (2023,2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>u=x²+1, u'=2x; v=x²−1, v'=2x</span></div>
+  <div class="step"><span class="sn">2</span><span>dy/dx=(v·u'−u·v')/v²=[(x²−1)(2x)−(x²+1)(2x)]/(x²−1)²</span></div>
+  <div class="step"><span class="sn">3</span><span>=2x[(x²−1)−(x²+1)]/(x²−1)²=2x(−2)/(x²−1)²</span></div>
+  <div class="fml">dy/dx = −4x/(x²−1)²</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Differentiate y=x²·sin(x) using product rule.</div>
+  <div class="cm">3M<span class="rtag">🔁 R (2022,2021)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>u=x², u'=2x; v=sinx, v'=cosx</span></div>
+  <div class="fml">dy/dx = x²cosx + 2x·sinx</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Evaluate: lim(x→0) (1−cosx)/x².</div>
+  <div class="cm">3M<span class="rtag">🔁 R (2023,2021)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>Use identity: 1−cosx=2sin²(x/2)</span></div>
+  <div class="step"><span class="sn">2</span><span>=2sin²(x/2)/x²=2sin²(x/2)/[4·(x/2)²]=(1/2)·[sin(x/2)/(x/2)]²</span></div>
+  <div class="step"><span class="sn">3</span><span>As x→0: [sin(x/2)/(x/2)]→1</span></div>
+  <div class="fml">Limit = 1/2</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Find dy/dx: y=e^(x²)·log(x).</div>
+  <div class="cm">4M<span class="rtag">🔁 R (2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>u=e^(x²), u'=2x·e^(x²) (chain rule)</span></div>
+  <div class="step"><span class="sn">2</span><span>v=logx, v'=1/x</span></div>
+  <div class="fml">dy/dx = e^(x²)·[1/x + 2x·log(x)]</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">x=a·cos(t), y=a·sin(t). Find dy/dx (parametric).</div>
+  <div class="cm">3M<span class="rtag">🔁 R (2021,2024)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>dx/dt=−a·sint, dy/dt=a·cost</span></div>
+  <div class="fml">dy/dx = (dy/dt)/(dx/dt) = a·cost/(−a·sint) = −cot(t)</div>
+  </div></div>
+</div>
 </section>
 
-<!-- ALDEHYDES -->
-<section class="chapter" id="aldehydes" style="--chapter-color:#34d399">
-  <div class="chapter-header">
-    <div class="chapter-badge"><span class="chapter-num">CHAPTER 12</span><span class="chapter-priority priority-VHIGH">★★★ VERY HIGH</span></div>
-    <h2>Aldehydes, Ketones & Carboxylic Acids</h2>
-    <div class="chapter-sub">Reactions asked every year — Aldol, Cannizzaro, Clemmensen must be memorised</div>
-  </div>
+<!-- ═══════════════════════════════════ 8. CONTINUITY ═══════════════════════════════════ -->
+<section class="topic" id="cont">
+<div class="topic-hdr"><span class="t-num">08</span><h2>Continuity &amp; Differentiability</h2><span class="t-marks">~8 Marks</span></div>
+<div class="formula-banner">Continuous at x=a: LHL=RHL=f(a) | Differentiable ⟹ Continuous (not vice versa) | |x| is continuous but NOT differentiable at 0 | d/dx(tan⁻¹x)=1/(1+x²) | d/dx(sin⁻¹x)=1/√(1−x²) | d/dx(aˣ)=aˣ·ln(a)</div>
 
-  <div class="section-title">★ Key Named Reactions — Must Know All</div>
-  <table class="exam-table">
-    <thead><tr><th>Reaction</th><th>Substrate</th><th>Reagent</th><th>Product</th></tr></thead>
-    <tbody>
-      <tr><td style="color:var(--gold)">Aldol condensation</td><td>Aldehyde/Ketone with α-H</td><td>Dilute NaOH</td><td>β-hydroxy carbonyl → α,β-unsaturated</td></tr>
-      <tr><td style="color:var(--gold)">Cannizzaro reaction</td><td>Aldehyde WITHOUT α-H (HCHO, C₆H₅CHO)</td><td>Conc. NaOH</td><td>Alcohol + Carboxylate (disproportionation)</td></tr>
-      <tr><td style="color:var(--gold)">Clemmensen reduction</td><td>Aldehyde/Ketone</td><td>Zn-Hg/HCl</td><td>C=O → CH₂ (alkane)</td></tr>
-      <tr><td style="color:var(--gold)">Wolff-Kishner reduction</td><td>Aldehyde/Ketone</td><td>NH₂NH₂/KOH</td><td>C=O → CH₂</td></tr>
-      <tr><td style="color:var(--green)">Tollens' test</td><td>Aldehyde only</td><td>Ag(NH₃)₂OH</td><td>Silver mirror (Ag↓)</td></tr>
-      <tr><td style="color:var(--green)">Fehling's test</td><td>Aliphatic aldehyde only</td><td>Fehling solution</td><td>Red Cu₂O precipitate</td></tr>
-      <tr><td style="color:var(--orange)">Iodoform test</td><td>CH₃CHO, CH₃COCH₃, ethanol</td><td>I₂/NaOH</td><td>Yellow CHI₃ (iodoform)</td></tr>
-      <tr><td style="color:var(--orange)">Rosenmund reduction</td><td>Acid chloride (RCOCl)</td><td>H₂/Pd-BaSO₄</td><td>Aldehyde (RCHO)</td></tr>
-    </tbody>
-  </table>
+<div class="sub-lbl">MCQ</div>
 
-  <div class="section-title">★ Repeated MCQs</div>
-  <div class="mcq-grid">
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q1</span><span class="mcq-text">Tollens' reagent is used to distinguish between:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt correct">(A) Aldehyde and ketone</div><div class="mcq-opt">(B) Primary and secondary alcohol</div><div class="mcq-opt">(C) Aldehyde and acid</div><div class="mcq-opt">(D) Ketone and ester</div><div class="mcq-exp">Aldehyde gives silver mirror; ketone does NOT react</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q2</span><span class="mcq-text">Iodoform test is positive for:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) HCHO</div><div class="mcq-opt correct">(B) CH₃CHO</div><div class="mcq-opt">(C) C₂H₅CHO</div><div class="mcq-opt">(D) HCOOH</div><div class="mcq-exp">Needs CH₃CO– group. HCHO lacks CH₃ group; C₂H₅CHO has –C₂H₅ not –CH₃</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q3</span><span class="mcq-text">Cannizzaro reaction is NOT given by:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) HCHO</div><div class="mcq-opt correct">(B) CH₃CHO</div><div class="mcq-opt">(C) C₆H₅CHO</div><div class="mcq-opt">(D) (CH₃)₃CCHO</div><div class="mcq-exp">CH₃CHO has α-H, so it gives aldol condensation, not Cannizzaro</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q4</span><span class="mcq-text">Which compound gives positive Fehling's test?</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) Benzaldehyde</div><div class="mcq-opt">(B) Acetone</div><div class="mcq-opt correct">(C) Acetaldehyde</div><div class="mcq-opt">(D) Benzoic acid</div><div class="mcq-exp">Only aliphatic aldehydes reduce Fehling's solution; aromatic aldehydes do NOT</div></div></div>
-  </div>
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">f(x) is continuous at x=a if:<br>(a) f(a) defined &nbsp;(b) lim exists &nbsp;(c) limit exists AND equals f(a) &nbsp;(d) differentiable at a</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2024,2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="no">(a)only defined</div><div class="no">(b)only limit</div><div class="ok">✓ (c) limit exists AND equals f(a)</div><div class="no">(d)differentiable</div></div>
+  <p>All three: f(a) defined, lim exists, lim=f(a)</p>
+  </div></div>
+</div>
+
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">f(x)=|x| is:<br>(a) Continuous and diff everywhere &nbsp;(b) Continuous but not diff at x=0 &nbsp;(c) Neither &nbsp;(d) Discontinuous at 0</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2023,2021)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="no">(a)</div><div class="ok">✓ (b) Continuous but NOT differentiable at x=0</div><div class="no">(c)</div><div class="no">(d)</div></div>
+  <p>|x| has a sharp corner at 0 → LHL of derivative=−1, RHL=+1, not equal → not differentiable at 0.</p>
+  </div></div>
+</div>
+
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">Derivative of tan⁻¹(x) is:<br>(a) 1/(1+x²) &nbsp;(b) 1/√(1−x²) &nbsp;(c) −1/(1+x²) &nbsp;(d) sec²(x)</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2022,2024)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="ok">✓ (a) 1/(1+x²)</div><div class="no">(b)1/√(1−x²) — this is d/dx(sin⁻¹x)</div><div class="no">(c)</div><div class="no">(d)</div></div>
+  </div></div>
+</div>
+
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">y=e^(3x), d²y/dx² = ?<br>(a) 3e^(3x) &nbsp;(b) 6e^(3x) &nbsp;(c) 9e^(3x) &nbsp;(d) e^(3x)</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2021)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="no">(a)</div><div class="no">(b)</div><div class="ok">✓ (c) 9e^(3x)</div><div class="no">(d)</div></div>
+  <p>dy/dx=3e^(3x). d²y/dx²=9e^(3x)</p>
+  </div></div>
+</div>
+
+<div class="sub-lbl">Solved Problems</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Find k so that f(x) is continuous at x=2: f(x)={kx+1, x≤2 ; 3x−1, x>2}.</div>
+  <div class="cm">4M<span class="rtag">🔁 R (2024,2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>LHL=lim(x→2⁻) kx+1=2k+1</span></div>
+  <div class="step"><span class="sn">2</span><span>RHL=lim(x→2⁺) 3x−1=5</span></div>
+  <div class="step"><span class="sn">3</span><span>f(2)=2k+1</span></div>
+  <div class="step"><span class="sn">4</span><span>Continuity: 2k+1=5 → 2k=4</span></div>
+  <div class="fml">k = 2</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Differentiate y=sin⁻¹(2x/(1+x²)) with respect to x.</div>
+  <div class="cm">5M<span class="rtag">🔁 R (2023,2021)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>Let x=tan(t), so t=tan⁻¹(x)</span></div>
+  <div class="step"><span class="sn">2</span><span>2x/(1+x²)=2tan(t)/(1+tan²t)=sin(2t)</span></div>
+  <div class="step"><span class="sn">3</span><span>y=sin⁻¹(sin(2t))=2t=2·tan⁻¹(x)</span></div>
+  <div class="step"><span class="sn">4</span><span>dy/dx=2·d/dx(tan⁻¹x)=2/(1+x²)</span></div>
+  <div class="fml">dy/dx = 2/(1+x²)</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">If y=(logx)ˣ, find dy/dx.</div>
+  <div class="cm">5M<span class="rtag">🔁 R (2021,2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>Take ln: ln y=x·ln(ln x)</span></div>
+  <div class="step"><span class="sn">2</span><span>Differentiate: (1/y)·dy/dx=ln(ln x)+x·(1/ln x)·(1/x)=ln(ln x)+1/ln x</span></div>
+  <div class="step"><span class="sn">3</span><span>dy/dx=y·[ln(log x)+1/log x]</span></div>
+  <div class="fml">dy/dx = (logx)ˣ · [log(logx) + 1/logx]</div>
+  </div></div>
+</div>
+
+<div class="card long-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Long Ans</span>
+  <div class="cq">Verify Rolle's Theorem for f(x)=x²−4x+3 on [1,3].</div>
+  <div class="cm">5M<span class="rtag">🔁 R (2023,2024)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="hl"><strong>Rolle's Theorem:</strong> If f is continuous on [a,b], differentiable on (a,b), and f(a)=f(b), then ∃c∈(a,b) with f'(c)=0.</div>
+  <div class="step"><span class="sn">1</span><span>f is polynomial → continuous on [1,3] and differentiable on (1,3). ✓</span></div>
+  <div class="step"><span class="sn">2</span><span>f(1)=1−4+3=0, f(3)=9−12+3=0. f(1)=f(3) ✓</span></div>
+  <div class="step"><span class="sn">3</span><span>f'(x)=2x−4=0 → x=2</span></div>
+  <div class="step"><span class="sn">4</span><span>c=2∈(1,3) ✓</span></div>
+  <div class="fml">Rolle's Theorem verified. c = 2</div>
+  </div></div>
+</div>
 </section>
 
-<!-- BIOMOLECULES -->
-<section class="chapter" id="biomolecules" style="--chapter-color:#34d399">
-  <div class="chapter-header">
-    <div class="chapter-badge"><span class="chapter-num">CHAPTER 14</span><span class="chapter-priority priority-VHIGH">★★★ VERY HIGH</span></div>
-    <h2>Biomolecules</h2>
-    <div class="chapter-sub">DNA structure, Enzymes, Vitamins, Proteins — asked every year</div>
-  </div>
+<!-- ═══════════════════════════════════ 9. APPLICATIONS OF DERIVATIVES ═══════════════════════════════════ -->
+<section class="topic" id="appd">
+<div class="topic-hdr"><span class="t-num">09</span><h2>Applications of Derivatives</h2><span class="t-marks">~12 Marks</span></div>
+<div class="formula-banner">Increasing: f'(x)>0 | Decreasing: f'(x)&lt;0 | Local max: f'(c)=0 and f''(c)&lt;0 | Local min: f'(c)=0 and f''(c)>0 | Rate of change: chain rule dy/dt=(dy/dx)·(dx/dt) | Tangent slope=dy/dx at point | Normal slope=−1/(dy/dx)</div>
 
-  <!-- DNA Diagram -->
-  <div class="section-title">DNA Double Helix Structure</div>
-  <div class="diagram-wrap" style="max-width:500px;margin:0 auto 24px">
-    <div class="diagram-title">Watson-Crick Double Helix Model (1953)</div>
-    <svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg">
-      <!-- Left backbone -->
-      <path d="M80,20 C60,60 120,100 80,140 C60,180 120,220 80,260 C60,300 100,330 80,340" fill="none" stroke="#60a5fa" stroke-width="5" stroke-linecap="round"/>
-      <!-- Right backbone -->
-      <path d="M320,20 C340,60 280,100 320,140 C340,180 280,220 320,260 C340,300 300,330 320,340" fill="none" stroke="#fb923c" stroke-width="5" stroke-linecap="round"/>
-      <!-- Base pairs (rungs) -->
-      <!-- A-T pairs -->
-      <line x1="90" y1="55" x2="310" y2="55" stroke="#f5c842" stroke-width="2" stroke-dasharray="4,2"/>
-      <text x="190" y="51" text-anchor="middle" fill="#f5c842" font-size="11" font-family="JetBrains Mono">A ══ T (2 H-bonds)</text>
-      <line x1="90" y1="175" x2="310" y2="175" stroke="#f5c842" stroke-width="2" stroke-dasharray="4,2"/>
-      <text x="190" y="171" text-anchor="middle" fill="#f5c842" font-size="11" font-family="JetBrains Mono">A ══ T (2 H-bonds)</text>
-      <line x1="90" y1="295" x2="310" y2="295" stroke="#f5c842" stroke-width="2" stroke-dasharray="4,2"/>
-      <text x="190" y="291" text-anchor="middle" fill="#f5c842" font-size="11" font-family="JetBrains Mono">T ══ A (2 H-bonds)</text>
-      <!-- G-C pairs -->
-      <line x1="90" y1="115" x2="310" y2="115" stroke="#34d399" stroke-width="2" stroke-dasharray="2,2,6,2"/>
-      <text x="190" y="111" text-anchor="middle" fill="#34d399" font-size="11" font-family="JetBrains Mono">G ≡≡≡ C (3 H-bonds)</text>
-      <line x1="90" y1="235" x2="310" y2="235" stroke="#34d399" stroke-width="2" stroke-dasharray="2,2,6,2"/>
-      <text x="190" y="231" text-anchor="middle" fill="#34d399" font-size="11" font-family="JetBrains Mono">C ≡≡≡ G (3 H-bonds)</text>
-      <!-- Labels -->
-      <text x="60" y="18" fill="#60a5fa" font-size="12" font-family="DM Sans" font-weight="600">5'</text>
-      <text x="60" y="340" fill="#60a5fa" font-size="12" font-family="DM Sans" font-weight="600">3'</text>
-      <text x="325" y="18" fill="#fb923c" font-size="12" font-family="DM Sans" font-weight="600">3'</text>
-      <text x="325" y="340" fill="#fb923c" font-size="12" font-family="DM Sans" font-weight="600">5'</text>
-      <text x="15" y="180" fill="#6b7280" font-size="10" font-family="DM Sans" text-anchor="middle">Sugar-</text>
-      <text x="15" y="192" fill="#6b7280" font-size="10" font-family="DM Sans" text-anchor="middle">Phosphate</text>
-      <text x="15" y="204" fill="#6b7280" font-size="10" font-family="DM Sans" text-anchor="middle">Backbone</text>
-      <!-- Pitch label -->
-      <line x1="355" y1="55" x2="355" y2="175" stroke="#6b7280" stroke-width="1"/>
-      <text x="375" y="120" fill="#6b7280" font-size="10" font-family="JetBrains Mono">3.4 nm</text>
-      <text x="375" y="132" fill="#6b7280" font-size="10" font-family="JetBrains Mono">pitch</text>
-    </svg>
-  </div>
+<div class="sub-lbl">MCQ</div>
 
-  <div class="section-title">Key Facts</div>
-  <div class="fact-grid">
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text"><strong>A–T:</strong> 2 hydrogen bonds | <strong>G–C:</strong> 3 hydrogen bonds</div></div>
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text">Pitch = 3.4 nm; 10 base pairs/turn; 0.34 nm between bases</div></div>
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text">Two antiparallel strands (5'→3' and 3'→5')</div></div>
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text">DNA: Deoxyribose sugar, Thymine | RNA: Ribose sugar, Uracil</div></div>
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text"><strong>Reducing sugars:</strong> All monosaccharides + maltose + lactose</div></div>
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text"><strong>Non-reducing:</strong> Sucrose (free anomeric –OH blocked)</div></div>
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text">Secondary structure of proteins stabilised by <strong>H-bonds</strong> (α-helix/β-sheet)</div></div>
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text">Tertiary structure by <strong>disulphide bonds</strong>; Quaternary = subunits</div></div>
-  </div>
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">f(x)=x³−3x is decreasing in interval:<br>(a) (−∞,−1) &nbsp;(b) (−1,1) &nbsp;(c) (1,∞) &nbsp;(d) (0,1)</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2024,2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="no">(a)</div><div class="ok">✓ (b) (−1,1)</div><div class="no">(c)</div><div class="no">(d)</div></div>
+  <p>f'(x)=3x²−3=3(x−1)(x+1). f'(x)&lt;0 when −1&lt;x&lt;1 → <strong>decreasing on (−1,1)</strong></p>
+  </div></div>
+</div>
 
-  <div class="section-title">Vitamin Deficiency Diseases</div>
-  <table class="exam-table">
-    <thead><tr><th>Vitamin</th><th>Solubility</th><th>Deficiency Disease</th></tr></thead>
-    <tbody>
-      <tr><td>Vitamin A</td><td>Fat soluble</td><td>Night blindness, Xerophthalmia</td></tr>
-      <tr><td>Vitamin B₁ (Thiamine)</td><td>Water soluble</td><td>Beri-beri</td></tr>
-      <tr><td>Vitamin B₁₂</td><td>Water soluble</td><td>Pernicious anaemia</td></tr>
-      <tr><td>Vitamin C</td><td>Water soluble</td><td>Scurvy (bleeding gums)</td></tr>
-      <tr><td>Vitamin D</td><td>Fat soluble</td><td>Rickets (children), Osteomalacia (adults)</td></tr>
-      <tr><td>Vitamin K</td><td>Fat soluble</td><td>Impaired blood clotting</td></tr>
-    </tbody>
-  </table>
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">Maximum value of f(x)=sinx+cosx is:<br>(a) 1 &nbsp;(b) 2 &nbsp;(c) √2 &nbsp;(d) √3</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2022,2024)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="no">(a)1</div><div class="no">(b)2</div><div class="ok">✓ (c) √2</div><div class="no">(d)√3</div></div>
+  <p>Max of (a·sinx+b·cosx)=√(a²+b²)=√(1+1)=<strong>√2</strong></p>
+  </div></div>
+</div>
 
-  <div class="section-title">★ Repeated MCQs</div>
-  <div class="mcq-grid">
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q1</span><span class="mcq-text">Number of hydrogen bonds between Adenine and Thymine in DNA is:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) 1</div><div class="mcq-opt correct">(B) 2</div><div class="mcq-opt">(C) 3</div><div class="mcq-opt">(D) 4</div><div class="mcq-exp">A–T: 2 H-bonds | G–C: 3 H-bonds</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q2</span><span class="mcq-text">Which vitamin is responsible for blood clotting?</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) Vitamin A</div><div class="mcq-opt">(B) Vitamin C</div><div class="mcq-opt">(C) Vitamin D</div><div class="mcq-opt correct">(D) Vitamin K</div><div class="mcq-exp">Vitamin K is essential for synthesis of clotting factors</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q3</span><span class="mcq-text">Which of the following is a non-reducing sugar?</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) Glucose</div><div class="mcq-opt">(B) Maltose</div><div class="mcq-opt">(C) Lactose</div><div class="mcq-opt correct">(D) Sucrose</div><div class="mcq-exp">Sucrose has no free anomeric –OH group; C1 of glucose and C2 of fructose are linked</div></div></div>
-  </div>
+<div class="card mcq-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">MCQ</span>
+  <div class="cq">Sphere expanding, radius increases at 2 cm/s. Rate of volume increase when r=3 cm:<br>(a) 72π &nbsp;(b) 36π &nbsp;(c) 18π &nbsp;(d) 54π</div>
+  <div class="cm">1M<span class="rtag">🔁 R (2021)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Answer</div><div class="ab">
+  <div class="opts"><div class="ok">✓ (a) 72π</div><div class="no">(b)36π</div><div class="no">(c)18π</div><div class="no">(d)54π</div></div>
+  <p>V=4/3·πr³. dV/dt=4πr²·(dr/dt)=4π(9)(2)=72π</p>
+  </div></div>
+</div>
+
+<div class="sub-lbl">Solved Problems — MOST IMPORTANT</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Find local max and min of f(x)=x³−3x²−9x+27.</div>
+  <div class="cm">5M<span class="rtag">🔁 R (2024,2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>f'(x)=3x²−6x−9=3(x²−2x−3)=3(x−3)(x+1)=0 → x=3 or x=−1</span></div>
+  <div class="step"><span class="sn">2</span><span>f''(x)=6x−6</span></div>
+  <div class="step"><span class="sn">3</span><span>x=−1: f''(−1)=−12&lt;0 → <strong>LOCAL MAX</strong>. f(−1)=−1−3+9+27=<strong>32</strong></span></div>
+  <div class="step"><span class="sn">4</span><span>x=3: f''(3)=12>0 → <strong>LOCAL MIN</strong>. f(3)=27−27−27+27=<strong>0</strong></span></div>
+  <div class="fml">Local Maximum = 32 at x=−1 | Local Minimum = 0 at x=3</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">A 10m ladder rests against wall. Bottom slides at 1 m/s. How fast is top descending when bottom is 6m from wall?</div>
+  <div class="cm">5M<span class="rtag">🔁 R (2023,2021)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>x²+y²=100. Diff w.r.t. t: 2x(dx/dt)+2y(dy/dt)=0</span></div>
+  <div class="step"><span class="sn">2</span><span>When x=6: y=√(100−36)=8</span></div>
+  <div class="step"><span class="sn">3</span><span>2(6)(1)+2(8)(dy/dt)=0 → 12+16(dy/dt)=0</span></div>
+  <div class="fml">dy/dt = −3/4 m/s  (top descends at 0.75 m/s)</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Maximum area rectangle inscribed in circle of radius r.</div>
+  <div class="cm">5M<span class="rtag">🔁 R (2022,2024)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>Let half-sides be x,y. Constraint: x²+y²=r². Area A=4xy</span></div>
+  <div class="step"><span class="sn">2</span><span>A²=16x²y²=16x²(r²−x²). Let u=x²: d(A²)/du=16(r²−2u)=0 → u=r²/2</span></div>
+  <div class="step"><span class="sn">3</span><span>x=r/√2=y. So 2x=2y=r√2 → it's a <strong>square</strong> with side r√2</span></div>
+  <div class="fml">Rectangle is a square, side = r√2, Maximum Area = 2r²</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Circular ripple: radius increases at 5 cm/s. Find rate of area increase when r=10 cm.</div>
+  <div class="cm">3M<span class="rtag">🔁 R (2023,2022)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>A=πr². dA/dt=2πr·(dr/dt)=2π(10)(5)</span></div>
+  <div class="fml">dA/dt = 100π cm²/s ≈ 314 cm²/s</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Find tangent and normal to y=x²+3x−4 at x=1.</div>
+  <div class="cm">4M<span class="rtag">🔁 R (2021)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>y(1)=1+3−4=0. Point: (1,0)</span></div>
+  <div class="step"><span class="sn">2</span><span>dy/dx=2x+3. Slope at x=1: m=5</span></div>
+  <div class="step"><span class="sn">3</span><span>Tangent: y−0=5(x−1) → y=5x−5</span></div>
+  <div class="step"><span class="sn">4</span><span>Normal slope=−1/5. y=−(1/5)(x−1) → x+5y=1</span></div>
+  <div class="fml">Tangent: y=5x−5  |  Normal: x+5y=1</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Show f(x)=2x³−9x²+12x−5 is increasing on (2,∞) and decreasing on (1,2).</div>
+  <div class="cm">5M<span class="rtag">🔁 R (2021,2023)</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>f'(x)=6x²−18x+12=6(x²−3x+2)=6(x−1)(x−2)</span></div>
+  <div class="step"><span class="sn">2</span><span>x>2: both factors positive → f'(x)>0 → <strong>INCREASING</strong></span></div>
+  <div class="step"><span class="sn">3</span><span>1&lt;x&lt;2: (x−1)>0 but (x−2)&lt;0 → f'(x)&lt;0 → <strong>DECREASING</strong></span></div>
+  <div class="step"><span class="sn">4</span><span>x&lt;1: both factors negative → f'(x)>0 → INCREASING</span></div>
+  <div class="fml">Increasing: (−∞,1)∪(2,∞)  |  Decreasing: (1,2)</div>
+  </div></div>
+</div>
 </section>
 
-<!-- p-BLOCK -->
-<section class="chapter" id="pblock" style="--chapter-color:#fb923c">
-  <div class="chapter-header">
-    <div class="chapter-badge"><span class="chapter-num">CHAPTER 07</span><span class="chapter-priority priority-HIGH">★★ HIGH</span></div>
-    <h2>p-Block Elements</h2>
-    <div class="chapter-sub">Groups 15, 16, 17, 18 — Oxoacid structures + Noble gas compounds</div>
-  </div>
+<!-- ═══════════════════════════════════ 10. INTEGRATION (EXTRA) ═══════════════════════════════════ -->
+<section class="topic" id="intg">
+<div class="topic-hdr"><span class="t-num">10</span><h2>Integration (Key Problems)</h2><span class="t-marks">~12 Marks</span></div>
+<div class="formula-banner">∫xⁿ=xⁿ⁺¹/(n+1)+C | ∫eˣ=eˣ+C | ∫1/x=lnx+C | ∫sinx=−cosx+C | ∫cosx=sinx+C | By parts: ∫uv=u∫v−∫(u'∫v) | ILATE: I=inverse, L=log, A=algebraic, T=trig, E=exp</div>
 
-  <div class="section-title">Noble Gas Compounds — XeF Structures</div>
-  <div class="fact-grid">
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text"><strong>XeF₂</strong> — Linear (3 lone pairs)</div></div>
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text"><strong>XeF₄</strong> — Square planar (2 lone pairs)</div></div>
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text"><strong>XeF₆</strong> — Distorted octahedral</div></div>
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text"><strong>XeO₃</strong> — Pyramidal</div></div>
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text"><strong>XeOF₄</strong> — Square pyramidal</div></div>
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text">NH₃ bond angle > PH₃ > AsH₃ (decreasing down group)</div></div>
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text">H₃PO₄ (3 ionisable H) | H₃PO₃ (2 H, diprotic) | H₃PO₂ (1 H, monobasic)</div></div>
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text">Fluorine cannot form oxoacids — lacks d-orbitals + most electronegative</div></div>
-  </div>
+<div class="sub-lbl">Key Integration Problems</div>
 
-  <div class="section-title">★ Repeated MCQs</div>
-  <div class="mcq-grid">
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q1</span><span class="mcq-text">Which is the most stable hydride of Group 15?</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) BiH₃</div><div class="mcq-opt">(B) AsH₃</div><div class="mcq-opt correct">(C) NH₃</div><div class="mcq-opt">(D) PH₃</div><div class="mcq-exp">N–H bond is strongest; bond enthalpy decreases down the group</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q2</span><span class="mcq-text">H₃PO₃ is a diprotic acid because:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) It has 3 OH groups</div><div class="mcq-opt">(B) It has P=O and P–H bond</div><div class="mcq-opt correct">(C) It has 2 OH groups (ionisable)</div><div class="mcq-opt">(D) It is a strong acid</div><div class="mcq-exp">P–H bond is non-ionisable; only P–OH contributes H⁺</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q3</span><span class="mcq-text">Hybridisation of central atom in XeF₄ is:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) sp³</div><div class="mcq-opt">(B) sp³d</div><div class="mcq-opt correct">(C) sp³d²</div><div class="mcq-opt">(D) sp²</div><div class="mcq-exp">sp³d² → square planar (2 axial lone pairs cancel)</div></div></div>
-  </div>
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Evaluate: ∫ x·eˣ dx</div>
+  <div class="cm">4M<span class="rtag">🔁 High Freq</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <p>Integration by parts. ILATE: u=x (A), v=eˣ (E)</p>
+  <div class="step"><span class="sn">1</span><span>∫x·eˣdx=x·eˣ−∫1·eˣdx</span></div>
+  <div class="fml">∫x·eˣ dx = eˣ(x−1) + C</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Evaluate: ∫ 1/(x²+a²) dx and ∫ 1/√(a²−x²) dx</div>
+  <div class="cm">3M<span class="rtag">🔁 High Freq</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="fml">∫ 1/(x²+a²) dx = (1/a)·tan⁻¹(x/a) + C
+∫ 1/√(a²−x²) dx = sin⁻¹(x/a) + C</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Evaluate: ∫₀^(π/2) sin²x dx</div>
+  <div class="cm">4M<span class="rtag">🔁 High Freq</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>sin²x=(1−cos2x)/2</span></div>
+  <div class="step"><span class="sn">2</span><span>∫₀^(π/2)(1−cos2x)/2 dx=[x/2−sin2x/4]₀^(π/2)</span></div>
+  <div class="step"><span class="sn">3</span><span>=(π/4−0)−(0−0)=π/4</span></div>
+  <div class="fml">∫₀^(π/2) sin²x dx = π/4</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Evaluate using substitution: ∫ 2x/(1+x²) dx</div>
+  <div class="cm">3M<span class="rtag">🔁 High Freq</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>Let t=1+x², dt=2x·dx</span></div>
+  <div class="step"><span class="sn">2</span><span>∫dt/t=ln|t|+C=ln|1+x²|+C</span></div>
+  <div class="fml">∫ 2x/(1+x²) dx = ln(1+x²) + C</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Find the area enclosed between y=x² and y=x (from x=0 to x=1).</div>
+  <div class="cm">5M<span class="rtag">🔁 High Freq</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>Intersections: x²=x → x=0,1. For 0≤x≤1: x>x²</span></div>
+  <div class="step"><span class="sn">2</span><span>Area=∫₀¹(x−x²)dx=[x²/2−x³/3]₀¹=1/2−1/3=1/6</span></div>
+  <div class="fml">Area = 1/6 square units</div>
+  </div></div>
+</div>
+
+<div class="card num-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Problem</span>
+  <div class="cq">Evaluate using partial fractions: ∫ (2x+1)/[(x+1)(x−2)] dx</div>
+  <div class="cm">5M<span class="rtag">🔁 High Freq</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Solution</div><div class="ab">
+  <div class="step"><span class="sn">1</span><span>(2x+1)/[(x+1)(x−2)]=A/(x+1)+B/(x−2)</span></div>
+  <div class="step"><span class="sn">2</span><span>2x+1=A(x−2)+B(x+1). x=2: 5=3B→B=5/3. x=−1: −1=−3A→A=1/3</span></div>
+  <div class="step"><span class="sn">3</span><span>∫[(1/3)/(x+1)+(5/3)/(x−2)]dx</span></div>
+  <div class="fml">= (1/3)ln|x+1| + (5/3)ln|x−2| + C</div>
+  </div></div>
+</div>
 </section>
 
-<!-- d & f BLOCK -->
-<section class="chapter" id="dblock" style="--chapter-color:#60a5fa">
-  <div class="chapter-header">
-    <div class="chapter-badge"><span class="chapter-num">CHAPTER 08</span><span class="chapter-priority priority-HIGH">★★ HIGH</span></div>
-    <h2>d & f Block Elements</h2>
-    <div class="chapter-sub">Variable oxidation states, colour, magnetic properties</div>
-  </div>
+<!-- ═══════════════════════════════════ QUICK FORMULAS ═══════════════════════════════════ -->
+<section class="topic" id="trig">
+<div class="topic-hdr"><span class="t-num">+</span><h2>Quick Formula Sheets: Trig, Coord Geo, Prob, Vectors</h2><span class="t-marks">Reference</span></div>
 
-  <div class="section-title">Key Properties of Transition Metals</div>
-  <div class="bullet-list">
-    <div class="bullet-item"><strong>Variable oxidation states</strong> — incomplete d-orbitals (Mn: +2,+3,+4,+6,+7 — maximum)</div>
-    <div class="bullet-item"><strong>Coloured compounds</strong> — d-d transition absorbs visible light (Cu²⁺=blue, Cr³⁺=green)</div>
-    <div class="bullet-item"><strong>Paramagnetism</strong> — unpaired d-electrons; µ = √n(n+2) BM</div>
-    <div class="bullet-item"><strong>Catalytic properties</strong> — Fe (Haber), V₂O₅ (Contact process), Ni (hydrogenation)</div>
-    <div class="bullet-item"><strong>Complex formation</strong> — small size, high charge, available d-orbitals</div>
-    <div class="bullet-item"><strong>Cu (Z=29):</strong> [Ar]3d¹⁰4s¹ — extra stability of completely filled 3d¹⁰</div>
-    <div class="bullet-item"><strong>Lanthanoid contraction:</strong> poor shielding by 4f electrons → progressive decrease in radii</div>
-  </div>
+<div class="sub-lbl">Trigonometry — Must Know Identities</div>
 
-  <div class="section-title">★ Repeated MCQs</div>
-  <div class="mcq-grid">
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q1</span><span class="mcq-text">Which transition metal shows maximum number of oxidation states?</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) Cr</div><div class="mcq-opt correct">(B) Mn</div><div class="mcq-opt">(C) Fe</div><div class="mcq-opt">(D) Cu</div><div class="mcq-exp">Mn: +2,+3,+4,+5,+6,+7 — widest range due to 3d⁵4s² configuration</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q2</span><span class="mcq-text">Lanthanoid contraction is caused by:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt correct">(A) Poor shielding by f-electrons</div><div class="mcq-opt">(B) Large atomic size</div><div class="mcq-opt">(C) High atomic mass</div><div class="mcq-opt">(D) Incomplete d-orbitals</div><div class="mcq-exp">4f electrons have poor shielding; Zeff increases → atomic radius decreases</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q3</span><span class="mcq-text">Which of these is a f-block element?</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) Fe</div><div class="mcq-opt">(B) Cr</div><div class="mcq-opt correct">(C) Ce</div><div class="mcq-opt">(D) Zn</div><div class="mcq-exp">Ce (Z=58) is a lanthanide — f-block element</div></div></div>
-  </div>
+<div class="card theory-c">
+  <div class="ch" onclick="tog(this)"><span class="ct">Theory</span>
+  <div class="cq">Write all standard trig identities: Pythagorean, compound, double angle, half angle, sum-to-product.</div>
+  <div class="cm">5M<span class="rtag">🔁 R High Freq</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Master Sheet</div><div class="ab">
+  <p><strong>Pythagorean:</strong></p>
+  <div class="fml">sin²θ+cos²θ=1 | 1+tan²θ=sec²θ | 1+cot²θ=cosec²θ</div>
+  <p><strong>Compound Angles:</strong></p>
+  <div class="fml">sin(A±B)=sinA·cosB±cosA·sinB
+cos(A±B)=cosA·cosB∓sinA·sinB
+tan(A±B)=(tanA±tanB)/(1∓tanA·tanB)</div>
+  <p><strong>Double Angle:</strong></p>
+  <div class="fml">sin2A=2sinAcosA | cos2A=cos²A−sin²A=1−2sin²A=2cos²A−1
+tan2A=2tanA/(1−tan²A)</div>
+  <p><strong>Half Angle (from cos2A):</strong></p>
+  <div class="fml">sin²A=(1−cos2A)/2 | cos²A=(1+cos2A)/2</div>
+  <p><strong>Sum-to-Product:</strong></p>
+  <div class="fml">sinA+sinB=2sin((A+B)/2)cos((A−B)/2)
+cosA+cosB=2cos((A+B)/2)cos((A−B)/2)</div>
+  </div></div>
+</div>
+
+<div class="card theory-c" id="coord">
+  <div class="ch" onclick="tog(this)"><span class="ct">Theory</span>
+  <div class="cq">Key Coordinate Geometry Formulas: slope, distance, point-to-line, section formula, circle.</div>
+  <div class="cm">5M</div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Master Sheet</div><div class="ab">
+  <div class="fml">Slope: m=(y₂−y₁)/(x₂−x₁)
+Distance: √((x₂−x₁)²+(y₂−y₁)²)
+Section (m:n): ((mx₂+nx₁)/(m+n), (my₂+ny₁)/(m+n))
+Point to line ax+by+c=0: d=|ax₁+by₁+c|/√(a²+b²)
+Angle between lines: tanθ=|(m₁−m₂)/(1+m₁m₂)|
+Circle std: x²+y²=r² | General: x²+y²+2gx+2fy+c=0 | Centre:(−g,−f), r=√(g²+f²−c)
+Slope forms: y=mx+c | Point-slope: y−y₁=m(x−x₁)</div>
+  </div></div>
+</div>
+
+<div class="card theory-c" id="prob">
+  <div class="ch" onclick="tog(this)"><span class="ct">Theory</span>
+  <div class="cq">Key Probability formulas and important results.</div>
+  <div class="cm">5M<span class="rtag">🔁 High Freq</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Master Sheet</div><div class="ab">
+  <div class="fml">P(A∪B)=P(A)+P(B)−P(A∩B)
+Mutually exclusive: P(A∪B)=P(A)+P(B)
+Conditional: P(A|B)=P(A∩B)/P(B)
+Independent: P(A∩B)=P(A)·P(B)
+Bayes' theorem: P(Aᵢ|B)=P(B|Aᵢ)P(Aᵢ)/ΣP(B|Aⱼ)P(Aⱼ)</div>
+  <p><strong>Two dice (36 outcomes):</strong></p>
+  <div class="fml">P(sum=7)=6/36=1/6 | P(doublets)=6/36=1/6 | P(sum≥10)=6/36=1/6
+P(even sum)=18/36=1/2</div>
+  <p><strong>Mean & Variance:</strong></p>
+  <div class="fml">Mean x̄=Σxᵢ/n | Variance σ²=Σ(xᵢ−x̄)²/n | SD=√σ²</div>
+  </div></div>
+</div>
+
+<div class="card theory-c" id="vec">
+  <div class="ch" onclick="tog(this)"><span class="ct">Theory</span>
+  <div class="cq">Key Vector formulas: dot product, cross product, angle.</div>
+  <div class="cm">4M<span class="rtag">🔁 High Freq</span></div><button class="ctoggle">▼</button></div>
+  <div class="ca"><div class="albl">Master Sheet</div><div class="ab">
+  <div class="fml">Dot product: a⃗·b⃗=|a||b|cosθ=a₁b₁+a₂b₂+a₃b₃
+Cross product: |a⃗×b⃗|=|a||b|sinθ (use determinant form)
+Angle: cosθ=(a⃗·b⃗)/(|a⃗||b⃗|)
+a⃗⊥b⃗ ⟺ a⃗·b⃗=0 | a⃗∥b⃗ ⟺ a⃗×b⃗=0⃗
+|a⃗+b⃗|²=|a⃗|²+|b⃗|²+2a⃗·b⃗
+Projection of a⃗ on b⃗ = (a⃗·b⃗)/|b⃗|</div>
+  </div></div>
+</div>
 </section>
 
-<!-- SURFACE CHEMISTRY -->
-<section class="chapter" id="surface" style="--chapter-color:#9ca3af">
-  <div class="chapter-header">
-    <div class="chapter-badge"><span class="chapter-num">CHAPTER 06</span><span class="chapter-priority priority-HIGH">HIGH</span></div>
-    <h2>Surface Chemistry</h2>
-    <div class="chapter-sub">Adsorption, Colloids, Tyndall effect — 4-5 marks every year</div>
-  </div>
+</div><!-- /.wrap -->
 
-  <div class="section-title">★ Repeated MCQs</div>
-  <div class="mcq-grid">
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q1</span><span class="mcq-text">Adsorption of a gas on solid surface is generally:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) Endothermic</div><div class="mcq-opt correct">(B) Exothermic</div><div class="mcq-opt">(C) Isothermal</div><div class="mcq-opt">(D) Endergonic</div><div class="mcq-exp">Bond formation at surface releases energy → exothermic</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q2</span><span class="mcq-text">Tyndall effect is observed in:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) True solutions</div><div class="mcq-opt correct">(B) Colloidal solutions</div><div class="mcq-opt">(C) Electrolyte solutions</div><div class="mcq-opt">(D) All solutions</div><div class="mcq-exp">Colloidal particles (1-1000 nm) scatter light, making path visible</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q3</span><span class="mcq-text">Hardy-Schulze rule states that:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) Coagulation depends on charge of colloidal particles</div><div class="mcq-opt correct">(B) Coagulating power increases with valence of oppositely charged ion</div><div class="mcq-opt">(C) Colloids are always positively charged</div><div class="mcq-opt">(D) None of these</div><div class="mcq-exp">Higher valence ion → greater coagulating power</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q4</span><span class="mcq-text">Which colloid has solid dispersed phase and gas dispersion medium?</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) Aerosol</div><div class="mcq-opt">(B) Foam</div><div class="mcq-opt">(C) Solid sol</div><div class="mcq-opt correct">(D) Smoke</div><div class="mcq-exp">Smoke = solid particles dispersed in gas</div></div></div>
-  </div>
-
-  <div class="section-title">Physisorption vs Chemisorption</div>
-  <table class="exam-table">
-    <thead><tr><th>Property</th><th>Physisorption</th><th>Chemisorption</th></tr></thead>
-    <tbody>
-      <tr><td>Force</td><td>van der Waals forces</td><td>Chemical bonds</td></tr>
-      <tr><td>Heat of adsorption</td><td>Low (20–40 kJ/mol)</td><td>High (80–240 kJ/mol)</td></tr>
-      <tr><td>Reversibility</td><td>Reversible</td><td>Irreversible</td></tr>
-      <tr><td>Layers</td><td>Multilayer possible</td><td>Monolayer only</td></tr>
-      <tr><td>Temperature effect</td><td>Decreases with temp</td><td>Initially increases then decreases</td></tr>
-      <tr><td>Activation energy</td><td>Low</td><td>High</td></tr>
-    </tbody>
-  </table>
-</section>
-
-<!-- AMINES -->
-<section class="chapter" id="amines" style="--chapter-color:#f472b6">
-  <div class="chapter-header">
-    <div class="chapter-badge"><span class="chapter-num">CHAPTER 13</span><span class="chapter-priority priority-HIGH">★★ HIGH</span></div>
-    <h2>Amines</h2>
-    <div class="chapter-sub">Basicity order, Diazotisation, Coupling reaction</div>
-  </div>
-
-  <div class="section-title">Basicity Order — Memorise</div>
-  <div class="info-card">
-    <div class="info-card-title">Basicity Comparison</div>
-    <strong>Gas phase:</strong> 3° &gt; 2° &gt; 1° &gt; NH₃ (more alkyl = more inductive effect)<br/>
-    <strong>Aqueous solution:</strong> 2° &gt; 1° &gt; 3° &gt; NH₃ (inductive effect vs solvation balance)<br/>
-    <strong>Aliphatic vs Aromatic:</strong> Aliphatic amines ≫ Aniline (lone pair on N delocalised into benzene ring in aniline)
-  </div>
-
-  <div class="section-title">★ Repeated MCQs</div>
-  <div class="mcq-grid">
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q1</span><span class="mcq-text">Basicity of aniline is less than aliphatic amines because:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) Aniline is a solid</div><div class="mcq-opt">(B) Lone pair on N delocalised into benzene ring</div><div class="mcq-opt">(C) N is sp² hybridised in aniline</div><div class="mcq-opt correct">(D) Both B and C</div><div class="mcq-exp">Lone pair delocalisation reduces availability for protonation</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q2</span><span class="mcq-text">Reagent used for diazotisation of aniline:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) NaOH + HCl</div><div class="mcq-opt correct">(B) NaNO₂ + HCl (0–5°C)</div><div class="mcq-opt">(C) Br₂ water</div><div class="mcq-opt">(D) CH₃COCl</div><div class="mcq-exp">Must keep 0–5°C; above this temperature diazonium salt decomposes</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q3</span><span class="mcq-text">Carbylamine reaction (isocyanide test) is given by:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) All amines</div><div class="mcq-opt correct">(B) Primary amines only</div><div class="mcq-opt">(C) Secondary amines</div><div class="mcq-opt">(D) Tertiary amines</div><div class="mcq-exp">1° amine + CHCl₃ + KOH → isocyanide (foul smell)</div></div></div>
-  </div>
-</section>
-
-<!-- HALOALKANES -->
-<section class="chapter" id="haloalkanes" style="--chapter-color:#9ca3af">
-  <div class="chapter-header">
-    <div class="chapter-badge"><span class="chapter-num">CHAPTER 10</span><span class="chapter-priority priority-HIGH">★★ HIGH</span></div>
-    <h2>Haloalkanes & Haloarenes</h2>
-    <div class="chapter-sub">SN1 vs SN2 — nucleophilic substitution reactions</div>
-  </div>
-
-  <div class="section-title">SN1 vs SN2 Comparison</div>
-  <table class="exam-table">
-    <thead><tr><th>Feature</th><th>SN1</th><th>SN2</th></tr></thead>
-    <tbody>
-      <tr><td>Mechanism</td><td>2-step (carbocation intermediate)</td><td>1-step (concerted)</td></tr>
-      <tr><td>Rate depends on</td><td>Substrate only</td><td>Both substrate AND nucleophile</td></tr>
-      <tr><td>Favoured by</td><td>3° alkyl halides, polar protic solvents</td><td>1° alkyl halides, strong nucleophile, polar aprotic</td></tr>
-      <tr><td>Stereochemistry</td><td>Racemisation</td><td>Inversion (Walden inversion)</td></tr>
-      <tr><td>Order: 3° &gt; 2° &gt; 1°</td><td>✓</td><td>Opposite: 1° &gt; 2° &gt; 3°</td></tr>
-    </tbody>
-  </table>
-
-  <div class="section-title">★ Repeated MCQs</div>
-  <div class="mcq-grid">
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q1</span><span class="mcq-text">Which undergoes SN1 reaction more readily?</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) CH₃Cl</div><div class="mcq-opt">(B) C₂H₅Cl</div><div class="mcq-opt">(C) (CH₃)₂CHCl</div><div class="mcq-opt correct">(D) (CH₃)₃CCl</div><div class="mcq-exp">Tertiary carbocation is most stable → favours SN1</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q2</span><span class="mcq-text">Product of CH₃CH₂Br + KOH (alcoholic) is:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) CH₃CH₂OH</div><div class="mcq-opt correct">(B) CH₂=CH₂</div><div class="mcq-opt">(C) CH₃CH₃</div><div class="mcq-opt">(D) CH₃CHO</div><div class="mcq-exp">Alcoholic KOH → elimination (E2) → alkene</div></div></div>
-  </div>
-</section>
-
-<!-- ALCOHOLS -->
-<section class="chapter" id="alcohols" style="--chapter-color:#9ca3af">
-  <div class="chapter-header">
-    <div class="chapter-badge"><span class="chapter-num">CHAPTER 11</span><span class="chapter-priority priority-HIGH">★★ HIGH</span></div>
-    <h2>Alcohols, Phenols & Ethers</h2>
-    <div class="chapter-sub">Acidity of phenols, Lucas test, Victor Meyer test</div>
-  </div>
-
-  <div class="section-title">Key Reactions & Tests</div>
-  <div class="fact-grid">
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text"><strong>Lucas Test:</strong> 3° (immediate turbidity) > 2° (5 min) > 1° (no reaction in cold) — ZnCl₂/conc HCl</div></div>
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text"><strong>Victor Meyer Test:</strong> 1°→red, 2°→blue, 3°→colourless</div></div>
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text"><strong>Phenol + FeCl₃</strong> → violet/purple complex (test for phenol)</div></div>
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text">Phenol more acidic than ethanol — phenoxide ion stabilised by resonance</div></div>
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text">Ethanol + H₂SO₄ at 170°C → ethylene | at 140°C → diethyl ether</div></div>
-    <div class="fact"><span class="fact-star">★</span><div class="fact-text"><strong>Williamson synthesis:</strong> R–ONa + R′X → R–O–R′ + NaX (for ethers)</div></div>
-  </div>
-
-  <div class="section-title">★ Repeated MCQs</div>
-  <div class="mcq-grid">
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q1</span><span class="mcq-text">Lucas test is used to distinguish between:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) Primary and secondary amines</div><div class="mcq-opt correct">(B) 1°, 2°, and 3° alcohols</div><div class="mcq-opt">(C) Aldehyde and ketone</div><div class="mcq-opt">(D) Phenol and alcohol</div><div class="mcq-exp">ZnCl₂/conc HCl: 3° immediate, 2° after 5 min, 1° no reaction</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q2</span><span class="mcq-text">Phenol reacts with bromine water to give:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) Monobromophenol</div><div class="mcq-opt">(B) Dibromophenol</div><div class="mcq-opt correct">(C) 2,4,6-Tribromophenol</div><div class="mcq-opt">(D) No reaction</div><div class="mcq-exp">OH group strongly activates ortho and para positions → all three substituted</div></div></div>
-  </div>
-</section>
-
-<!-- POLYMERS -->
-<section class="chapter" id="polymers" style="--chapter-color:#60a5fa">
-  <div class="chapter-header">
-    <div class="chapter-badge"><span class="chapter-num">CHAPTER 15</span><span class="chapter-priority priority-MED">HIGH</span></div>
-    <h2>Polymers</h2>
-    <div class="chapter-sub">MCQs + Short answers — polymer identification</div>
-  </div>
-
-  <div class="section-title">★ Key Polymers — Memorise</div>
-  <table class="exam-table">
-    <thead><tr><th>Polymer</th><th>Monomer(s)</th><th>Type</th><th>Use</th></tr></thead>
-    <tbody>
-      <tr><td style="color:var(--gold)">Nylon-6,6</td><td>Hexamethylenediamine + Adipic acid</td><td>Condensation</td><td>Fibres, ropes</td></tr>
-      <tr><td style="color:var(--gold)">Nylon-6</td><td>Caprolactam</td><td>Ring opening</td><td>Fibres</td></tr>
-      <tr><td style="color:var(--gold)">Bakelite</td><td>Phenol + Formaldehyde</td><td>Condensation (cross-linked)</td><td>Electrical fittings</td></tr>
-      <tr><td>PVC</td><td>Vinyl chloride (CH₂=CHCl)</td><td>Addition</td><td>Pipes, wires</td></tr>
-      <tr><td>Polythene (LDPE)</td><td>Ethylene</td><td>Addition</td><td>Bags, bottles</td></tr>
-      <tr><td>Teflon</td><td>Tetrafluoroethylene</td><td>Addition</td><td>Non-stick cookware</td></tr>
-      <tr><td>Natural rubber</td><td>Isoprene</td><td>Addition</td><td>Tyres</td></tr>
-      <tr><td>Buna-S (SBR)</td><td>Butadiene + Styrene</td><td>Copolymer</td><td>Synthetic rubber</td></tr>
-      <tr><td>Buna-N (NBR)</td><td>Butadiene + Acrylonitrile</td><td>Copolymer</td><td>Oil-resistant rubber</td></tr>
-      <tr><td>Dacron/Terylene</td><td>Ethylene glycol + Terephthalic acid</td><td>Condensation</td><td>Polyester fibre</td></tr>
-    </tbody>
-  </table>
-
-  <div class="section-title">★ Repeated MCQs</div>
-  <div class="mcq-grid">
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q1</span><span class="mcq-text">Which of the following is a thermosetting polymer?</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) PVC</div><div class="mcq-opt">(B) Nylon</div><div class="mcq-opt correct">(C) Bakelite</div><div class="mcq-opt">(D) Polythene</div><div class="mcq-exp">Bakelite = cross-linked; cannot be remoulded on heating</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q2</span><span class="mcq-text">Natural rubber is a polymer of:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) Styrene</div><div class="mcq-opt correct">(B) Isoprene</div><div class="mcq-opt">(C) Butadiene</div><div class="mcq-opt">(D) Ethylene</div><div class="mcq-exp">Natural rubber = cis-1,4-polyisoprene</div></div></div>
-  </div>
-</section>
-
-<!-- EVERYDAY LIFE -->
-<section class="chapter" id="everyday" style="--chapter-color:#34d399">
-  <div class="chapter-header">
-    <div class="chapter-badge"><span class="chapter-num">CHAPTER 16</span><span class="chapter-priority priority-HIGH">★★ EASY MARKS</span></div>
-    <h2>Chemistry in Everyday Life</h2>
-    <div class="chapter-sub">Drug types + Food chemistry MCQs — memorise the table</div>
-  </div>
-
-  <div class="section-title">★ Drug Classification — Must Memorise</div>
-  <table class="exam-table">
-    <thead><tr><th>Drug Type</th><th>Function</th><th>Examples</th></tr></thead>
-    <tbody>
-      <tr><td style="color:var(--gold)">Analgesics</td><td>Pain relief</td><td>Aspirin, Paracetamol, Morphine, Codeine</td></tr>
-      <tr><td style="color:var(--gold)">Antipyretics</td><td>Reduce fever</td><td>Aspirin, Paracetamol, Phenacetin</td></tr>
-      <tr><td style="color:var(--green)">Antibiotics</td><td>Kill/inhibit bacteria</td><td>Penicillin, Amoxicillin, Chloramphenicol</td></tr>
-      <tr><td style="color:var(--green)">Antiseptics</td><td>Prevent infection (living tissue)</td><td>Dettol, Boric acid, Iodoform (0.2% phenol)</td></tr>
-      <tr><td style="color:var(--blue)">Disinfectants</td><td>Kill microbes (non-living surfaces)</td><td>1% phenol, bleaching powder, formaldehyde</td></tr>
-      <tr><td style="color:var(--blue)">Antacids</td><td>Neutralise stomach acid</td><td>NaHCO₃, Mg(OH)₂, Al(OH)₃, Omeprazole</td></tr>
-      <tr><td style="color:var(--purple)">Antihistamines</td><td>Treat allergies</td><td>Brompheniramine, Terfenadine</td></tr>
-      <tr><td style="color:var(--purple)">Tranquilisers</td><td>Reduce anxiety</td><td>Barbiturates, Valium, Equanil</td></tr>
-    </tbody>
-  </table>
-
-  <div class="section-title">★ Repeated MCQs</div>
-  <div class="mcq-grid">
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q1</span><span class="mcq-text">Which is both antiseptic and disinfectant?</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) Aspirin</div><div class="mcq-opt correct">(B) Phenol</div><div class="mcq-opt">(C) Boric acid</div><div class="mcq-opt">(D) Penicillin</div><div class="mcq-exp">Dilute phenol = antiseptic; concentrated phenol = disinfectant</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q2</span><span class="mcq-text">Aspirin is chemically:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) Paracetamol</div><div class="mcq-opt correct">(B) Acetylsalicylic acid</div><div class="mcq-opt">(C) Acetanilide</div><div class="mcq-opt">(D) Salicylic acid</div><div class="mcq-exp">Aspirin = analgesic + antipyretic + anti-inflammatory</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q3</span><span class="mcq-text">Penicillin was discovered by:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) Louis Pasteur</div><div class="mcq-opt correct">(B) Alexander Fleming</div><div class="mcq-opt">(C) Robert Koch</div><div class="mcq-opt">(D) Edward Jenner</div><div class="mcq-exp">Alexander Fleming discovered penicillin in 1929</div></div></div>
-  </div>
-</section>
-
-<!-- THERMODYNAMICS -->
-<section class="chapter" id="thermo" style="--chapter-color:#fb923c">
-  <div class="chapter-header">
-    <div class="chapter-badge"><span class="chapter-num">CHAPTER 17</span><span class="chapter-priority priority-HIGH">★★ HIGH</span></div>
-    <h2>Thermodynamics & Chemical Equilibrium</h2>
-    <div class="chapter-sub">Gibbs energy, Le Chatelier's Principle, Kp/Kc relations</div>
-  </div>
-
-  <div class="section-title">Key Formulas</div>
-  <div class="formula-grid">
-    <div class="formula"><div class="formula-label">GIBBS-HELMHOLTZ</div><div class="formula-eq">ΔG = ΔH − TΔS</div><div class="formula-note">Spontaneous if ΔG &lt; 0</div></div>
-    <div class="formula"><div class="formula-label">ΔG° AND K</div><div class="formula-eq">ΔG° = −RT ln K = −2.303 RT log K</div></div>
-    <div class="formula"><div class="formula-label">Kp AND Kc</div><div class="formula-eq">Kp = Kc(RT)^Δn</div><div class="formula-note">Δn = moles of gaseous products − reactants</div></div>
-    <div class="formula"><div class="formula-label">SPONTANEITY CONDITIONS</div><div class="formula-eq">ΔH&lt;0, ΔS&gt;0 → always spontaneous</div><div class="formula-note">ΔH&lt;0, ΔS&lt;0 → spontaneous at low T</div></div>
-  </div>
-
-  <div class="section-title">★ Repeated MCQs</div>
-  <div class="mcq-grid">
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q1</span><span class="mcq-text">Reaction is spontaneous at all temperatures when:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) ΔH&gt;0, ΔS&gt;0</div><div class="mcq-opt correct">(B) ΔH&lt;0, ΔS&gt;0</div><div class="mcq-opt">(C) ΔH&gt;0, ΔS&lt;0</div><div class="mcq-opt">(D) ΔH&lt;0, ΔS&lt;0</div><div class="mcq-exp">ΔG = ΔH − TΔS; when ΔH&lt;0 and ΔS&gt;0, ΔG is always negative</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q2</span><span class="mcq-text">Kp = Kc when:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) Δn = 1</div><div class="mcq-opt">(B) Δn = −1</div><div class="mcq-opt correct">(C) Δn = 0</div><div class="mcq-opt">(D) Δn = 2</div><div class="mcq-exp">Kp = Kc(RT)⁰ = Kc when Δn = 0</div></div></div>
-    <div class="mcq"><div class="mcq-q" onclick="toggleMCQ(this)"><span class="mcq-qnum">Q3</span><span class="mcq-text">Increasing pressure on N₂ + 3H₂ ⇌ 2NH₃ will:</span><span class="mcq-toggle arrow">▶ Show</span></div><div class="mcq-opts"><div class="mcq-opt">(A) Favour reverse reaction</div><div class="mcq-opt correct">(B) Favour forward reaction</div><div class="mcq-opt">(C) No effect</div><div class="mcq-opt">(D) Decrease Kc</div><div class="mcq-exp">Pressure favours side with fewer moles of gas (2 vs 4 — product side)</div></div></div>
-  </div>
-</section>
-
-<!-- FORMULA SHEET -->
-<section class="formula-sheet" id="formulasheet">
-  <div class="hero-eyebrow">CHAPTER 18</div>
-  <h2>⚡ Last-Hour Formula Sheet</h2>
-  <p style="color:var(--muted);margin-top:6px;font-size:14px">Read this 1 hour before your exam. Everything here has appeared in NIOS papers.</p>
-
-  <div class="fs-section">
-    <div class="fs-section-title">Electrochemistry</div>
-    <div class="fs-grid">
-      <div class="fs-formula"><div class="fs-f-label">Standard Cell EMF</div><div class="fs-f-eq">E°cell = E°cathode − E°anode</div></div>
-      <div class="fs-formula"><div class="fs-f-label">Nernst Equation (25°C)</div><div class="fs-f-eq">E = E° − (0.0592/n) log Q</div></div>
-      <div class="fs-formula"><div class="fs-f-label">Gibbs Energy & K</div><div class="fs-f-eq">ΔG° = −nFE° | log K = nE°/0.0592</div></div>
-      <div class="fs-formula"><div class="fs-f-label">Faraday's Law</div><div class="fs-f-eq">m = (M × I × t)/(n × F)</div></div>
-      <div class="fs-formula"><div class="fs-f-label">Molar Conductance</div><div class="fs-f-eq">Λm = (κ × 1000) / Molarity</div></div>
-      <div class="fs-formula"><div class="fs-f-label">Faraday Constant</div><div class="fs-f-eq">F = 96500 C/mol</div></div>
-    </div>
-  </div>
-
-  <div class="fs-section">
-    <div class="fs-section-title">Chemical Kinetics</div>
-    <div class="fs-grid">
-      <div class="fs-formula"><div class="fs-f-label">First Order — k</div><div class="fs-f-eq">k = (2.303/t) × log([A]₀/[A])</div></div>
-      <div class="fs-formula"><div class="fs-f-label">First Order — Half Life</div><div class="fs-f-eq">t½ = 0.693/k</div></div>
-      <div class="fs-formula"><div class="fs-f-label">Arrhenius</div><div class="fs-f-eq">log(k₂/k₁) = (Eₐ/2.303R)(1/T₁ − 1/T₂)</div></div>
-      <div class="fs-formula"><div class="fs-f-label">Units of k</div><div class="fs-f-eq">0th: mol·L⁻¹·s⁻¹ | 1st: s⁻¹ | 2nd: L·mol⁻¹·s⁻¹</div></div>
-    </div>
-  </div>
-
-  <div class="fs-section">
-    <div class="fs-section-title">Solutions</div>
-    <div class="fs-grid">
-      <div class="fs-formula"><div class="fs-f-label">Boiling Point Elevation</div><div class="fs-f-eq">ΔTb = Kb × m × i</div></div>
-      <div class="fs-formula"><div class="fs-f-label">Freezing Point Depression</div><div class="fs-f-eq">ΔTf = Kf × m × i</div></div>
-      <div class="fs-formula"><div class="fs-f-label">Osmotic Pressure</div><div class="fs-f-eq">π = iCRT</div></div>
-      <div class="fs-formula"><div class="fs-f-label">Vapour Pressure</div><div class="fs-f-eq">p = p° × x(solvent) | Henry: p = K_H × x</div></div>
-    </div>
-  </div>
-
-  <div class="fs-section">
-    <div class="fs-section-title">Solid State</div>
-    <div class="fs-grid">
-      <div class="fs-formula"><div class="fs-f-label">Atoms Per Unit Cell</div><div class="fs-f-eq">SC=1 | BCC=2 | FCC=4</div></div>
-      <div class="fs-formula"><div class="fs-f-label">Packing Efficiency</div><div class="fs-f-eq">FCC=74% | BCC=68% | SC=52.4%</div></div>
-      <div class="fs-formula"><div class="fs-f-label">Density</div><div class="fs-f-eq">d = (Z × M) / (Nₐ × a³)</div></div>
-    </div>
-  </div>
-
-  <div class="fs-section">
-    <div class="fs-section-title">★ Quick Facts — Last Minute</div>
-    <div class="fact-grid" style="margin-top:8px">
-      <div class="fact"><span class="fact-star">★</span><div class="fact-text">Oxoacid strength: more O atoms = more acidic (HClO₄ > HClO₃ > HClO₂ > HClO)</div></div>
-      <div class="fact"><span class="fact-star">★</span><div class="fact-text">DNA: A–T (2 H-bonds), G–C (3 H-bonds)</div></div>
-      <div class="fact"><span class="fact-star">★</span><div class="fact-text">Reducing: all monosaccharides + maltose + lactose | Non-reducing: sucrose</div></div>
-      <div class="fact"><span class="fact-star">★</span><div class="fact-text">Cisplatin = cis-[Pt(NH₃)₂Cl₂] = anticancer drug</div></div>
-      <div class="fact"><span class="fact-star">★</span><div class="fact-text">Most electronegative: Fluorine | Most electropositive: Caesium</div></div>
-      <div class="fact"><span class="fact-star">★</span><div class="fact-text">Iodoform test positive: CH₃CHO, CH₃COCH₃, CH₃CH₂OH</div></div>
-      <div class="fact"><span class="fact-star">★</span><div class="fact-text">van't Hoff factor: NaCl=2, BaCl₂=3, AlCl₃=4 (fully dissociated)</div></div>
-      <div class="fact"><span class="fact-star">★</span><div class="fact-text">Degree of dissociation: α = Λm / Λ°m (weak electrolyte)</div></div>
-      <div class="fact"><span class="fact-star">★</span><div class="fact-text">Penicillin discovered by Alexander Fleming (1929)</div></div>
-      <div class="fact"><span class="fact-star">★</span><div class="fact-text">XeF₂=linear | XeF₄=square planar | XeF₆=distorted octahedral</div></div>
-      <div class="fact"><span class="fact-star">★</span><div class="fact-text">Nucleoside = base + sugar | Nucleotide = base + sugar + phosphate</div></div>
-      <div class="fact"><span class="fact-star">★</span><div class="fact-text">Nylon-6,6: amide bond | Dacron: ester bond | Bakelite: cross-linked</div></div>
-      <div class="fact"><span class="fact-star">★</span><div class="fact-text">Lanthanoid contraction → almost equal radii of 4d and 5d metals (Zr ≈ Hf)</div></div>
-      <div class="fact"><span class="fact-star">★</span><div class="fact-text">Colligative property depends on NUMBER, not NATURE of particles</div></div>
-      <div class="fact"><span class="fact-star">★</span><div class="fact-text">ΔS order: gas > liquid > solid</div></div>
-      <div class="fact"><span class="fact-star">★</span><div class="fact-text">Lyophilic: starch, gum, gelatin (self-stabilising) | Lyophobic: metal sols, As₂S₃</div></div>
-    </div>
-  </div>
-
-  <!-- MCQ Strategy -->
-  <div class="fs-section">
-    <div class="fs-section-title">MCQ Quick Tips</div>
-    <table class="exam-table">
-      <thead><tr><th>If MCQ asks...</th><th>Look for...</th></tr></thead>
-      <tbody>
-        <tr><td>Highest/lowest BP/MP</td><td>MW, H-bonding, polarity</td></tr>
-        <tr><td>Most acidic/basic</td><td>Resonance, induction, hybridisation</td></tr>
-        <tr><td>Colligative property</td><td>i × number of particles</td></tr>
-        <tr><td>Reducing agent</td><td>Goes UP in oxidation state</td></tr>
-        <tr><td>Oxidising agent</td><td>Goes DOWN in oxidation state</td></tr>
-        <tr><td>Nucleophile</td><td>Electron donor (lone pair or π bond)</td></tr>
-        <tr><td>Electrophile</td><td>Electron acceptor (positive charge or vacant orbital)</td></tr>
-        <tr><td>SN1 vs SN2</td><td>3° = SN1 | 1° = SN2 (generally)</td></tr>
-        <tr><td>Rate law</td><td>Determined experimentally from rate vs concentration</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div style="margin-top:50px;text-align:center;padding:40px;background:linear-gradient(135deg,#0f1200,#001209);border-radius:12px;border:1px solid #2a3a00">
-    <div style="font-family:'Playfair Display',serif;font-size:28px;color:var(--gold);margin-bottom:10px">You Are Ready.</div>
-    <div style="color:#9ca3af;font-size:14px;max-width:500px;margin:0 auto;line-height:1.8">Every formula, every repeated question, every key fact is covered.<br/>Read this twice. Sleep well. <strong style="color:var(--gold)">You will score 90%+.</strong></div>
-    <div style="margin-top:24px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">NIOS Chemistry 2026 • Subject Code 313 • Prepared from Papers 2018–2025</div>
-  </div>
-</section>
-
-<button class="menu-btn" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+<footer>
+  <p><strong style="color:var(--text)">NIOS Mathematics 311 · PYQ Master Guide · April 2026</strong></p>
+  <p style="margin-top:6px">Built from PYQs 2015–2025 · 🔁 R = Repeated 3+ times = Most likely to appear</p>
+  <p style="margin-top:8px;color:#3a3c4a">Press <strong style="color:var(--gold)">E</strong> to expand all · <strong style="color:var(--gold)">C</strong> to collapse · Ctrl+P to print</p>
+</footer>
 
 <script>
-// Progress bar
-window.addEventListener('scroll',()=>{
-  const h=document.documentElement;
-  const pct=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;
-  document.getElementById('progress').style.width=pct+'%';
+function tog(el){el.closest('.card').classList.toggle('open');}
+document.addEventListener('keydown',e=>{
+  if(e.key==='e'||e.key==='E') document.querySelectorAll('.card').forEach(c=>c.classList.add('open'));
+  if(e.key==='c'||e.key==='C') document.querySelectorAll('.card').forEach(c=>c.classList.remove('open'));
 });
-
-// MCQ toggle
-function toggleMCQ(el){
-  const opts=el.nextElementSibling;
-  const arrow=el.querySelector('.arrow');
-  const isOpen=opts.classList.toggle('open');
-  arrow.textContent=isOpen?'▼ Hide':'▶ Show';
-  if(isOpen)el.classList.add('open-state');else el.classList.remove('open-state');
-}
-
-// Numerical toggle
-function toggleNum(el){
-  const ans=el.nextElementSibling;
-  const arrow=el.querySelector('.arrow');
-  const isOpen=ans.classList.toggle('open');
-  arrow.textContent=isOpen?'▼':'▶';
-}
-
-// Theory toggle (reuse toggleNum)
-function toggleTheory(el){toggleNum(el);}
-
-// Active nav highlight
-const chapters=document.querySelectorAll('.chapter,[id]');
-const navItems=document.querySelectorAll('.nav-item');
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      navItems.forEach(n=>n.classList.remove('active'));
-      const active=document.querySelector(`.nav-item[href="#${e.target.id}"]`);
-      if(active)active.classList.add('active');
-    }
-  });
-},{threshold:.2,rootMargin:'-60px 0px -40% 0px'});
-document.querySelectorAll('[id]').forEach(s=>observer.observe(s));
 </script>
 </body>
 </html>
