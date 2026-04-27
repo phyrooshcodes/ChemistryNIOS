@@ -3,1975 +3,1842 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NIOS Math 311 — Exam Question Bank</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>NIOS English (301) — Exam Question Bank</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0f1117;
-    --surface: #181c27;
-    --surface2: #1e2335;
-    --border: #2a2f45;
-    --text: #e8e4d9;
-    --muted: #8a8fa8;
-    --gold: #f0b429;
-    --gold-dim: #c49020;
-    --green: #4caf82;
-    --blue: #5b8dee;
-    --red: #e05c5c;
-    --purple: #b07ee8;
-    --accent: #f0b429;
+    --bg: #f7f5f0;
+    --sidebar: #1a1e2e;
+    --sidebar-text: #c9cfe0;
+    --sidebar-accent: #f0c040;
+    --card: #ffffff;
+    --border: #e2ddd6;
+    --text: #1e1b16;
+    --text-muted: #6b6560;
+    --pyq: #dc2626;
+    --pyq-bg: #fef2f2;
+    --hot: #d97706;
+    --hot-bg: #fffbeb;
+    --gram: #1d4ed8;
+    --gram-bg: #eff6ff;
+    --ans-bg: #f0fdf4;
+    --ans-border: #16a34a;
+    --heading: #1a1e2e;
+    --accent: #f0c040;
+    --tag-lit: #7c3aed;
+    --tag-lit-bg: #f5f3ff;
+    --tag-write: #0891b2;
+    --tag-write-bg: #ecfeff;
+    --shadow: 0 1px 4px rgba(0,0,0,0.08);
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { height: 100%; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Source Serif 4', serif;
-    font-size: 16px;
-    line-height: 1.7;
-    overflow-y: scroll;
-  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); display: flex; min-height: 100vh; }
 
-  /* ── SIDEBAR ── */
+  /* SIDEBAR */
   #sidebar {
-    width: 260px;
-    min-height: 100vh;
-    background: var(--surface);
-    border-right: 1px solid var(--border);
-    position: fixed;
-    top: 0; left: 0;
-    overflow-y: auto;
-    z-index: 100;
-    padding-bottom: 40px;
+    width: 260px; min-width: 260px; background: var(--sidebar); color: var(--sidebar-text);
+    position: fixed; top: 0; left: 0; height: 100vh; overflow-y: auto;
+    display: flex; flex-direction: column; z-index: 100; padding-bottom: 2rem;
   }
   #sidebar::-webkit-scrollbar { width: 4px; }
-  #sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+  #sidebar::-webkit-scrollbar-thumb { background: #3a4060; border-radius: 2px; }
   .sidebar-header {
-    padding: 22px 18px 16px;
-    border-bottom: 1px solid var(--border);
-    position: sticky; top: 0;
-    background: var(--surface);
-    z-index: 2;
+    padding: 1.4rem 1.2rem 1rem; border-bottom: 1px solid #2e3450;
   }
-  .sidebar-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-    color: var(--gold);
-    letter-spacing: 0.03em;
+  .sidebar-header h1 { font-size: 1.05rem; font-weight: 700; color: #fff; line-height: 1.3; }
+  .sidebar-header p { font-size: 0.72rem; color: #8892b0; margin-top: 0.3rem; }
+  .sidebar-score-badge {
+    margin: 0.8rem 1.2rem 0; background: var(--accent); color: #1a1e2e;
+    font-size: 0.7rem; font-weight: 700; padding: 0.3rem 0.7rem; border-radius: 20px;
+    display: inline-block; letter-spacing: 0.03em;
   }
-  .sidebar-header p {
-    font-size: 0.72rem;
-    color: var(--muted);
-    font-family: 'JetBrains Mono', monospace;
-    margin-top: 4px;
-  }
-  .score-badge {
-    margin-top: 10px;
-    background: linear-gradient(135deg, #1a2a00, #2a4400);
-    border: 1px solid #4a7a00;
-    border-radius: 6px;
-    padding: 6px 10px;
-    font-size: 0.72rem;
-    color: #8fcc44;
-    font-family: 'JetBrains Mono', monospace;
-  }
-  .nav-section { padding: 10px 0; }
-  .nav-section-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.62rem;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 8px 18px 4px;
+  .nav-section { padding: 0.9rem 1.2rem 0.2rem; }
+  .nav-section-title {
+    font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: #5a6280; margin-bottom: 0.4rem;
   }
   .nav-link {
-    display: block;
-    padding: 6px 18px;
-    font-size: 0.82rem;
-    color: var(--muted);
-    text-decoration: none;
-    transition: all 0.15s;
-    border-left: 2px solid transparent;
-    line-height: 1.4;
+    display: flex; align-items: center; gap: 0.5rem; padding: 0.42rem 0.6rem;
+    border-radius: 6px; color: var(--sidebar-text); text-decoration: none; font-size: 0.82rem;
+    font-weight: 500; transition: all 0.15s; cursor: pointer;
   }
-  .nav-link:hover { color: var(--gold); border-left-color: var(--gold); background: rgba(240,180,41,0.05); }
-  .nav-link.active { color: var(--gold); border-left-color: var(--gold); }
+  .nav-link:hover, .nav-link.active { background: #2e3450; color: #fff; }
+  .nav-link .dot {
+    width: 6px; height: 6px; border-radius: 50%; background: #3a4060; flex-shrink: 0;
+  }
+  .nav-link:hover .dot, .nav-link.active .dot { background: var(--accent); }
+  .nav-count {
+    margin-left: auto; font-size: 0.65rem; background: #2e3450;
+    padding: 0.1rem 0.4rem; border-radius: 10px; color: #8892b0;
+  }
+  .nav-link:hover .nav-count { background: #404870; }
 
-  /* ── MAIN ── */
-  #main {
-    margin-left: 260px;
-    flex: 1;
-    padding: 0 0 80px;
+  /* MAIN CONTENT */
+  #main { margin-left: 260px; flex: 1; padding: 2rem 2.5rem 4rem; max-width: 960px; }
+
+  /* TOP BANNER */
+  .top-banner {
+    background: var(--sidebar); color: #fff; border-radius: 12px; padding: 1.4rem 1.8rem;
+    margin-bottom: 2rem; display: flex; align-items: flex-start; gap: 1.5rem;
+    position: relative; overflow: hidden;
   }
-  .hero {
-    background: linear-gradient(135deg, #0f1117 0%, #141926 50%, #0f1117 100%);
-    border-bottom: 1px solid var(--border);
-    padding: 48px 56px 40px;
-    position: relative;
-    overflow: hidden;
+  .top-banner::before {
+    content: ''; position: absolute; top: -30px; right: -30px;
+    width: 130px; height: 130px; background: var(--accent); opacity: 0.08;
+    border-radius: 50%;
   }
-  .hero::before {
-    content: '∑∫∂∇';
-    position: absolute; right: 56px; top: 20px;
-    font-size: 7rem;
-    color: rgba(240,180,41,0.04);
-    font-family: 'JetBrains Mono', monospace;
-    letter-spacing: -0.05em;
-    line-height: 1;
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.4rem;
-    color: var(--gold);
-    line-height: 1.2;
-  }
-  .hero p { color: var(--muted); margin-top: 10px; font-size: 0.95rem; max-width: 520px; }
+  .top-banner h2 { font-family: 'EB Garamond', serif; font-size: 1.6rem; font-weight: 700; }
+  .top-banner p { font-size: 0.82rem; color: #8892b0; margin-top: 0.3rem; line-height: 1.5; }
+  .banner-meta { display: flex; gap: 0.7rem; margin-top: 0.7rem; flex-wrap: wrap; }
+  .bmeta { font-size: 0.72rem; background: #2e3450; padding: 0.2rem 0.7rem; border-radius: 20px; color: #a0aec0; }
+  .bmeta b { color: var(--accent); }
+
+  /* LEGEND */
   .legend {
-    display: flex; gap: 14px; flex-wrap: wrap;
-    margin-top: 24px;
+    display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.8rem;
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 0.9rem 1.2rem;
   }
-  .legend-item {
-    display: flex; align-items: center; gap: 7px;
-    font-size: 0.78rem;
-    font-family: 'JetBrains Mono', monospace;
-    color: var(--muted);
-  }
-  .dot { width: 9px; height: 9px; border-radius: 50%; }
+  .legend-item { display: flex; align-items: center; gap: 0.45rem; font-size: 0.75rem; color: var(--text-muted); }
+  .legend-badge { font-size: 0.65rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 4px; }
 
-  /* ── CHAPTER ── */
-  .chapter {
-    border-bottom: 1px solid var(--border);
-    padding: 0;
+  /* SECTION HEADINGS */
+  .section-block { margin-bottom: 3rem; }
+  .section-title {
+    font-family: 'EB Garamond', serif; font-size: 1.5rem; font-weight: 700; color: var(--heading);
+    border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 0.6rem;
   }
-  .chapter-header {
-    padding: 32px 56px 20px;
-    background: linear-gradient(90deg, rgba(30,35,53,0.8), transparent);
-    border-left: 3px solid var(--gold);
-    margin-bottom: 8px;
+  .section-icon { font-size: 1.2rem; }
+  .subsection-title {
+    font-size: 0.95rem; font-weight: 700; color: var(--heading); margin: 1.4rem 0 0.8rem;
+    padding: 0.4rem 0.8rem; background: #f0ede6; border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0;
   }
-  .chapter-num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
-    color: var(--gold-dim);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-  .chapter-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    color: var(--text);
-    margin-top: 4px;
-  }
-  .chapter-meta {
-    font-size: 0.78rem;
-    color: var(--muted);
-    margin-top: 6px;
-    font-family: 'JetBrains Mono', monospace;
-  }
-  .questions-grid { padding: 4px 56px 32px; }
 
-  /* ── QUESTION CARD ── */
+  /* QUESTION CARDS */
   .q-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    margin-bottom: 18px;
-    overflow: hidden;
-    transition: border-color 0.2s;
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    margin-bottom: 0.9rem; overflow: hidden; box-shadow: var(--shadow);
+    transition: box-shadow 0.15s;
   }
-  .q-card:hover { border-color: rgba(240,180,41,0.3); }
-  .q-card.hot {
-    border-color: rgba(240,180,41,0.5);
-    box-shadow: 0 0 0 1px rgba(240,180,41,0.1), inset 0 0 30px rgba(240,180,41,0.02);
-  }
+  .q-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,0.1); }
+  .q-card.pyq { border-left: 3px solid var(--pyq); }
+  .q-card.hot { border-left: 3px solid var(--hot); }
+  .q-card.gram { border-left: 3px solid var(--gram); }
+
   .q-header {
-    display: flex; align-items: flex-start; gap: 14px;
-    padding: 16px 18px 0;
-    cursor: pointer;
+    padding: 0.8rem 1.1rem; cursor: pointer; display: flex; align-items: flex-start; gap: 0.8rem;
     user-select: none;
   }
-  .q-type-badge {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65rem;
-    font-weight: 500;
-    padding: 3px 8px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    white-space: nowrap;
-    flex-shrink: 0;
-    margin-top: 2px;
+  .q-header:hover { background: #fafaf8; }
+  .q-num {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; font-weight: 500;
+    color: var(--text-muted); background: #f0ede6; padding: 0.2rem 0.5rem;
+    border-radius: 4px; flex-shrink: 0; margin-top: 0.05rem;
   }
-  .badge-mcq    { background: rgba(91,141,238,0.15); color: var(--blue); border: 1px solid rgba(91,141,238,0.3); }
-  .badge-long   { background: rgba(180,126,232,0.15); color: var(--purple); border: 1px solid rgba(180,126,232,0.3); }
-  .badge-num    { background: rgba(76,175,130,0.15); color: var(--green); border: 1px solid rgba(76,175,130,0.3); }
-  .badge-theory { background: rgba(224,92,92,0.15); color: var(--red); border: 1px solid rgba(224,92,92,0.3); }
-  .hot-star {
-    font-size: 0.85rem;
-    flex-shrink: 0;
-    margin-top: 2px;
-    filter: drop-shadow(0 0 4px rgba(240,180,41,0.6));
+  .q-text { flex: 1; font-size: 0.875rem; line-height: 1.6; color: var(--text); font-weight: 500; }
+  .q-text em { font-family: 'EB Garamond', serif; font-style: italic; }
+  .q-badges { display: flex; gap: 0.4rem; align-items: center; flex-shrink: 0; flex-wrap: wrap; margin-top: 0.05rem; }
+  .badge {
+    font-size: 0.6rem; font-weight: 700; padding: 0.18rem 0.5rem; border-radius: 4px;
+    letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap;
   }
-  .q-text {
-    flex: 1;
-    font-size: 0.95rem;
-    color: var(--text);
-    line-height: 1.6;
-    padding-bottom: 14px;
-  }
-  .q-marks {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.68rem;
-    color: var(--muted);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 2px 7px;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-  .q-toggle {
-    font-size: 0.75rem;
-    color: var(--gold);
-    font-family: 'JetBrains Mono', monospace;
-    padding: 0 18px 12px;
-    cursor: pointer;
-    display: inline-block;
-    opacity: 0.8;
-  }
-  .q-toggle:hover { opacity: 1; }
+  .badge.pyq { background: var(--pyq-bg); color: var(--pyq); }
+  .badge.hot { background: var(--hot-bg); color: var(--hot); }
+  .badge.imp { background: #f5f3ff; color: #7c3aed; }
+  .badge.mcq { background: #ecfeff; color: #0891b2; }
+  .badge.long { background: #fff7ed; color: #c2410c; }
+  .badge.short { background: #f0fdf4; color: #16a34a; }
+  .badge.gram { background: var(--gram-bg); color: var(--gram); }
+  .badge.write { background: var(--tag-write-bg); color: var(--tag-write); }
+  .badge.lit { background: var(--tag-lit-bg); color: var(--tag-lit); }
 
-  /* ── MCQ options ── */
-  .mcq-options {
-    padding: 0 18px 10px 18px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6px;
-  }
-  .mcq-opt {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 7px 12px;
-    font-size: 0.88rem;
-    color: var(--muted);
-  }
-  .mcq-opt.correct {
-    border-color: rgba(76,175,130,0.5);
-    background: rgba(76,175,130,0.08);
-    color: var(--green);
-  }
+  .q-chevron { font-size: 0.7rem; color: var(--text-muted); flex-shrink: 0; transition: transform 0.2s; margin-top: 0.3rem; }
 
-  /* ── ANSWER ── */
   .q-answer {
-    display: none;
-    background: var(--surface2);
-    border-top: 1px solid var(--border);
-    padding: 18px 18px 18px;
+    display: none; padding: 0.9rem 1.1rem 1rem;
+    border-top: 1px solid var(--border); background: var(--ans-bg);
+    font-size: 0.845rem; line-height: 1.7; color: #1a3a1a;
   }
-  .q-answer.show { display: block; }
-  .answer-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.68rem;
-    color: var(--green);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 10px;
+  .q-answer.open { display: block; }
+  .q-answer strong { color: #14532d; font-weight: 600; }
+  .q-answer .ans-label {
+    font-size: 0.65rem; font-weight: 700; color: var(--ans-border); text-transform: uppercase;
+    letter-spacing: 0.08em; margin-bottom: 0.5rem; display: block;
   }
-  .answer-text {
-    font-size: 0.92rem;
-    color: #c8c4bc;
-    line-height: 1.75;
+  .q-answer ul { padding-left: 1.3rem; margin: 0.4rem 0; }
+  .q-answer ul li { margin-bottom: 0.25rem; }
+  .q-answer .model-ans {
+    background: white; border: 1px solid #bbf7d0; border-radius: 8px; padding: 0.9rem 1rem;
+    margin-top: 0.6rem; font-family: 'EB Garamond', serif; font-size: 0.96rem; line-height: 1.85;
+    color: #14532d; white-space: pre-wrap;
   }
-  .answer-text .step {
-    display: flex; gap: 12px;
-    margin-bottom: 10px;
-    padding: 10px 14px;
-    background: rgba(255,255,255,0.03);
-    border-radius: 6px;
-    border-left: 2px solid var(--gold-dim);
+  .q-answer .tip {
+    margin-top: 0.6rem; background: #fffbeb; border: 1px solid #fde68a;
+    border-radius: 6px; padding: 0.5rem 0.8rem; font-size: 0.78rem; color: #92400e;
   }
-  .step-num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
-    color: var(--gold-dim);
-    min-width: 22px;
-    padding-top: 1px;
-  }
-  .step-content { flex: 1; }
-  .math {
-    font-family: 'JetBrains Mono', monospace;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 4px;
-    padding: 2px 7px;
-    font-size: 0.9em;
-    color: #e0d8c0;
-    display: inline-block;
-    margin: 2px 0;
-  }
-  .math-block {
-    font-family: 'JetBrains Mono', monospace;
-    background: rgba(0,0,0,0.3);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 6px;
-    padding: 12px 16px;
-    font-size: 0.88rem;
-    color: #e0d8c0;
-    display: block;
-    margin: 10px 0;
-    overflow-x: auto;
-    line-height: 1.8;
-    white-space: pre;
-  }
-  .result-box {
-    background: rgba(76,175,130,0.1);
-    border: 1px solid rgba(76,175,130,0.4);
-    border-radius: 6px;
-    padding: 10px 14px;
-    margin-top: 10px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.88rem;
-    color: var(--green);
-  }
-  .tip-box {
-    background: rgba(240,180,41,0.07);
-    border: 1px solid rgba(240,180,41,0.25);
-    border-radius: 6px;
-    padding: 10px 14px;
-    margin-top: 10px;
-    font-size: 0.85rem;
-    color: #d4a830;
-  }
-  .tip-box b { color: var(--gold); }
+  .q-answer .tip::before { content: '💡 Tip: '; font-weight: 700; }
 
-  /* ── FORMULAS BOX ── */
-  .formula-box {
-    background: var(--surface2);
-    border: 1px solid rgba(91,141,238,0.3);
-    border-radius: 8px;
-    padding: 16px 18px;
-    margin: 0 56px 28px;
-  }
-  .formula-box h4 {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
-    color: var(--blue);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 10px;
-  }
-  .formula-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 8px;
-  }
-  .formula-item {
-    background: rgba(0,0,0,0.2);
-    border-radius: 5px;
-    padding: 8px 12px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.82rem;
-    color: #c8d4f0;
-    border-left: 2px solid rgba(91,141,238,0.4);
-  }
+  /* MCQ options */
+  .mcq-options { margin: 0.5rem 0 0.3rem; padding-left: 0.5rem; }
+  .mcq-options li { list-style: none; margin: 0.2rem 0; font-size: 0.845rem; }
+  .mcq-options li.correct { color: #16a34a; font-weight: 600; }
+  .mcq-options li.correct::before { content: '✓ '; }
+  .mcq-options li:not(.correct)::before { content: '○ '; color: #9ca3af; }
 
-  /* ── PROGRESS BAR ── */
-  .topic-progress {
-    display: flex; align-items: center; gap: 10px;
-    padding: 0 56px 20px;
+  /* Format boxes for writing */
+  .format-box {
+    background: #fffdf0; border: 1px dashed #d97706; border-radius: 8px;
+    padding: 0.9rem 1rem; margin: 0.5rem 0; font-size: 0.82rem; line-height: 1.8;
+    font-family: 'JetBrains Mono', monospace; color: #451a03;
   }
+  .format-box .fb-title { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: #d97706; font-weight: 700; margin-bottom: 0.4rem; display: block; }
+
+  /* Passage box */
+  .passage-box {
+    background: #f8f7f4; border: 1px solid var(--border); border-radius: 8px;
+    padding: 1rem 1.1rem; margin-bottom: 0.8rem; font-family: 'EB Garamond', serif;
+    font-size: 0.96rem; line-height: 1.85; color: var(--text);
+    border-left: 3px solid #64748b;
+  }
+  .passage-box p { margin-bottom: 0.7rem; }
+  .passage-box p:last-child { margin-bottom: 0; }
+
+  /* Scrollspy highlight */
+  .section-block:target .section-title { color: var(--pyq); }
+
+  /* Progress bar top */
   .progress-bar {
-    flex: 1; height: 3px;
-    background: var(--border);
-    border-radius: 3px;
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 0.9rem 1.2rem; margin-bottom: 1.8rem; display: flex; gap: 2rem; flex-wrap: wrap;
   }
-  .progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--gold-dim), var(--gold));
-    border-radius: 3px;
-  }
+  .prog-item { text-align: center; }
+  .prog-num { font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; font-weight: 700; color: var(--heading); }
+  .prog-label { font-size: 0.7rem; color: var(--text-muted); margin-top: 0.1rem; }
 
-  /* ── RESPONSIVE ── */
-  @media(max-width:900px) {
-    #sidebar { width: 220px; }
-    #main { margin-left: 220px; }
-    .hero, .chapter-header, .questions-grid, .formula-box, .topic-progress { padding-left: 24px; padding-right: 24px; }
+  /* Grammar table */
+  .gram-table { width: 100%; border-collapse: collapse; margin: 0.5rem 0; font-size: 0.82rem; }
+  .gram-table th { background: #1a1e2e; color: #fff; padding: 0.5rem 0.7rem; text-align: left; font-size: 0.75rem; }
+  .gram-table td { padding: 0.45rem 0.7rem; border-bottom: 1px solid var(--border); }
+  .gram-table tr:nth-child(even) td { background: #fafaf8; }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    #sidebar { width: 220px; min-width: 220px; }
+    #main { margin-left: 220px; padding: 1.2rem 1rem 3rem; }
   }
-  @media(max-width:650px) {
+  @media (max-width: 580px) {
     #sidebar { display: none; }
-    #main { margin-left: 0; }
-    .hero, .chapter-header, .questions-grid, .formula-box, .topic-progress { padding-left: 16px; padding-right: 16px; }
-    .mcq-options { grid-template-columns: 1fr; }
-  }
-
-  /* ── MISC ── */
-  .pyq-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.62rem;
-    background: rgba(224,92,92,0.15);
-    color: var(--red);
-    border: 1px solid rgba(224,92,92,0.3);
-    border-radius: 3px;
-    padding: 1px 6px;
-    margin-left: 6px;
-    vertical-align: middle;
-  }
-  hr.section-divider {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 4px 56px 20px;
-    opacity: 0.5;
-  }
-  .section-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.68rem;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    padding: 0 56px;
-    margin-bottom: 12px;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .section-label::after {
-    content: '';
-    flex: 1; height: 1px;
-    background: var(--border);
-    opacity: 0.5;
+    #main { margin-left: 0; padding: 1rem 0.9rem 3rem; }
   }
 </style>
 </head>
 <body>
 
-<!-- ═══════════════ SIDEBAR ═══════════════ -->
+<!-- SIDEBAR -->
 <nav id="sidebar">
   <div class="sidebar-header">
-    <h2>NIOS Math 311</h2>
-    <p>// Exam Question Bank</p>
-    <div class="score-badge">🎯 Target: 90%+ Score</div>
+    <h1>NIOS English (301)<br>Question Bank</h1>
+    <p>Senior Secondary Exam Prep</p>
+    <div class="sidebar-score-badge">🎯 Target: 90%+</div>
   </div>
+
   <div class="nav-section">
-    <div class="nav-section-label">Chapters</div>
-    <a class="nav-link" href="#ch1">1. Sets, Relations & Functions</a>
-    <a class="nav-link" href="#ch2">2. Sequences & Series</a>
-    <a class="nav-link" href="#ch3">3. Trigonometry</a>
-    <a class="nav-link" href="#ch4">4. Complex Numbers</a>
-    <a class="nav-link" href="#ch5">5. Matrices & Determinants</a>
-    <a class="nav-link" href="#ch6">6. Permutations & Combinations</a>
-    <a class="nav-link" href="#ch7">7. Binomial Theorem</a>
-    <a class="nav-link" href="#ch8">8. Coordinate Geometry</a>
-    <a class="nav-link" href="#ch9">9. Limits & Continuity</a>
-    <a class="nav-link" href="#ch10">10. Differentiation</a>
-    <a class="nav-link" href="#ch11">11. Integration</a>
-    <a class="nav-link" href="#ch12">12. Probability</a>
-    <a class="nav-link" href="#ch13">13. Statistics</a>
-    <a class="nav-link" href="#ch14">14. Linear Programming</a>
+    <div class="nav-section-title">Quick Jump</div>
+    <a class="nav-link" href="#grammar"><span class="dot"></span>Grammar <span class="nav-count">8 topics</span></a>
+    <a class="nav-link" href="#writing"><span class="dot"></span>Writing Skills <span class="nav-count">5 types</span></a>
+    <a class="nav-link" href="#comprehension"><span class="dot"></span>Reading Comprehension <span class="nav-count">2 passages</span></a>
+    <a class="nav-link" href="#literature"><span class="dot"></span>Literature — Prose <span class="nav-count">key Qs</span></a>
+    <a class="nav-link" href="#poetry"><span class="dot"></span>Literature — Poetry <span class="nav-count">key Qs</span></a>
+    <a class="nav-link" href="#mcqs"><span class="dot"></span>MCQ Rapid Fire <span class="nav-count">30 Qs</span></a>
   </div>
+
   <div class="nav-section">
-    <div class="nav-section-label">Legend</div>
-    <div style="padding:4px 18px;">
-      <div class="legend-item" style="margin-bottom:6px;"><div class="dot" style="background:var(--gold)"></div><span>⭐ High-priority / PYQ</span></div>
-      <div class="legend-item" style="margin-bottom:6px;"><div class="dot" style="background:var(--blue)"></div><span>MCQ</span></div>
-      <div class="legend-item" style="margin-bottom:6px;"><div class="dot" style="background:var(--purple)"></div><span>Long Answer</span></div>
-      <div class="legend-item" style="margin-bottom:6px;"><div class="dot" style="background:var(--green)"></div><span>Numerical</span></div>
-      <div class="legend-item"><div class="dot" style="background:var(--red)"></div><span>Theory</span></div>
-    </div>
+    <div class="nav-section-title">Grammar Topics</div>
+    <a class="nav-link" href="#tenses"><span class="dot"></span>Tenses</a>
+    <a class="nav-link" href="#voice"><span class="dot"></span>Active / Passive Voice</a>
+    <a class="nav-link" href="#narration"><span class="dot"></span>Direct / Indirect Speech</a>
+    <a class="nav-link" href="#articles"><span class="dot"></span>Articles & Determiners</a>
+    <a class="nav-link" href="#modals"><span class="dot"></span>Modals</a>
+    <a class="nav-link" href="#transformation"><span class="dot"></span>Sentence Transformation</a>
+    <a class="nav-link" href="#prepositions"><span class="dot"></span>Prepositions</a>
+    <a class="nav-link" href="#errors"><span class="dot"></span>Error Correction</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-title">Writing Skills</div>
+    <a class="nav-link" href="#notice"><span class="dot"></span>Notice Writing</a>
+    <a class="nav-link" href="#letter"><span class="dot"></span>Letter Writing</a>
+    <a class="nav-link" href="#report"><span class="dot"></span>Report Writing</a>
+    <a class="nav-link" href="#paragraph"><span class="dot"></span>Paragraph Writing</a>
+    <a class="nav-link" href="#essay"><span class="dot"></span>Essay Writing</a>
   </div>
 </nav>
 
-<!-- ═══════════════ MAIN ═══════════════ -->
+<!-- MAIN -->
 <main id="main">
 
-  <!-- HERO -->
-  <div class="hero">
-    <h1>NIOS Mathematics (311)<br>Strategic Question Bank</h1>
-    <p>Curated PYQs + high-probability questions. Master these and you're targeting 90%+. Click any question to reveal the answer.</p>
-    <div class="legend">
-      <div class="legend-item"><span class="hot-star">⭐</span> Must-do question</div>
-      <div class="legend-item"><span class="pyq-label">PYQ</span> Appeared in past exams</div>
-      <div class="legend-item"><span class="q-type-badge badge-num" style="font-size:0.6rem">NUM</span> Step-by-step solution</div>
+  <!-- TOP BANNER -->
+  <div class="top-banner">
+    <div>
+      <h2>NIOS English (301) — High-Impact Exam Question Bank</h2>
+      <p>Strategic revision guide built from PYQs, predicted questions & exam patterns.<br>Master this bank → Score 90%+</p>
+      <div class="banner-meta">
+        <span class="bmeta"><b>Subject:</b> English (301)</span>
+        <span class="bmeta"><b>Level:</b> Senior Secondary</span>
+        <span class="bmeta"><b>Board:</b> NIOS</span>
+        <span class="bmeta"><b>Focus:</b> PYQs + Predicted Qs</span>
+      </div>
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════
-       CHAPTER 1: SETS, RELATIONS & FUNCTIONS
-  ══════════════════════════════════════════ -->
-  <section class="chapter" id="ch1">
-    <div class="chapter-header">
-      <div class="chapter-num">Chapter 01</div>
-      <div class="chapter-title">Sets, Relations &amp; Functions</div>
-      <div class="chapter-meta">Expected Marks: 10–14 | Difficulty: ★★☆</div>
-    </div>
+  <!-- LEGEND -->
+  <div class="legend">
+    <div class="legend-item"><span class="badge pyq legend-badge">PYQ</span> Appeared in previous exams</div>
+    <div class="legend-item"><span class="badge hot legend-badge">🔥 HOT</span> Very high probability</div>
+    <div class="legend-item"><span class="badge imp legend-badge">IMP</span> Conceptually important</div>
+    <div class="legend-item"><span class="badge long legend-badge">LONG</span> Long answer (6+ marks)</div>
+    <div class="legend-item"><span class="badge short legend-badge">SHORT</span> Short answer (2–4 marks)</div>
+    <div class="legend-item"><span class="badge gram legend-badge">GRAM</span> Grammar</div>
+    <div class="legend-item">👉 Click any question to reveal the model answer</div>
+  </div>
 
-    <div class="formula-box">
-      <h4>⚡ Key Formulas</h4>
-      <div class="formula-grid">
-        <div class="formula-item">n(A∪B) = n(A)+n(B)−n(A∩B)</div>
-        <div class="formula-item">n(A∪B∪C) = n(A)+n(B)+n(C)−n(A∩B)−n(B∩C)−n(A∩C)+n(A∩B∩C)</div>
-        <div class="formula-item">A−B = A∩B'</div>
-        <div class="formula-item">De Morgan: (A∪B)' = A'∩B'</div>
-        <div class="formula-item">Domain of fog = domain of g restricted to range of g ⊆ domain of f</div>
-        <div class="formula-item">Even: f(−x)=f(x), Odd: f(−x)=−f(x)</div>
+  <!-- STATS -->
+  <div class="progress-bar">
+    <div class="prog-item"><div class="prog-num">80+</div><div class="prog-label">Questions</div></div>
+    <div class="prog-item"><div class="prog-num">6</div><div class="prog-label">Sections</div></div>
+    <div class="prog-item"><div class="prog-num">30</div><div class="prog-label">MCQs</div></div>
+    <div class="prog-item"><div class="prog-num">100%</div><div class="prog-label">Model Answers</div></div>
+    <div class="prog-item"><div class="prog-num">1.5</div><div class="prog-label">Days to Master</div></div>
+  </div>
+
+  <!-- ============================= GRAMMAR ============================= -->
+  <div class="section-block" id="grammar">
+    <div class="section-title"><span class="section-icon">📐</span> Grammar</div>
+    <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:1rem;">Grammar carries significant marks in NIOS English. Focus: Tenses, Voice, Narration, Modals, Transformation. These are asked every year.</p>
+
+    <!-- TENSES -->
+    <div class="subsection-title" id="tenses">📅 Tenses</div>
+
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">G1</span>
+        <span class="q-text">Fill in the blanks with the correct form of the verb given in brackets:<br>
+        (a) She ______ (go) to school every day.<br>
+        (b) They ______ (finish) the project by next Monday.<br>
+        (c) I ______ (wait) for him since morning.<br>
+        (d) He ______ (not/eat) anything since yesterday.</span>
+        <span class="q-badges"><span class="badge pyq">PYQ</span><span class="badge gram">GRAM</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Model Answer</span>
+        <ul>
+          <li>(a) <strong>goes</strong> — Simple Present (habitual action)</li>
+          <li>(b) <strong>will have finished</strong> — Future Perfect</li>
+          <li>(c) <strong>have been waiting</strong> — Present Perfect Continuous</li>
+          <li>(d) <strong>has not eaten</strong> — Present Perfect</li>
+        </ul>
+        <div class="tip">For "since/for" → use Perfect or Perfect Continuous. "Since" = point of time; "for" = duration.</div>
       </div>
     </div>
 
-    <div class="section-label">MCQs</div>
-    <div class="questions-grid">
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-mcq">MCQ</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">If n(A) = 3, n(B) = 5, n(A∩B) = 2, then n(A∪B) = ?<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">1M</span>
-        </div>
-        <div class="mcq-options">
-          <div class="mcq-opt">(a) 6</div>
-          <div class="mcq-opt correct">(b) 6 ✓</div>
-          <div class="mcq-opt">(c) 8</div>
-          <div class="mcq-opt">(d) 10</div>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling.previousElementSibling)">▶ Show Answer</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Answer</div>
-          <div class="answer-text">
-            Using: <span class="math">n(A∪B) = n(A) + n(B) − n(A∩B)</span><br>
-            = 3 + 5 − 2 = <strong>6</strong>
-          </div>
-        </div>
+    <div class="q-card hot">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">G2</span>
+        <span class="q-text">Fill in the blanks using appropriate tense:<br>
+        (a) By the time we reached the station, the train ______ (leave).<br>
+        (b) The sun ______ (rise) in the east.<br>
+        (c) She ______ (study) for three hours when the power went off.<br>
+        (d) If I had money, I ______ (buy) a new phone.</span>
+        <span class="q-badges"><span class="badge hot">🔥 HOT</span><span class="badge gram">GRAM</span></span>
+        <span class="q-chevron">▼</span>
       </div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-mcq">MCQ</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Which of the following is NOT a function?<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">1M</span>
-        </div>
-        <div class="mcq-options">
-          <div class="mcq-opt">(a) f(x) = x²</div>
-          <div class="mcq-opt">(b) f(x) = √x, x≥0</div>
-          <div class="mcq-opt correct">(c) x² + y² = 9 ✓</div>
-          <div class="mcq-opt">(d) f(x) = |x|</div>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling.previousElementSibling)">▶ Show Answer</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Answer: (c)</div>
-          <div class="answer-text">
-            <span class="math">x² + y² = 9</span> is a circle. For a given x (e.g. x=0), y = ±3 — two values. A function must assign exactly one output per input. So this is NOT a function.
-            <div class="tip-box"><b>Tip:</b> Vertical Line Test — if a vertical line crosses the graph more than once → NOT a function.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="q-card">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-mcq">MCQ</span>
-          <div class="q-text">If A = {1,2,3} and B = {2,3,4}, then A−B = ?</div>
-          <span class="q-marks">1M</span>
-        </div>
-        <div class="mcq-options">
-          <div class="mcq-opt correct">(a) {1} ✓</div>
-          <div class="mcq-opt">(b) {4}</div>
-          <div class="mcq-opt">(c) {2,3}</div>
-          <div class="mcq-opt">(d) {1,4}</div>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling.previousElementSibling)">▶ Show Answer</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Answer: (a)</div>
-          <div class="answer-text">A−B = elements in A but NOT in B = {1}</div>
-        </div>
-      </div>
-
-      <div class="section-label">Numerical / Long Answer</div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">In a survey of 400 students, 100 take Mathematics, 150 take Science, 75 take both. Find how many take at least one subject, and how many take neither.<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">4M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Step-by-Step Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">Given: n(M)=100, n(S)=150, n(M∩S)=75, Total=400</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">n(M∪S) = n(M) + n(S) − n(M∩S) = 100 + 150 − 75 = <strong>175</strong></span></div>
-            <div class="step"><span class="step-num">3</span><span class="step-content">Neither = 400 − n(M∪S) = 400 − 175 = <strong>225</strong></span></div>
-            <div class="result-box">At least one subject: 175 | Neither: 225</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-long">LONG</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">If f(x) = 2x+3 and g(x) = x²−1, find (i) fog(x) (ii) gof(x) (iii) fog(2)<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">6M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">i</span><span class="step-content"><b>fog(x)</b> = f(g(x)) = f(x²−1) = 2(x²−1)+3 = <strong>2x²+1</strong></span></div>
-            <div class="step"><span class="step-num">ii</span><span class="step-content"><b>gof(x)</b> = g(f(x)) = g(2x+3) = (2x+3)²−1 = 4x²+12x+9−1 = <strong>4x²+12x+8</strong></span></div>
-            <div class="step"><span class="step-num">iii</span><span class="step-content"><b>fog(2)</b> = 2(2)²+1 = 8+1 = <strong>9</strong></span></div>
-            <div class="tip-box"><b>Note:</b> fog ≠ gof in general. Composition is NOT commutative.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="q-card">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-theory">THEORY</span>
-          <div class="q-text">Define (i) One-one function (ii) Onto function (iii) Bijective function. Give one example each.</div>
-          <span class="q-marks">6M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Answer</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Answer</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content"><b>One-one (Injective):</b> f(x₁)=f(x₂) ⟹ x₁=x₂. No two elements map to the same output. <br>Example: f(x)=2x on ℝ.</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content"><b>Onto (Surjective):</b> Every element in the codomain has a pre-image. Range = Codomain.<br>Example: f(x)=x³ from ℝ→ℝ.</span></div>
-            <div class="step"><span class="step-num">3</span><span class="step-content"><b>Bijective:</b> Both one-one and onto. Inverse exists.<br>Example: f(x)=x+3 from ℝ→ℝ.</span></div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
-       CHAPTER 2: SEQUENCES & SERIES
-  ══════════════════════════════════════════ -->
-  <section class="chapter" id="ch2">
-    <div class="chapter-header">
-      <div class="chapter-num">Chapter 02</div>
-      <div class="chapter-title">Sequences &amp; Series (AP, GP, HP)</div>
-      <div class="chapter-meta">Expected Marks: 12–16 | Difficulty: ★★★ — Very High Frequency</div>
-    </div>
-
-    <div class="formula-box">
-      <h4>⚡ Must-Know Formulas</h4>
-      <div class="formula-grid">
-        <div class="formula-item">AP: aₙ = a+(n−1)d</div>
-        <div class="formula-item">AP Sₙ = n/2[2a+(n−1)d]</div>
-        <div class="formula-item">GP: aₙ = arⁿ⁻¹</div>
-        <div class="formula-item">GP Sₙ = a(rⁿ−1)/(r−1), r≠1</div>
-        <div class="formula-item">GP S∞ = a/(1−r), |r|&lt;1</div>
-        <div class="formula-item">AM = (a+b)/2, GM = √(ab), HM = 2ab/(a+b)</div>
-        <div class="formula-item">AM ≥ GM ≥ HM</div>
-        <div class="formula-item">∑n = n(n+1)/2</div>
-        <div class="formula-item">∑n² = n(n+1)(2n+1)/6</div>
-        <div class="formula-item">∑n³ = [n(n+1)/2]²</div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Model Answer</span>
+        <ul>
+          <li>(a) <strong>had left</strong> — Past Perfect (action completed before another past action)</li>
+          <li>(b) <strong>rises</strong> — Simple Present (universal truth)</li>
+          <li>(c) <strong>had been studying</strong> — Past Perfect Continuous</li>
+          <li>(d) <strong>would buy</strong> — Conditional (Type 2)</li>
+        </ul>
+        <div class="tip">Universal truths, scientific facts → always Simple Present regardless of context.</div>
       </div>
     </div>
 
-    <div class="section-label">MCQs</div>
-    <div class="questions-grid">
+    <!-- VOICE -->
+    <div class="subsection-title" id="voice">🔄 Active / Passive Voice</div>
 
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-mcq">MCQ</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">The 10th term of the AP: 3, 7, 11, 15,... is<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">1M</span>
-        </div>
-        <div class="mcq-options">
-          <div class="mcq-opt">(a) 37</div>
-          <div class="mcq-opt">(b) 40</div>
-          <div class="mcq-opt correct">(c) 39 ✓</div>
-          <div class="mcq-opt">(d) 41</div>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling.previousElementSibling)">▶ Show Answer</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Answer: (c) 39</div>
-          <div class="answer-text">a=3, d=4, n=10<br>aₙ = 3 + (10−1)×4 = 3 + 36 = <strong>39</strong></div>
-        </div>
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">G3</span>
+        <span class="q-text">Change the following sentences into Passive Voice:<br>
+        (a) She writes a letter.<br>
+        (b) The teacher punished the student.<br>
+        (c) They are building a new hospital.<br>
+        (d) You must follow the rules.<br>
+        (e) Who has broken this glass?</span>
+        <span class="q-badges"><span class="badge pyq">PYQ</span><span class="badge gram">GRAM</span></span>
+        <span class="q-chevron">▼</span>
       </div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-mcq">MCQ</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">The sum of infinite GP with first term 1 and common ratio 1/2 is<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">1M</span>
-        </div>
-        <div class="mcq-options">
-          <div class="mcq-opt">(a) 1</div>
-          <div class="mcq-opt">(b) 3/2</div>
-          <div class="mcq-opt correct">(c) 2 ✓</div>
-          <div class="mcq-opt">(d) 4</div>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling.previousElementSibling)">▶ Show Answer</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Answer: (c)</div>
-          <div class="answer-text">S∞ = a/(1−r) = 1/(1−1/2) = 1/(1/2) = <strong>2</strong></div>
-        </div>
-      </div>
-
-      <div class="q-card">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-mcq">MCQ</span>
-          <div class="q-text">If AM of two numbers is 10 and GM is 8, then the numbers are</div>
-          <span class="q-marks">1M</span>
-        </div>
-        <div class="mcq-options">
-          <div class="mcq-opt">(a) 8, 12</div>
-          <div class="mcq-opt">(b) 6, 14</div>
-          <div class="mcq-opt correct">(c) 4, 16 ✓</div>
-          <div class="mcq-opt">(d) 2, 18</div>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling.previousElementSibling)">▶ Show Answer</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Answer: (c)</div>
-          <div class="answer-text">AM=10 → a+b=20. GM=8 → ab=64. Solving: x²−20x+64=0 → (x−4)(x−16)=0 → <strong>4, 16</strong></div>
-        </div>
-      </div>
-
-      <div class="section-label">Numericals</div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Find the sum of first 20 terms of the AP: 5, 8, 11, 14,...<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">4M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Step-by-Step</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">Identify: a=5, d=8−5=3, n=20</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">Sₙ = n/2 × [2a + (n−1)d] = 20/2 × [2×5 + 19×3]</span></div>
-            <div class="step"><span class="step-num">3</span><span class="step-content">= 10 × [10 + 57] = 10 × 67 = <strong>670</strong></span></div>
-            <div class="result-box">S₂₀ = 670</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">The 3rd term of a GP is 4 and 6th term is 32. Find the first term and common ratio.<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">4M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">Let first term = a, common ratio = r<br>a₃ = ar² = 4 ... (i)<br>a₆ = ar⁵ = 32 ... (ii)</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">Dividing (ii) by (i): r³ = 32/4 = 8 → r = 2</span></div>
-            <div class="step"><span class="step-num">3</span><span class="step-content">From (i): a×4 = 4 → a = 1</span></div>
-            <div class="result-box">First term a = 1, Common ratio r = 2</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Find the sum: 1² + 2² + 3² + ... + 15²<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">3M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">∑n² = n(n+1)(2n+1)/6, here n=15</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">= 15×16×31/6 = 15×16×31/6</span></div>
-            <div class="step"><span class="step-num">3</span><span class="step-content">= (15×16×31)/6 = 7440/6 = <strong>1240</strong></span></div>
-            <div class="result-box">Sum = 1240</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
-       CHAPTER 3: TRIGONOMETRY
-  ══════════════════════════════════════════ -->
-  <section class="chapter" id="ch3">
-    <div class="chapter-header">
-      <div class="chapter-num">Chapter 03</div>
-      <div class="chapter-title">Trigonometry</div>
-      <div class="chapter-meta">Expected Marks: 12–18 | Difficulty: ★★★ — Most Important Chapter</div>
-    </div>
-
-    <div class="formula-box">
-      <h4>⚡ Essential Formulas</h4>
-      <div class="formula-grid">
-        <div class="formula-item">sin²θ + cos²θ = 1</div>
-        <div class="formula-item">1 + tan²θ = sec²θ</div>
-        <div class="formula-item">1 + cot²θ = cosec²θ</div>
-        <div class="formula-item">sin(A±B) = sinAcosB ± cosAsinB</div>
-        <div class="formula-item">cos(A±B) = cosAcosB ∓ sinAsinB</div>
-        <div class="formula-item">tan(A+B) = (tanA+tanB)/(1−tanAtanB)</div>
-        <div class="formula-item">sin2A = 2sinAcosA</div>
-        <div class="formula-item">cos2A = cos²A−sin²A = 1−2sin²A = 2cos²A−1</div>
-        <div class="formula-item">tan2A = 2tanA/(1−tan²A)</div>
-        <div class="formula-item">sinC+sinD = 2sin((C+D)/2)cos((C−D)/2)</div>
-        <div class="formula-item">cosC+cosD = 2cos((C+D)/2)cos((C−D)/2)</div>
-        <div class="formula-item">a/sinA = b/sinB = c/sinC (Sine Rule)</div>
-        <div class="formula-item">c² = a²+b²−2ab·cosC (Cosine Rule)</div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Model Answer</span>
+        <ul>
+          <li>(a) A letter <strong>is written</strong> by her.</li>
+          <li>(b) The student <strong>was punished</strong> by the teacher.</li>
+          <li>(c) A new hospital <strong>is being built</strong> by them.</li>
+          <li>(d) The rules <strong>must be followed</strong> (by you).</li>
+          <li>(e) By whom <strong>has this glass been broken</strong>?</li>
+        </ul>
+        <div class="tip">Formula: Object + helping verb (be-form) + V3 + by + Subject. Modals in passive: Modal + be + V3.</div>
       </div>
     </div>
 
-    <div class="section-label">MCQs</div>
-    <div class="questions-grid">
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-mcq">MCQ</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">The value of sin 30° + cos 60° is<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">1M</span>
-        </div>
-        <div class="mcq-options">
-          <div class="mcq-opt correct">(a) 1 ✓</div>
-          <div class="mcq-opt">(b) √3</div>
-          <div class="mcq-opt">(c) 1/2</div>
-          <div class="mcq-opt">(d) √3/2</div>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling.previousElementSibling)">▶ Show Answer</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Answer: (a)</div>
-          <div class="answer-text">sin30° = 1/2, cos60° = 1/2 → sum = 1</div>
-        </div>
+    <div class="q-card hot">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">G4</span>
+        <span class="q-text">Change to Active Voice:<br>
+        (a) The book was read by him.<br>
+        (b) A song is being sung by Meena.<br>
+        (c) The match has been won by India.<br>
+        (d) Let the door be opened.</span>
+        <span class="q-badges"><span class="badge hot">🔥 HOT</span><span class="badge gram">GRAM</span></span>
+        <span class="q-chevron">▼</span>
       </div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-mcq">MCQ</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">If tanθ = 3/4, then sinθ = ?<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">1M</span>
-        </div>
-        <div class="mcq-options">
-          <div class="mcq-opt">(a) 3/5</div>
-          <div class="mcq-opt">(b) 4/5</div>
-          <div class="mcq-opt correct">(c) 3/5 ✓</div>
-          <div class="mcq-opt">(d) 4/3</div>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling.previousElementSibling)">▶ Show Answer</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Answer: 3/5</div>
-          <div class="answer-text">tanθ=3/4 means opp=3, adj=4, hyp=5.<br>sinθ = 3/5</div>
-        </div>
-      </div>
-
-      <div class="section-label">Numericals</div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Prove that: sin(A+B)·sin(A−B) = sin²A − sin²B<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">4M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Proof</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Proof</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">LHS</span><span class="step-content">sin(A+B)·sin(A−B)<br>= (sinAcosB + cosAsinB)(sinAcosB − cosAsinB)</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">= sin²Acos²B − cos²Asin²B<br>= sin²A(1−sin²B) − (1−sin²A)sin²B</span></div>
-            <div class="step"><span class="step-num">3</span><span class="step-content">= sin²A − sin²Asin²B − sin²B + sin²Asin²B<br>= sin²A − sin²B = RHS ∎</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Find all values of θ in [0°, 360°] satisfying: 2sin²θ − sinθ − 1 = 0<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">4M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">Factor: 2sin²θ − sinθ − 1 = 0<br>(2sinθ + 1)(sinθ − 1) = 0</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">Case 1: sinθ = 1 → θ = 90°</span></div>
-            <div class="step"><span class="step-num">3</span><span class="step-content">Case 2: sinθ = −1/2 → θ = 210°, 330°</span></div>
-            <div class="result-box">θ = 90°, 210°, 330°</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Prove: (sinA + cosA)² = 1 + sin2A<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">3M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Proof</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Proof</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">LHS</span><span class="step-content">(sinA + cosA)² = sin²A + 2sinAcosA + cos²A</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">= (sin²A + cos²A) + 2sinAcosA = 1 + sin2A = RHS ∎</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="q-card">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <div class="q-text">If sinA = 12/13 (A in 1st quadrant), find cos2A and sin2A.</div>
-          <span class="q-marks">4M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">sinA = 12/13 → cosA = 5/13 (1st quadrant, positive)</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">cos2A = 1 − 2sin²A = 1 − 2(144/169) = 1 − 288/169 = −119/169</span></div>
-            <div class="step"><span class="step-num">3</span><span class="step-content">sin2A = 2sinAcosA = 2×(12/13)×(5/13) = 120/169</span></div>
-            <div class="result-box">cos2A = −119/169, sin2A = 120/169</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
-       CHAPTER 4: COMPLEX NUMBERS
-  ══════════════════════════════════════════ -->
-  <section class="chapter" id="ch4">
-    <div class="chapter-header">
-      <div class="chapter-num">Chapter 04</div>
-      <div class="chapter-title">Complex Numbers</div>
-      <div class="chapter-meta">Expected Marks: 8–12 | Difficulty: ★★☆</div>
-    </div>
-
-    <div class="formula-box">
-      <h4>⚡ Key Formulas</h4>
-      <div class="formula-grid">
-        <div class="formula-item">z = a + bi, i² = −1</div>
-        <div class="formula-item">|z| = √(a²+b²)</div>
-        <div class="formula-item">z̄ = a − bi (conjugate)</div>
-        <div class="formula-item">z·z̄ = |z|²</div>
-        <div class="formula-item">Modulus-Argument: z = r(cosθ + i sinθ)</div>
-        <div class="formula-item">Argument θ = tan⁻¹(b/a)</div>
-        <div class="formula-item">Division: multiply by conjugate of denominator</div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Model Answer</span>
+        <ul>
+          <li>(a) He <strong>read</strong> the book.</li>
+          <li>(b) Meena <strong>is singing</strong> a song.</li>
+          <li>(c) India <strong>has won</strong> the match.</li>
+          <li>(d) <strong>Open</strong> the door. / Let him open the door.</li>
+        </ul>
       </div>
     </div>
 
-    <div class="questions-grid">
+    <!-- NARRATION -->
+    <div class="subsection-title" id="narration">💬 Direct / Indirect Speech</div>
 
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-mcq">MCQ</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">The modulus of z = 3 + 4i is<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">1M</span>
-        </div>
-        <div class="mcq-options">
-          <div class="mcq-opt">(a) 3</div>
-          <div class="mcq-opt">(b) 4</div>
-          <div class="mcq-opt correct">(c) 5 ✓</div>
-          <div class="mcq-opt">(d) 7</div>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling.previousElementSibling)">▶ Show Answer</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Answer: (c)</div>
-          <div class="answer-text">|z| = √(3²+4²) = √(9+16) = √25 = <strong>5</strong></div>
-        </div>
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">G5</span>
+        <span class="q-text">Change into Indirect Speech:<br>
+        (a) She said, "I am going to Delhi."<br>
+        (b) He said to me, "Do you know the answer?"<br>
+        (c) The teacher said, "The earth revolves around the sun."<br>
+        (d) She said, "Please help me."<br>
+        (e) He said, "What a beautiful painting!"</span>
+        <span class="q-badges"><span class="badge pyq">PYQ</span><span class="badge gram">GRAM</span></span>
+        <span class="q-chevron">▼</span>
       </div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Express (2+3i)/(1−2i) in the form a+bi.<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">4M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">Multiply numerator and denominator by conjugate of denominator (1+2i):<br>(2+3i)(1+2i) / [(1−2i)(1+2i)]</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">Numerator: 2+4i+3i+6i² = 2+7i+6(−1) = −4+7i</span></div>
-            <div class="step"><span class="step-num">3</span><span class="step-content">Denominator: 1+4 = 5</span></div>
-            <div class="step"><span class="step-num">4</span><span class="step-content">Result: (−4+7i)/5 = −4/5 + (7/5)i</span></div>
-            <div class="result-box">a = −4/5, b = 7/5</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Find the square roots of the complex number −7 + 24i.<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">5M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">Let √(−7+24i) = a+bi<br>So (a+bi)² = −7+24i<br>a²−b² = −7 ...(i), 2ab = 24 → ab = 12 ...(ii)</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">(a²+b²)² = (a²−b²)² + (2ab)² = 49 + 576 = 625<br>→ a²+b² = 25 ...(iii)</span></div>
-            <div class="step"><span class="step-num">3</span><span class="step-content">From (i)+(iii): 2a²=18 → a=3 or a=−3<br>From (ii): b=12/a → b=4 or b=−4</span></div>
-            <div class="result-box">√(−7+24i) = ±(3 + 4i)</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
-       CHAPTER 5: MATRICES & DETERMINANTS
-  ══════════════════════════════════════════ -->
-  <section class="chapter" id="ch5">
-    <div class="chapter-header">
-      <div class="chapter-num">Chapter 05</div>
-      <div class="chapter-title">Matrices &amp; Determinants</div>
-      <div class="chapter-meta">Expected Marks: 14–18 | Difficulty: ★★★ — High Value</div>
-    </div>
-
-    <div class="formula-box">
-      <h4>⚡ Key Points</h4>
-      <div class="formula-grid">
-        <div class="formula-item">|A| for 2×2: ad−bc</div>
-        <div class="formula-item">|A| for 3×3: expand along any row/column</div>
-        <div class="formula-item">A⁻¹ = (1/|A|) × adj(A)</div>
-        <div class="formula-item">adj(A) = transpose of cofactor matrix</div>
-        <div class="formula-item">A·A⁻¹ = I (identity)</div>
-        <div class="formula-item">|AB| = |A|·|B|</div>
-        <div class="formula-item">Cramer's Rule: x=Dₓ/D, y=Dᵧ/D</div>
-        <div class="formula-item">(AB)ᵀ = BᵀAᵀ</div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Model Answer</span>
+        <ul>
+          <li>(a) She said that <strong>she was going to Delhi</strong>.</li>
+          <li>(b) He asked me <strong>if/whether I knew the answer</strong>.</li>
+          <li>(c) The teacher said that <strong>the earth revolves around the sun</strong>. (No tense change for universal truth)</li>
+          <li>(d) She <strong>requested</strong> me <strong>to help</strong> her.</li>
+          <li>(e) He <strong>exclaimed</strong> that it was <strong>a very beautiful painting</strong>.</li>
+        </ul>
+        <div class="tip">Tense shift rule: is→was, am→was, are→were, will→would, can→could, may→might. Pronouns shift: I→he/she, we→they, you→I/he/she.</div>
       </div>
     </div>
 
-    <div class="section-label">MCQs</div>
-    <div class="questions-grid">
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-mcq">MCQ</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">The determinant of matrix A = [[2,3],[1,4]] is<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">1M</span>
-        </div>
-        <div class="mcq-options">
-          <div class="mcq-opt">(a) 7</div>
-          <div class="mcq-opt">(b) 3</div>
-          <div class="mcq-opt">(c) 11</div>
-          <div class="mcq-opt correct">(d) 5 ✓</div>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling.previousElementSibling)">▶ Show Answer</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Answer: (d)</div>
-          <div class="answer-text">|A| = 2×4 − 3×1 = 8 − 3 = <strong>5</strong></div>
-        </div>
+    <div class="q-card hot">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">G6</span>
+        <span class="q-text">Change into Direct Speech:<br>
+        (a) He told me that he had finished his homework.<br>
+        (b) She asked him if he was coming to the party.<br>
+        (c) The teacher ordered the students to be silent.</span>
+        <span class="q-badges"><span class="badge hot">🔥 HOT</span><span class="badge gram">GRAM</span></span>
+        <span class="q-chevron">▼</span>
       </div>
-
-      <div class="section-label">Numericals</div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Find the inverse of the matrix A = [[1,2],[3,4]].<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">5M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">|A| = 1×4 − 2×3 = 4 − 6 = −2 (≠0, so invertible)</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">adj(A) = [[4,−2],[−3,1]]  (swap diagonal, negate off-diagonal)</span></div>
-            <div class="step"><span class="step-num">3</span><span class="step-content">A⁻¹ = (1/|A|) × adj(A) = (1/−2) × [[4,−2],[−3,1]]</span></div>
-            <div class="math-block">A⁻¹ = [[-2,   1  ],
-       [ 3/2, -1/2]]</div>
-            <div class="result-box">A⁻¹ = [[−2, 1], [3/2, −1/2]]</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Solve using Cramer's Rule: 2x + 3y = 8, x − y = 1<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">5M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">D = |2, 3; 1, −1| = 2(−1)−3(1) = −2−3 = −5</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">Dₓ = |8, 3; 1, −1| = 8(−1)−3(1) = −8−3 = −11<br>x = Dₓ/D = −11/−5 = 11/5</span></div>
-            <div class="step"><span class="step-num">3</span><span class="step-content">Dᵧ = |2, 8; 1, 1| = 2(1)−8(1) = −6<br>y = Dᵧ/D = −6/−5 = 6/5</span></div>
-            <div class="result-box">x = 11/5, y = 6/5</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Evaluate the 3×3 determinant: |1,2,3; 4,5,6; 7,8,9|<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">4M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">Expand along R1:<br>= 1(5×9−6×8) − 2(4×9−6×7) + 3(4×8−5×7)</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">= 1(45−48) − 2(36−42) + 3(32−35)<br>= 1(−3) − 2(−6) + 3(−3)</span></div>
-            <div class="step"><span class="step-num">3</span><span class="step-content">= −3 + 12 − 9 = <strong>0</strong></span></div>
-            <div class="result-box">Determinant = 0 (rows are in AP, so linearly dependent)</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
-       CHAPTER 6: PERMUTATIONS & COMBINATIONS
-  ══════════════════════════════════════════ -->
-  <section class="chapter" id="ch6">
-    <div class="chapter-header">
-      <div class="chapter-num">Chapter 06</div>
-      <div class="chapter-title">Permutations &amp; Combinations</div>
-      <div class="chapter-meta">Expected Marks: 8–12 | Difficulty: ★★☆</div>
-    </div>
-
-    <div class="formula-box">
-      <h4>⚡ Key Formulas</h4>
-      <div class="formula-grid">
-        <div class="formula-item">nPr = n!/(n−r)!</div>
-        <div class="formula-item">nCr = n!/[r!(n−r)!]</div>
-        <div class="formula-item">nCr = nC(n−r)</div>
-        <div class="formula-item">nC0 = nCn = 1</div>
-        <div class="formula-item">nCr + nC(r−1) = (n+1)Cr</div>
-        <div class="formula-item">Arrangements with repetition: nʳ</div>
-        <div class="formula-item">Circular: (n−1)!</div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Model Answer</span>
+        <ul>
+          <li>(a) He said to me, <strong>"I have finished my homework."</strong></li>
+          <li>(b) She said to him, <strong>"Are you coming to the party?"</strong></li>
+          <li>(c) The teacher said to the students, <strong>"Be silent."</strong></li>
+        </ul>
       </div>
     </div>
 
-    <div class="questions-grid">
+    <!-- ARTICLES -->
+    <div class="subsection-title" id="articles">📌 Articles & Determiners</div>
 
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">How many ways can 5 people be arranged in a row? In a circle?<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">3M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">In a row: 5! = 5×4×3×2×1 = <strong>120 ways</strong></span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">In a circle: (5−1)! = 4! = <strong>24 ways</strong></span></div>
-          </div>
-        </div>
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">G7</span>
+        <span class="q-text">Fill in the blanks with a/an/the or leave blank (—):<br>
+        (a) I saw __ elephant at __ zoo.<br>
+        (b) She is __ honest woman.<br>
+        (c) He plays __ guitar every evening.<br>
+        (d) __ Ganga is __ sacred river.<br>
+        (e) __ gold is __ precious metal.<br>
+        (f) He is __ best student in the class.</span>
+        <span class="q-badges"><span class="badge pyq">PYQ</span><span class="badge gram">GRAM</span></span>
+        <span class="q-chevron">▼</span>
       </div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">A committee of 3 is to be chosen from 5 men and 3 women such that it has at least 1 woman. Find the number of ways.<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">4M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">Total ways without restriction: 8C3 = 56</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">Ways with NO woman (all men): 5C3 = 10</span></div>
-            <div class="step"><span class="step-num">3</span><span class="step-content">At least 1 woman = 56 − 10 = <strong>46</strong></span></div>
-            <div class="result-box">46 ways</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="q-card">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <div class="q-text">Find the value of n if ⁿC₈ = ⁿC₁₂.</div>
-          <span class="q-marks">2M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            nCr = nC(n−r), so if nC₈ = nC₁₂ then either 8=12 (impossible) or 8 + 12 = n → <strong>n = 20</strong>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
-       CHAPTER 7: BINOMIAL THEOREM
-  ══════════════════════════════════════════ -->
-  <section class="chapter" id="ch7">
-    <div class="chapter-header">
-      <div class="chapter-num">Chapter 07</div>
-      <div class="chapter-title">Binomial Theorem</div>
-      <div class="chapter-meta">Expected Marks: 6–10 | Difficulty: ★★☆</div>
-    </div>
-
-    <div class="formula-box">
-      <h4>⚡ Key Formulas</h4>
-      <div class="formula-grid">
-        <div class="formula-item">(a+b)ⁿ = Σ nCr · aⁿ⁻ʳ · bʳ, r=0 to n</div>
-        <div class="formula-item">General term: Tᵣ₊₁ = nCr · aⁿ⁻ʳ · bʳ</div>
-        <div class="formula-item">Middle term: if n even → T(n/2+1)</div>
-        <div class="formula-item">Middle term: if n odd → T((n+1)/2) and T((n+3)/2)</div>
-        <div class="formula-item">Sum of coefficients: put a=b=1 → 2ⁿ</div>
-        <div class="formula-item">(1+x)ⁿ expansion at x=1 → 2ⁿ</div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Model Answer</span>
+        <ul>
+          <li>(a) an, the</li>
+          <li>(b) an (vowel sound /ɒ/)</li>
+          <li>(c) the (musical instruments take "the")</li>
+          <li>(d) The, a</li>
+          <li>(e) — (material nouns in general sense), a</li>
+          <li>(f) the (superlative → always "the")</li>
+        </ul>
+        <div class="tip">Key rules: rivers/mountains/oceans → "the"; musical instruments → "the"; superlatives → "the"; first mention → a/an; second mention → the.</div>
       </div>
     </div>
 
-    <div class="questions-grid">
+    <!-- MODALS -->
+    <div class="subsection-title" id="modals">⚙️ Modals</div>
 
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Find the 5th term in the expansion of (2x − 3y)⁷.<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">4M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">Tᵣ₊₁ = ⁷Cᵣ · (2x)⁷⁻ʳ · (−3y)ʳ<br>For 5th term: r = 4</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">T₅ = ⁷C₄ · (2x)³ · (−3y)⁴</span></div>
-            <div class="step"><span class="step-num">3</span><span class="step-content">⁷C₄ = 35<br>= 35 × 8x³ × 81y⁴ = <strong>22680 x³y⁴</strong></span></div>
-            <div class="result-box">T₅ = 22680 x³y⁴</div>
-          </div>
-        </div>
+    <div class="q-card hot">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">G8</span>
+        <span class="q-text">Fill in the blanks with appropriate modals (can, could, may, might, must, should, would, shall, need, ought to):<br>
+        (a) You __ not smoke in the hospital. (prohibition)<br>
+        (b) __ I come in, sir? (polite request)<br>
+        (c) She __ speak five languages. (ability)<br>
+        (d) You __ brush your teeth twice a day. (advice)<br>
+        (e) It __ rain today — the sky is dark. (possibility)</span>
+        <span class="q-badges"><span class="badge hot">🔥 HOT</span><span class="badge gram">GRAM</span></span>
+        <span class="q-chevron">▼</span>
       </div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Find the middle term in the expansion of (x + 1/x)⁸.<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">3M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">n=8 (even), middle term = T(n/2 + 1) = T₅</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">T₅ = ⁸C₄ · x⁴ · (1/x)⁴ = 70 · x⁴ · x⁻⁴ = 70 · 1</span></div>
-            <div class="result-box">Middle term = 70 (constant)</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
-       CHAPTER 8: COORDINATE GEOMETRY
-  ══════════════════════════════════════════ -->
-  <section class="chapter" id="ch8">
-    <div class="chapter-header">
-      <div class="chapter-num">Chapter 08</div>
-      <div class="chapter-title">Coordinate Geometry</div>
-      <div class="chapter-meta">Expected Marks: 14–18 | Difficulty: ★★★</div>
-    </div>
-
-    <div class="formula-box">
-      <h4>⚡ Key Formulas</h4>
-      <div class="formula-grid">
-        <div class="formula-item">Distance: √[(x₂−x₁)²+(y₂−y₁)²]</div>
-        <div class="formula-item">Mid-point: ((x₁+x₂)/2, (y₁+y₂)/2)</div>
-        <div class="formula-item">Slope m = (y₂−y₁)/(x₂−x₁)</div>
-        <div class="formula-item">Line: y = mx+c (slope-intercept)</div>
-        <div class="formula-item">Point-slope: y−y₁ = m(x−x₁)</div>
-        <div class="formula-item">Two-intercept: x/a + y/b = 1</div>
-        <div class="formula-item">Dist(point to line): |ax₁+by₁+c|/√(a²+b²)</div>
-        <div class="formula-item">Circle: (x−h)²+(y−k)²=r²</div>
-        <div class="formula-item">Parabola: y²=4ax; focus(a,0), directrix x=−a</div>
-        <div class="formula-item">Ellipse: x²/a²+y²/b²=1, a>b; c²=a²−b²</div>
-        <div class="formula-item">Hyperbola: x²/a²−y²/b²=1; c²=a²+b²</div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Model Answer</span>
+        <ul>
+          <li>(a) <strong>must</strong> not / should not</li>
+          <li>(b) <strong>May</strong></li>
+          <li>(c) <strong>can</strong></li>
+          <li>(d) <strong>should</strong> / ought to</li>
+          <li>(e) <strong>might</strong> / may</li>
+        </ul>
+        <table class="gram-table" style="margin-top:0.6rem;">
+          <tr><th>Modal</th><th>Use</th><th>Example</th></tr>
+          <tr><td>can/could</td><td>Ability, possibility</td><td>I can swim.</td></tr>
+          <tr><td>may/might</td><td>Permission, possibility</td><td>May I go?</td></tr>
+          <tr><td>must</td><td>Obligation, necessity, prohibition (not)</td><td>You must try.</td></tr>
+          <tr><td>should/ought to</td><td>Advice, duty</td><td>You should rest.</td></tr>
+          <tr><td>would</td><td>Habitual past, polite request</td><td>He would sing.</td></tr>
+          <tr><td>shall</td><td>Future (I/We), offer, determination</td><td>Shall we go?</td></tr>
+        </table>
       </div>
     </div>
 
-    <div class="questions-grid">
+    <!-- TRANSFORMATION -->
+    <div class="subsection-title" id="transformation">🔁 Sentence Transformation</div>
 
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Find the equation of line passing through (2,3) and (−1,5).<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">3M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">m = (5−3)/(−1−2) = 2/(−3) = −2/3</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">y−3 = (−2/3)(x−2)<br>3(y−3) = −2(x−2)<br>3y−9 = −2x+4</span></div>
-            <div class="step"><span class="step-num">3</span><span class="step-content">2x + 3y = 13</span></div>
-            <div class="result-box">2x + 3y − 13 = 0</div>
-          </div>
-        </div>
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">G9</span>
+        <span class="q-text">Transform the sentences as directed:<br>
+        (a) He is too weak to walk. (Remove 'too') <br>
+        (b) No other student is as intelligent as Riya. (Change to Comparative)<br>
+        (c) He said, "How cold it is!" (Exclamatory to Assertive)<br>
+        (d) Work hard or you will fail. (Use 'If')<br>
+        (e) As soon as she entered, everyone stood up. (Use 'No sooner')</span>
+        <span class="q-badges"><span class="badge pyq">PYQ</span><span class="badge hot">🔥 HOT</span><span class="badge gram">GRAM</span></span>
+        <span class="q-chevron">▼</span>
       </div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Find the distance from point (3, 4) to the line 3x − 4y + 5 = 0.<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">3M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">d = |3(3) − 4(4) + 5| / √(3²+4²)</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">= |9 − 16 + 5| / √25 = |−2| / 5 = 2/5</span></div>
-            <div class="result-box">Distance = 2/5 units</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Find the centre and radius of the circle: x² + y² − 6x + 4y − 3 = 0<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">4M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">Complete the square:<br>(x²−6x+9) + (y²+4y+4) = 3+9+4</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">(x−3)² + (y+2)² = 16</span></div>
-            <div class="step"><span class="step-num">3</span><span class="step-content">Centre = (3, −2), Radius = √16 = 4</span></div>
-            <div class="result-box">Centre (3, −2), Radius = 4</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Find the focus, directrix, and latus rectum of the parabola y² = 12x.<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">4M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">y²=12x → y²=4(3)x → a=3</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">Focus = (a, 0) = <strong>(3, 0)</strong></span></div>
-            <div class="step"><span class="step-num">3</span><span class="step-content">Directrix: x = −a = <strong>x = −3</strong></span></div>
-            <div class="step"><span class="step-num">4</span><span class="step-content">Length of Latus Rectum = 4a = <strong>12</strong></span></div>
-            <div class="result-box">Focus: (3,0) | Directrix: x=−3 | LR length: 12</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
-       CHAPTER 9: LIMITS & CONTINUITY
-  ══════════════════════════════════════════ -->
-  <section class="chapter" id="ch9">
-    <div class="chapter-header">
-      <div class="chapter-num">Chapter 09</div>
-      <div class="chapter-title">Limits &amp; Continuity</div>
-      <div class="chapter-meta">Expected Marks: 8–12 | Difficulty: ★★☆</div>
-    </div>
-
-    <div class="formula-box">
-      <h4>⚡ Standard Limits</h4>
-      <div class="formula-grid">
-        <div class="formula-item">lim(x→0) sinx/x = 1</div>
-        <div class="formula-item">lim(x→0) tanx/x = 1</div>
-        <div class="formula-item">lim(x→0) (1+x)^(1/x) = e</div>
-        <div class="formula-item">lim(x→a) (xⁿ−aⁿ)/(x−a) = naⁿ⁻¹</div>
-        <div class="formula-item">lim(x→0) (eˣ−1)/x = 1</div>
-        <div class="formula-item">lim(x→0) log(1+x)/x = 1</div>
-        <div class="formula-item">Continuity at a: f(a) = lim(x→a) f(x)</div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Model Answer</span>
+        <ul>
+          <li>(a) He is <strong>so weak that he cannot walk</strong>.</li>
+          <li>(b) Riya is <strong>more intelligent than any other student</strong>.</li>
+          <li>(c) It is <strong>very cold</strong>.</li>
+          <li>(d) <strong>If you do not work hard, you will fail</strong>.</li>
+          <li>(e) <strong>No sooner did she enter than everyone stood up</strong>.</li>
+        </ul>
+        <div class="tip">too…to → so…that…not | No sooner → inverted structure: No sooner + had/did + Subject + V1/V3 + than…</div>
       </div>
     </div>
 
-    <div class="questions-grid">
+    <!-- PREPOSITIONS -->
+    <div class="subsection-title" id="prepositions">📍 Prepositions</div>
 
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Evaluate: lim(x→2) (x³ − 8)/(x − 2)<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">3M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">Direct substitution gives 0/0 — use formula or factor</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">lim(x→a) (xⁿ−aⁿ)/(x−a) = naⁿ⁻¹<br>Here n=3, a=2: = 3×2² = <strong>12</strong></span></div>
-            <div class="step"><span class="step-num">Alt</span><span class="step-content">Factor: x³−8 = (x−2)(x²+2x+4)<br>lim = x²+2x+4 at x=2 = 4+4+4 = 12 ✓</span></div>
-            <div class="result-box">Limit = 12</div>
-          </div>
-        </div>
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">G10</span>
+        <span class="q-text">Fill in the blanks with appropriate prepositions:<br>
+        (a) She is afraid __ spiders.<br>
+        (b) He is good __ mathematics.<br>
+        (c) The meeting will start __ 9 a.m. __ Monday.<br>
+        (d) She has been living here __ 2018.<br>
+        (e) I congratulated him __ his success.</span>
+        <span class="q-badges"><span class="badge pyq">PYQ</span><span class="badge gram">GRAM</span></span>
+        <span class="q-chevron">▼</span>
       </div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Evaluate: lim(x→0) sin(3x)/x<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">2M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">lim(x→0) sin(3x)/x = lim × (3/3) = 3 × lim(x→0) sin(3x)/(3x)</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">= 3 × 1 = <strong>3</strong></span></div>
-            <div class="result-box">Limit = 3</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="q-card">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-theory">THEORY</span>
-          <div class="q-text">State the conditions for continuity of f(x) at x = a. Is f(x) = |x| continuous at x = 0?</div>
-          <span class="q-marks">4M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Answer</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Answer</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">Cond.</span><span class="step-content">1) f(a) is defined &nbsp;&nbsp; 2) lim(x→a) f(x) exists &nbsp;&nbsp; 3) lim(x→a) f(x) = f(a)</span></div>
-            <div class="step"><span class="step-num">Check</span><span class="step-content">For f(x)=|x| at x=0:<br>f(0) = 0 ✓<br>LHL = lim(x→0⁻) (−x) = 0<br>RHL = lim(x→0⁺) x = 0<br>LHL = RHL = f(0) = 0</span></div>
-            <div class="result-box">f(x) = |x| is continuous at x = 0</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
-       CHAPTER 10: DIFFERENTIATION
-  ══════════════════════════════════════════ -->
-  <section class="chapter" id="ch10">
-    <div class="chapter-header">
-      <div class="chapter-num">Chapter 10</div>
-      <div class="chapter-title">Differentiation</div>
-      <div class="chapter-meta">Expected Marks: 14–20 | Difficulty: ★★★ — Highest Scoring</div>
-    </div>
-
-    <div class="formula-box">
-      <h4>⚡ Derivatives to Memorize</h4>
-      <div class="formula-grid">
-        <div class="formula-item">d/dx(xⁿ) = nxⁿ⁻¹</div>
-        <div class="formula-item">d/dx(eˣ) = eˣ</div>
-        <div class="formula-item">d/dx(aˣ) = aˣ·ln(a)</div>
-        <div class="formula-item">d/dx(ln x) = 1/x</div>
-        <div class="formula-item">d/dx(sinx) = cosx</div>
-        <div class="formula-item">d/dx(cosx) = −sinx</div>
-        <div class="formula-item">d/dx(tanx) = sec²x</div>
-        <div class="formula-item">d/dx(sin⁻¹x) = 1/√(1−x²)</div>
-        <div class="formula-item">d/dx(cos⁻¹x) = −1/√(1−x²)</div>
-        <div class="formula-item">d/dx(tan⁻¹x) = 1/(1+x²)</div>
-        <div class="formula-item">Product: (uv)' = u'v + uv'</div>
-        <div class="formula-item">Quotient: (u/v)' = (u'v − uv')/v²</div>
-        <div class="formula-item">Chain: d/dx[f(g(x))] = f'(g(x))·g'(x)</div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Model Answer</span>
+        <ul>
+          <li>(a) afraid <strong>of</strong></li>
+          <li>(b) good <strong>at</strong></li>
+          <li>(c) <strong>at</strong> 9 a.m. <strong>on</strong> Monday</li>
+          <li>(d) <strong>since</strong> 2018 (point of time)</li>
+          <li>(e) congratulated him <strong>on</strong> his success</li>
+        </ul>
+        <div class="tip">Common pairs: good at, interested in, afraid of, proud of, congratulate on, at (time/exact), on (day/date), in (month/year).</div>
       </div>
     </div>
 
-    <div class="questions-grid">
+    <!-- ERROR CORRECTION -->
+    <div class="subsection-title" id="errors">✏️ Error Correction</div>
 
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Differentiate: y = x³ · eˣ<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">3M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution (Product Rule)</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">u = x³, v = eˣ, u' = 3x², v' = eˣ</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">dy/dx = u'v + uv' = 3x²·eˣ + x³·eˣ = eˣ(3x² + x³)</span></div>
-            <div class="result-box">dy/dx = x²eˣ(3 + x)</div>
-          </div>
-        </div>
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">G11</span>
+        <span class="q-text">Identify and correct one error in each sentence:<br>
+        (a) She don't know the answer.<br>
+        (b) The informations given are incorrect.<br>
+        (c) He is more smarter than his brother.<br>
+        (d) I have seen that movie yesterday.<br>
+        (e) Neither of the boys have done their work.</span>
+        <span class="q-badges"><span class="badge pyq">PYQ</span><span class="badge hot">🔥 HOT</span><span class="badge gram">GRAM</span></span>
+        <span class="q-chevron">▼</span>
       </div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Differentiate: y = sin(x²+1)<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">3M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution (Chain Rule)</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">Outer function: sin(u), inner: u = x²+1</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">dy/dx = cos(x²+1) · d/dx(x²+1) = cos(x²+1) · 2x</span></div>
-            <div class="result-box">dy/dx = 2x·cos(x²+1)</div>
-          </div>
-        </div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Corrections</span>
+        <ul>
+          <li>(a) She <strong>doesn't</strong> know the answer. (Subject-verb agreement: she → doesn't)</li>
+          <li>(b) The <strong>information</strong> given is incorrect. (Uncountable noun)</li>
+          <li>(c) He is <strong>smarter</strong> than his brother. (Remove double comparative)</li>
+          <li>(d) I <strong>saw</strong> that movie yesterday. (Past Simple with past time expression, not Present Perfect)</li>
+          <li>(e) Neither of the boys <strong>has</strong> done his work. (Neither → singular verb)</li>
+        </ul>
       </div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">If y = x²·sin(x), find dy/dx.<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">3M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">Product Rule: dy/dx = 2x·sinx + x²·cosx</span></div>
-            <div class="result-box">dy/dx = 2x sinx + x² cosx</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-long">LONG</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Find the equation of the tangent and normal to the curve y = x³ − 2x + 1 at the point (1, 0).<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">6M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">dy/dx = 3x² − 2</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">At (1,0): slope of tangent m = 3(1)²−2 = 1</span></div>
-            <div class="step"><span class="step-num">3</span><span class="step-content">Tangent: y−0 = 1(x−1) → <strong>y = x−1</strong></span></div>
-            <div class="step"><span class="step-num">4</span><span class="step-content">Slope of normal = −1/m = −1<br>Normal: y−0 = −1(x−1) → <strong>y = −x+1</strong></span></div>
-            <div class="result-box">Tangent: y = x−1 | Normal: y = −x+1</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-long">LONG</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Find the local maxima and minima of f(x) = 2x³ − 3x² − 12x + 4.<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">6M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">f'(x) = 6x² − 6x − 12 = 6(x²−x−2) = 6(x−2)(x+1)<br>Critical points: x = 2, x = −1</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">f''(x) = 12x − 6</span></div>
-            <div class="step"><span class="step-num">3</span><span class="step-content">At x=2: f''(2)=18>0 → <strong>Local Minimum</strong><br>f(2) = 16−12−24+4 = −16</span></div>
-            <div class="step"><span class="step-num">4</span><span class="step-content">At x=−1: f''(−1)=−18<0 → <strong>Local Maximum</strong><br>f(−1) = −2−3+12+4 = 11</span></div>
-            <div class="result-box">Local Max: 11 at x=−1 | Local Min: −16 at x=2</div>
-          </div>
-        </div>
-      </div>
-
     </div>
-  </section>
+  </div>
 
-  <!-- ══════════════════════════════════════
-       CHAPTER 11: INTEGRATION
-  ══════════════════════════════════════════ -->
-  <section class="chapter" id="ch11">
-    <div class="chapter-header">
-      <div class="chapter-num">Chapter 11</div>
-      <div class="chapter-title">Integration</div>
-      <div class="chapter-meta">Expected Marks: 16–22 | Difficulty: ★★★ — Highest Marks</div>
-    </div>
+  <!-- ============================= WRITING SKILLS ============================= -->
+  <div class="section-block" id="writing">
+    <div class="section-title"><span class="section-icon">✍️</span> Writing Skills</div>
+    <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:1rem;">Writing skills = easy marks if you know the FORMAT. Master the format first, then content. These questions come every year.</p>
 
-    <div class="formula-box">
-      <h4>⚡ Standard Integrals</h4>
-      <div class="formula-grid">
-        <div class="formula-item">∫xⁿ dx = xⁿ⁺¹/(n+1) + C</div>
-        <div class="formula-item">∫eˣ dx = eˣ + C</div>
-        <div class="formula-item">∫(1/x) dx = ln|x| + C</div>
-        <div class="formula-item">∫sinx dx = −cosx + C</div>
-        <div class="formula-item">∫cosx dx = sinx + C</div>
-        <div class="formula-item">∫sec²x dx = tanx + C</div>
-        <div class="formula-item">∫cosec²x dx = −cotx + C</div>
-        <div class="formula-item">∫secx·tanx dx = secx + C</div>
-        <div class="formula-item">∫1/√(1−x²) dx = sin⁻¹x + C</div>
-        <div class="formula-item">∫1/(1+x²) dx = tan⁻¹x + C</div>
-        <div class="formula-item">∫1/(x²−a²) dx = (1/2a)ln|(x−a)/(x+a)| + C</div>
-        <div class="formula-item">∫√(a²−x²) dx = (x/2)√(a²−x²) + (a²/2)sin⁻¹(x/a) + C</div>
+    <!-- NOTICE -->
+    <div class="subsection-title" id="notice">📋 Notice Writing</div>
+
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">W1</span>
+        <span class="q-text">You are the Cultural Secretary of your school. Write a notice informing students about an Annual Cultural Fest to be held in your school. Include all relevant details. (Word limit: 50–80 words)</span>
+        <span class="q-badges"><span class="badge pyq">PYQ</span><span class="badge write">WRITE</span><span class="badge hot">🔥 HOT</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Model Answer (memorize the FORMAT)</span>
+        <div class="format-box">
+<span class="fb-title">NOTICE FORMAT — Always use this structure</span>
+[Name of School / Organisation]
+NOTICE
+Date: ___________
+
+[TITLE IN CAPITAL LETTERS]
+
+[Body: What, When, Where, Who can participate, How to register]
+
+[Name]
+[Designation]
+        </div>
+        <div class="model-ans">ABC PUBLIC SCHOOL, DELHI
+NOTICE
+Date: 15th March 20XX
+
+ANNUAL CULTURAL FEST — 'KALEIDOSCOPE 2024'
+
+This is to inform all students that our Annual Cultural Fest will be held on 25th March 20XX in the school auditorium from 9:00 a.m. onwards. Events include singing, dancing, drama, and quiz competitions. Students wishing to participate are requested to register their names with the Cultural Secretary by 20th March.
+
+                                                   Rohan Sharma
+                                                   Cultural Secretary</div>
+        <div class="tip">Format marks = 2 marks. Always include: Name of org, "NOTICE" heading, date, title in caps, body with 5Ws, name & designation.</div>
       </div>
     </div>
 
-    <div class="questions-grid">
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Evaluate: ∫(3x² + 2x − 5) dx<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">3M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">∫3x² dx + ∫2x dx − ∫5 dx = x³ + x² − 5x + C</span></div>
-            <div class="result-box">x³ + x² − 5x + C</div>
-          </div>
-        </div>
+    <div class="q-card hot">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">W2</span>
+        <span class="q-text">You are the Sports Captain of your school. Write a notice informing students about trials for the school cricket team. (50–80 words)</span>
+        <span class="q-badges"><span class="badge hot">🔥 HOT</span><span class="badge write">WRITE</span></span>
+        <span class="q-chevron">▼</span>
       </div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Model Answer</span>
+        <div class="model-ans">SUNRISE PUBLIC SCHOOL, KANPUR
+NOTICE
+Date: 10th April 20XX
 
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Evaluate: ∫ x·eˣ dx (Integration by Parts)<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">4M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution (ILATE Rule)</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">ILATE: u = x (Algebraic), dv = eˣ dx<br>du = dx, v = eˣ</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">∫x·eˣ dx = x·eˣ − ∫eˣ dx = xeˣ − eˣ + C</span></div>
-            <div class="result-box">∫x·eˣ dx = eˣ(x−1) + C</div>
-          </div>
-        </div>
-      </div>
+CRICKET TEAM TRIALS
 
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Evaluate: ∫ sin(2x+3) dx<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">2M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution (Substitution)</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">Let t = 2x+3, dt = 2dx → dx = dt/2</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">= (1/2)∫sin(t) dt = (1/2)(−cos(t)) + C = −cos(2x+3)/2 + C</span></div>
-            <div class="result-box">−cos(2x+3)/2 + C</div>
-          </div>
-        </div>
-      </div>
+All students interested in representing the school in the Inter-School Cricket Tournament are hereby informed that trials will be held on 18th April 20XX at 7:00 a.m. on the school cricket ground. Students from Classes IX to XII are eligible. Bring your own kit. For further details, contact the undersigned.
 
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Evaluate the definite integral: ∫₀² (x² + 1) dx<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">4M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">∫(x²+1)dx = x³/3 + x</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">[x³/3 + x]₀² = (8/3 + 2) − (0) = 8/3 + 6/3 = 14/3</span></div>
-            <div class="result-box">14/3</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Find the area enclosed between y = x² and y = x using integration.<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">6M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">Intersection: x² = x → x²−x = 0 → x(x−1)=0 → x=0,1</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">For 0≤x≤1: y=x is above y=x²<br>Area = ∫₀¹ (x − x²) dx</span></div>
-            <div class="step"><span class="step-num">3</span><span class="step-content">= [x²/2 − x³/3]₀¹ = (1/2 − 1/3) = 3/6 − 2/6 = 1/6</span></div>
-            <div class="result-box">Area = 1/6 sq. units</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Evaluate: ∫ x/(x²+1) dx<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">3M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">Let t = x²+1, dt = 2x dx → x dx = dt/2</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">= (1/2)∫(1/t) dt = (1/2)ln|t| + C = (1/2)ln(x²+1) + C</span></div>
-            <div class="result-box">(1/2)ln(x²+1) + C</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
-       CHAPTER 12: PROBABILITY
-  ══════════════════════════════════════════ -->
-  <section class="chapter" id="ch12">
-    <div class="chapter-header">
-      <div class="chapter-num">Chapter 12</div>
-      <div class="chapter-title">Probability</div>
-      <div class="chapter-meta">Expected Marks: 8–12 | Difficulty: ★★☆</div>
-    </div>
-
-    <div class="formula-box">
-      <h4>⚡ Key Formulas</h4>
-      <div class="formula-grid">
-        <div class="formula-item">P(A) = n(A)/n(S)</div>
-        <div class="formula-item">P(A∪B) = P(A)+P(B)−P(A∩B)</div>
-        <div class="formula-item">P(A') = 1 − P(A)</div>
-        <div class="formula-item">Independent: P(A∩B) = P(A)·P(B)</div>
-        <div class="formula-item">Conditional: P(A|B) = P(A∩B)/P(B)</div>
-        <div class="formula-item">Bayes': P(Aᵢ|B) = P(B|Aᵢ)P(Aᵢ)/ΣP(B|Aⱼ)P(Aⱼ)</div>
-        <div class="formula-item">Binomial: P(X=r) = nCr·pʳ·qⁿ⁻ʳ</div>
+                                                   Aryan Verma
+                                                   Sports Captain</div>
       </div>
     </div>
 
-    <div class="questions-grid">
+    <!-- LETTER -->
+    <div class="subsection-title" id="letter">✉️ Letter Writing</div>
 
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">A card is drawn from a pack of 52 cards. Find the probability that it is (i) a king, (ii) a red card, (iii) a face card.<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">3M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">i</span><span class="step-content">P(King) = 4/52 = <strong>1/13</strong></span></div>
-            <div class="step"><span class="step-num">ii</span><span class="step-content">P(Red card) = 26/52 = <strong>1/2</strong></span></div>
-            <div class="step"><span class="step-num">iii</span><span class="step-content">Face cards = J,Q,K in each of 4 suits = 12<br>P(Face) = 12/52 = <strong>3/13</strong></span></div>
-          </div>
-        </div>
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">W3</span>
+        <span class="q-text"><strong>Formal Letter:</strong> Write a letter to the Editor of a newspaper expressing your concern about the increasing pollution in your city and suggesting measures to control it. (Word limit: 150–200 words)</span>
+        <span class="q-badges"><span class="badge pyq">PYQ</span><span class="badge write">WRITE</span><span class="badge hot">🔥 HOT</span><span class="badge long">LONG</span></span>
+        <span class="q-chevron">▼</span>
       </div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Model Answer</span>
+        <div class="format-box">
+<span class="fb-title">FORMAL LETTER FORMAT</span>
+Sender's Address
+Date
 
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Two dice are thrown. Find the probability that the sum is (i) 7, (ii) even, (iii) greater than 9.<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">4M</span>
+To,
+The Editor,
+[Name of Newspaper]
+[City]
+
+Subject: [One line — be specific]
+
+Sir/Madam,
+
+[Para 1: Introduction / Context]
+[Para 2: Main concern / problem + evidence]
+[Para 3: Suggestions / solutions]
+[Para 4: Conclusion]
+
+Yours faithfully,
+[Name]
         </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">n(S) = 36</span></div>
-            <div class="step"><span class="step-num">i</span><span class="step-content">Sum=7: (1,6),(2,5),(3,4),(4,3),(5,2),(6,1) → 6 outcomes<br>P = 6/36 = <strong>1/6</strong></span></div>
-            <div class="step"><span class="step-num">ii</span><span class="step-content">Even sums: 18 outcomes → P = 18/36 = <strong>1/2</strong></span></div>
-            <div class="step"><span class="step-num">iii</span><span class="step-content">Sum>9: (4,6),(5,5),(5,6),(6,4),(6,5),(6,6) → 6<br>P = 6/36 = <strong>1/6</strong></span></div>
-          </div>
-        </div>
-      </div>
+        <div class="model-ans">12, Civil Lines
+Kanpur – 208001
+15 April 20XX
 
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">In a class, 30% students pass in Maths, 20% in English, and 10% in both. Find the probability that a student passes in at least one subject.<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">3M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">P(M)=0.3, P(E)=0.2, P(M∩E)=0.1</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">P(M∪E) = 0.3+0.2−0.1 = <strong>0.4</strong></span></div>
-            <div class="result-box">Probability = 0.4 = 40%</div>
-          </div>
-        </div>
-      </div>
+To,
+The Editor,
+The Hindustan Times
+New Delhi
 
-    </div>
-  </section>
+Subject: Growing Air and Water Pollution in Our City
 
-  <!-- ══════════════════════════════════════
-       CHAPTER 13: STATISTICS
-  ══════════════════════════════════════════ -->
-  <section class="chapter" id="ch13">
-    <div class="chapter-header">
-      <div class="chapter-num">Chapter 13</div>
-      <div class="chapter-title">Statistics</div>
-      <div class="chapter-meta">Expected Marks: 8–12 | Difficulty: ★★☆</div>
-    </div>
+Sir,
 
-    <div class="formula-box">
-      <h4>⚡ Key Formulas</h4>
-      <div class="formula-grid">
-        <div class="formula-item">Mean x̄ = Σfx/Σf</div>
-        <div class="formula-item">Median: l + [(N/2−F)/f]×h</div>
-        <div class="formula-item">Mode: l + [(f₁−f₀)/(2f₁−f₀−f₂)]×h</div>
-        <div class="formula-item">Variance σ² = Σf(x−x̄)²/N</div>
-        <div class="formula-item">SD σ = √Variance</div>
-        <div class="formula-item">CV = (σ/x̄)×100</div>
-        <div class="formula-item">Correlation r = Σ(x−x̄)(y−ȳ)/√[Σ(x−x̄)²·Σ(y−ȳ)²]</div>
+Through the esteemed columns of your newspaper, I wish to draw the attention of the concerned authorities to the alarming rise in pollution levels in our city.
+
+The air quality has deteriorated significantly due to vehicular emissions, industrial waste, and burning of garbage. Our rivers are being polluted by untreated sewage and industrial effluents, posing serious health hazards for residents.
+
+I would like to suggest that the authorities enforce strict pollution control norms, promote the use of electric vehicles, ensure proper treatment of industrial waste before disposal, and organise regular cleanliness drives. Public awareness campaigns can also play a vital role.
+
+I hope the authorities will take cognizance of this serious issue and act promptly.
+
+Yours faithfully,
+Piyush Kumar</div>
+        <div class="tip">Formal letters: Always include full address, date, "To", designation+newspaper, Subject line, "Sir/Madam", 4 paragraphs, "Yours faithfully" (never "Yours sincerely" for strangers).</div>
       </div>
     </div>
 
-    <div class="questions-grid">
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-num">NUM</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Find the mean, variance and standard deviation for: 6, 7, 10, 12, 13, 4, 8, 12.<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">5M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">n=8, Σx = 6+7+10+12+13+4+8+12 = 72<br>Mean x̄ = 72/8 = <strong>9</strong></span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">Deviations (x−9): −3,−2,1,3,4,−5,−1,3<br>(x−9)²: 9,4,1,9,16,25,1,9</span></div>
-            <div class="step"><span class="step-num">3</span><span class="step-content">Σ(x−x̄)² = 74<br>Variance = 74/8 = <strong>9.25</strong></span></div>
-            <div class="step"><span class="step-num">4</span><span class="step-content">SD = √9.25 ≈ <strong>3.04</strong></span></div>
-            <div class="result-box">Mean=9, Variance=9.25, SD≈3.04</div>
-          </div>
-        </div>
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">W4</span>
+        <span class="q-text"><strong>Formal Letter:</strong> Write a letter to the Principal of your school requesting permission to organise a farewell party for the outgoing students. (150–200 words)</span>
+        <span class="q-badges"><span class="badge pyq">PYQ</span><span class="badge write">WRITE</span><span class="badge imp">IMP</span></span>
+        <span class="q-chevron">▼</span>
       </div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Model Answer</span>
+        <div class="model-ans">The Class Representative
+Class XI-A
+ABC School, Lucknow
+20 March 20XX
 
-    </div>
-  </section>
+To,
+The Principal
+ABC Senior Secondary School
+Lucknow – 226001
 
-  <!-- ══════════════════════════════════════
-       CHAPTER 14: LINEAR PROGRAMMING
-  ══════════════════════════════════════════ -->
-  <section class="chapter" id="ch14">
-    <div class="chapter-header">
-      <div class="chapter-num">Chapter 14</div>
-      <div class="chapter-title">Linear Programming</div>
-      <div class="chapter-meta">Expected Marks: 6–10 | Difficulty: ★★☆</div>
-    </div>
+Subject: Request for Permission to Organise a Farewell Party
 
-    <div class="formula-box">
-      <h4>⚡ Key Concepts</h4>
-      <div class="formula-grid">
-        <div class="formula-item">Objective function: Z = ax + by (to maximize/minimize)</div>
-        <div class="formula-item">Constraints: linear inequalities</div>
-        <div class="formula-item">Feasible region: common region satisfying all constraints</div>
-        <div class="formula-item">Corner point method: optimal value at vertex of feasible region</div>
-        <div class="formula-item">If unbounded: check if optimal exists</div>
+Respected Sir/Madam,
+
+I, Rohan Sharma, Class Representative of Class XI-A, on behalf of all students, respectfully request your kind permission to organise a farewell party for the outgoing students of Class XII.
+
+We propose to hold the event on 28th March 20XX in the school auditorium from 2:00 p.m. to 5:00 p.m. The programme will include cultural performances, speeches, and a felicitation ceremony for the outgoing students. We assure you that the event will be conducted in a disciplined and dignified manner.
+
+We would be grateful if you would kindly grant us permission at the earliest. We look forward to your positive response.
+
+Thanking you,
+Yours obediently,
+Rohan Sharma
+Class Representative, XI-A</div>
       </div>
     </div>
 
-    <div class="questions-grid">
-
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-long">LONG</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Maximize Z = 5x + 3y subject to: 3x + 5y ≤ 15, 5x + 2y ≤ 10, x ≥ 0, y ≥ 0.<span class="pyq-label">PYQ</span></div>
-          <span class="q-marks">6M</span>
-        </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Solution</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Solution</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">1</span><span class="step-content">Find corner points of feasible region:<br>Line 1: 3x+5y=15 → intercepts (5,0) and (0,3)<br>Line 2: 5x+2y=10 → intercepts (2,0) and (0,5)</span></div>
-            <div class="step"><span class="step-num">2</span><span class="step-content">Intersection of the two lines:<br>From 5x+2y=10: y=(10−5x)/2<br>Sub in 3x+5(10−5x)/2=15 → 6x+50−25x=30 → −19x=−20 → x=20/19<br>y=(10−100/19)/2 = (90/19)/2 = 45/19</span></div>
-            <div class="step"><span class="step-num">3</span><span class="step-content">Corner points: O(0,0), A(2,0), B(20/19,45/19), C(0,3)</span></div>
-            <div class="step"><span class="step-num">4</span><span class="step-content">Z at O = 0<br>Z at A = 5(2)+0 = 10<br>Z at B = 5(20/19)+3(45/19) = 100/19+135/19 = 235/19 ≈ 12.37<br>Z at C = 5(0)+3(3) = 9</span></div>
-            <div class="result-box">Maximum Z ≈ 235/19 at x=20/19, y=45/19</div>
-          </div>
-        </div>
+    <div class="q-card hot">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">W5</span>
+        <span class="q-text"><strong>Informal Letter:</strong> Write a letter to your friend describing your experience at a recently held national sports event / school trip you attended. (150–200 words)</span>
+        <span class="q-badges"><span class="badge hot">🔥 HOT</span><span class="badge write">WRITE</span><span class="badge short">SHORT</span></span>
+        <span class="q-chevron">▼</span>
       </div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Format + Model Answer</span>
+        <div class="format-box">
+<span class="fb-title">INFORMAL LETTER FORMAT</span>
+Your Address
+Date
 
-      <div class="q-card hot">
-        <div class="q-header" onclick="toggle(this)">
-          <span class="q-type-badge badge-theory">THEORY</span>
-          <span class="hot-star">⭐</span>
-          <div class="q-text">Define (i) Feasible solution (ii) Optimal solution (iii) Objective function in Linear Programming.</div>
-          <span class="q-marks">3M</span>
+Dear [Name],
+
+[Opening: Greet + reason for writing]
+[Main body: Experience in detail]
+[Closing: Looking forward / hope to meet]
+
+Your loving friend,
+[Your Name]
         </div>
-        <div class="q-toggle" onclick="toggle(this.previousElementSibling)">▶ Show Answer</div>
-        <div class="q-answer">
-          <div class="answer-label">✓ Answer</div>
-          <div class="answer-text">
-            <div class="step"><span class="step-num">i</span><span class="step-content"><b>Feasible Solution:</b> Any (x,y) satisfying all constraints including non-negativity conditions.</span></div>
-            <div class="step"><span class="step-num">ii</span><span class="step-content"><b>Optimal Solution:</b> The feasible solution that maximizes (or minimizes) the objective function.</span></div>
-            <div class="step"><span class="step-num">iii</span><span class="step-content"><b>Objective Function:</b> A linear function Z = ax+by whose value we want to optimize (maximize or minimize).</span></div>
-          </div>
-        </div>
+        <div class="model-ans">14, Tagore Nagar
+Kanpur – 208001
+12 April 20XX
+
+Dear Ankit,
+
+How are you? I hope this letter finds you in the best of health and spirits. I am writing to share my wonderful experience at our school's annual trip to Agra.
+
+We visited the magnificent Taj Mahal, the majestic Agra Fort, and the historic Fatehpur Sikri. The Taj Mahal left all of us spellbound with its breathtaking beauty. Our teachers explained the historical significance of each monument. We also enjoyed a boat ride on the Yamuna River at sunset — it was truly unforgettable.
+
+The food at the local dhabas was delicious, and the shopping in Sadar Bazaar was a highlight for everyone. We returned tired but extremely happy with beautiful memories.
+
+I wish you could have been there with us. Do write back soon.
+
+Your loving friend,
+Piyush</div>
       </div>
-
     </div>
-  </section>
+
+    <!-- REPORT -->
+    <div class="subsection-title" id="report">📰 Report Writing</div>
+
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">W6</span>
+        <span class="q-text">Write a report on the Annual Sports Day held in your school for the school magazine. (150–200 words)</span>
+        <span class="q-badges"><span class="badge pyq">PYQ</span><span class="badge write">WRITE</span><span class="badge hot">🔥 HOT</span><span class="badge long">LONG</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Format + Model Answer</span>
+        <div class="format-box">
+<span class="fb-title">REPORT FORMAT (Newspaper/Magazine Style)</span>
+TITLE (ALL CAPS)
+By [Reporter's Name] | Date | Place
+
+[Intro: What happened, when, where — answer all 5Ws in first para]
+[Body: Details — events, winners, chief guest, highlights]
+[Conclusion: Overall impression / vote of thanks]
+        </div>
+        <div class="model-ans">ANNUAL SPORTS DAY CELEBRATED WITH GREAT ENTHUSIASM
+By Priya Sharma | 5 February 20XX | Kanpur
+
+The Annual Sports Day of ABC Senior Secondary School was held on 4th February 20XX on the school grounds with great fanfare and enthusiasm. The event was graced by Mr. Ramesh Kumar, a renowned athlete, as the Chief Guest.
+
+The programme commenced at 9:00 a.m. with the lighting of the torch by the Chief Guest. Various athletic events including 100m sprint, relay race, long jump, shot put, and tug of war were contested with exceptional spirit and sportsmanship. Students from all classes participated with great enthusiasm.
+
+The highlight of the event was the March Past, led by the Sports Captain, which drew loud applause from the audience. Awards were distributed by the Chief Guest to the winners of various events. Akash from Class XII won the Best Athlete trophy.
+
+The Principal, in his concluding address, praised the students for their performance and urged everyone to maintain a healthy lifestyle. The event concluded with the National Anthem at 2:00 p.m. It was a memorable day for all.</div>
+        <div class="tip">Report always in THIRD PERSON. Never write "I". Always include: headline, reporter's name, date, place, 5Ws in first paragraph.</div>
+      </div>
+    </div>
+
+    <div class="q-card hot">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">W7</span>
+        <span class="q-text">Write a report on a road accident you witnessed near your school. (150–200 words)</span>
+        <span class="q-badges"><span class="badge hot">🔥 HOT</span><span class="badge write">WRITE</span><span class="badge imp">IMP</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Model Answer</span>
+        <div class="model-ans">ROAD ACCIDENT NEAR ABC SCHOOL INJURES THREE
+By Rohan Verma | 12 March 20XX | Kanpur
+
+A serious road accident occurred near ABC Senior Secondary School on the afternoon of 11th March 20XX, leaving three persons injured. The mishap took place at approximately 2:30 p.m. on National Highway 19 when a speeding truck rammed into a car from behind near the school gate.
+
+The impact was severe and the car was badly damaged. Three occupants of the car — including a woman and two men — sustained injuries. Passersby immediately rushed to help and called the police and an ambulance. The injured were promptly taken to a nearby government hospital for treatment.
+
+On reaching the spot, the police cordoned off the area and registered a case against the driver of the truck, who reportedly ran a red light. Traffic was disrupted for over two hours causing a long jam.
+
+Eyewitnesses blamed over-speeding and reckless driving for the mishap. The incident has once again highlighted the urgent need for stricter traffic enforcement on busy roads near schools.</div>
+      </div>
+    </div>
+
+    <!-- PARAGRAPH -->
+    <div class="subsection-title" id="paragraph">¶ Paragraph Writing</div>
+
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">W8</span>
+        <span class="q-text">Write a paragraph on any ONE of the following topics (80–100 words):<br>(a) Importance of Education<br>(b) Environmental Pollution<br>(c) The Blessings of Science</span>
+        <span class="q-badges"><span class="badge pyq">PYQ</span><span class="badge write">WRITE</span><span class="badge hot">🔥 HOT</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Model Paragraphs (learn all 3 — they repeat)</span>
+        <div class="model-ans"><strong>Importance of Education</strong>
+
+Education is the most powerful weapon which we can use to change the world. It is the foundation of a civilised society and the key to personal development and national progress. An educated person is better equipped to understand the world, make informed decisions, and lead a productive life. Education not only provides knowledge and skills but also builds character, confidence, and the ability to think critically. In today's competitive world, education opens doors to better career opportunities. A nation where its citizens are educated is destined to prosper. Therefore, every individual should have access to quality education.</div>
+        <div class="model-ans"><strong>Environmental Pollution</strong>
+
+Environmental pollution is one of the gravest threats facing humanity today. Air pollution from industries and vehicles, water pollution from sewage and chemicals, and soil pollution from pesticides and waste are degrading our environment at an alarming rate. The consequences are severe — respiratory diseases, waterborne illnesses, loss of biodiversity, and climate change. Rapid urbanisation and industrialisation have worsened the situation. It is imperative that governments enforce strict environmental laws, promote renewable energy, and encourage people to adopt eco-friendly habits. Only through collective action can we protect our planet for future generations.</div>
+        <div class="tip">Paragraph structure: Topic sentence → Supporting sentences (3–4) → Concluding sentence. Aim for 5–7 sentences.</div>
+      </div>
+    </div>
+
+    <!-- ESSAY -->
+    <div class="subsection-title" id="essay">📝 Essay Writing</div>
+
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">W9</span>
+        <span class="q-text">Write an essay on <em>"The Role of Youth in Nation Building"</em> or <em>"Impact of Social Media on Society"</em>. (200–250 words)</span>
+        <span class="q-badges"><span class="badge pyq">PYQ</span><span class="badge write">WRITE</span><span class="badge hot">🔥 HOT</span><span class="badge long">LONG</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Essay Outline + Model Answer</span>
+        <div class="format-box">
+<span class="fb-title">ESSAY STRUCTURE (Always follow)</span>
+Para 1: Introduction — Define the topic, state its importance
+Para 2: Main body point 1 (positive/first aspect)
+Para 3: Main body point 2 (challenges/second aspect)
+Para 4: Solutions/way forward
+Para 5: Conclusion — Strong closing statement
+        </div>
+        <div class="model-ans"><strong>The Role of Youth in Nation Building</strong>
+
+The youth of a nation are its greatest asset and the architects of its future. In a country like India, where more than 65% of the population is below the age of 35, the potential of its young citizens to transform the nation is immense. The role of youth in nation building is therefore not just significant — it is indispensable.
+
+Young people are energetic, innovative, and idealistic. They bring fresh perspectives to old problems and are willing to embrace change. In the field of technology, science, and entrepreneurship, the youth of India have already demonstrated their capabilities on the global stage.
+
+However, youth can fulfil their potential only when they are educated, skilled, and empowered. Unemployment, lack of quality education, and social inequalities remain significant barriers. It is essential that the government invest in youth development through better educational institutions, vocational training, and employment opportunities.
+
+Youth must also take responsibility for society. Participation in civic activities, awareness about social issues like gender equality and environmental conservation, and respect for the diversity of the nation are equally important.
+
+In conclusion, the youth are not just the future of the nation — they are its present force. With the right guidance, opportunities, and sense of purpose, the youth of India can build a nation that is strong, prosperous, and equitable for all. As Nelson Mandela said, education is the most powerful weapon to change the world.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================= READING COMPREHENSION ============================= -->
+  <div class="section-block" id="comprehension">
+    <div class="section-title"><span class="section-icon">📖</span> Reading Comprehension</div>
+    <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:1rem;">Two passages are typically given — one factual/expository and one literary. Answers must come from the passage. Learn the technique: underline keywords in the question, locate in passage, paraphrase.</p>
+
+    <div class="subsection-title">Passage 1 — Factual / Expository</div>
+
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">C1</span>
+        <span class="q-text">Read the following passage and answer the questions. [Practice Passage — Typical PYQ Style]</span>
+        <span class="q-badges"><span class="badge pyq">PYQ</span><span class="badge hot">🔥 HOT</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Passage + Questions + Answers</span>
+        <div class="passage-box">
+          <p>Water is the most precious natural resource on earth. All forms of life depend on it. Despite covering more than 70% of the Earth's surface, only about 3% of the world's water is fresh water, and most of that is locked in glaciers and ice caps. This makes fresh water an increasingly scarce and valuable resource.</p>
+          <p>The overuse of water for agriculture, which accounts for about 70% of global fresh water consumption, is a major concern. Industrial processes and domestic use also put enormous pressure on water supplies. Climate change is further aggravating the situation by causing irregular rainfall patterns and accelerating the melting of glaciers.</p>
+          <p>Conservation of water is therefore a necessity, not a choice. Simple measures like rainwater harvesting, using drip irrigation in agriculture, fixing leaking taps, and recycling water can make a significant difference. Governments must invest in water management infrastructure, and individuals must cultivate habits of mindful water use. A world without adequate clean water is a world in crisis.</p>
+        </div>
+        <strong>Questions and Model Answers:</strong>
+        <ul style="margin-top:0.6rem;">
+          <li style="margin-bottom:0.6rem;"><strong>Q1. What percentage of Earth's surface is covered by water?</strong><br>
+          <em>Ans:</em> More than 70% of the Earth's surface is covered by water.</li>
+          <li style="margin-bottom:0.6rem;"><strong>Q2. What percentage of fresh water is available for use?</strong><br>
+          <em>Ans:</em> Only about 3% of the world's water is fresh water, and most of it is locked in glaciers.</li>
+          <li style="margin-bottom:0.6rem;"><strong>Q3. How is climate change affecting the water situation?</strong><br>
+          <em>Ans:</em> Climate change is aggravating the water crisis by causing irregular rainfall patterns and accelerating the melting of glaciers.</li>
+          <li style="margin-bottom:0.6rem;"><strong>Q4. Mention any two measures to conserve water.</strong><br>
+          <em>Ans:</em> Rainwater harvesting and using drip irrigation in agriculture are two effective methods of water conservation.</li>
+          <li style="margin-bottom:0.6rem;"><strong>Q5. Find a word in the passage which means 'making worse'.</strong><br>
+          <em>Ans:</em> <strong>Aggravating</strong> (Paragraph 2)</li>
+        </ul>
+        <div class="tip">Vocabulary questions: always look in the paragraph mentioned. Re-read one sentence before and after. Comprehension answers should paraphrase — don't copy word-for-word.</div>
+      </div>
+    </div>
+
+    <div class="subsection-title">Passage 2 — Literary / Narrative</div>
+
+    <div class="q-card hot">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">C2</span>
+        <span class="q-text">Read the passage and answer the questions. [Literary Passage — PYQ Style]</span>
+        <span class="q-badges"><span class="badge hot">🔥 HOT</span><span class="badge imp">IMP</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Passage + Questions + Answers</span>
+        <div class="passage-box">
+          <p>Grandmother was a very old woman. Her face was a criss-cross of wrinkles, her hair was white, and she walked with a slight stoop. But there was an energy in her movements that belied her age. She had been a great beauty in her youth — at least, that is what she often said, and we never had any reason to doubt her.</p>
+          <p>Every morning, she would sit in the sun in the courtyard and feed the sparrows. She knew each one of them personally, or so she believed. The sparrows would perch on her hands, her shoulders, and even on her head, and she would laugh with delight. It was the high point of her day.</p>
+          <p>She died one winter morning, sitting in the sun in the courtyard. The sparrows came as usual, but she could no longer feed them. We scattered breadcrumbs for them. They ate quietly, and then they flew away — and somehow, that small, ordinary act seemed like a farewell from the birds she had loved so dearly.</p>
+        </div>
+        <strong>Questions and Model Answers:</strong>
+        <ul style="margin-top:0.6rem;">
+          <li style="margin-bottom:0.6rem;"><strong>Q1. Describe the grandmother's appearance.</strong><br>
+          <em>Ans:</em> The grandmother was very old, with a wrinkled face, white hair, and a slight stoop. Despite her age, she had an energetic way of moving.</li>
+          <li style="margin-bottom:0.6rem;"><strong>Q2. What was the "high point of her day"?</strong><br>
+          <em>Ans:</em> Feeding the sparrows every morning in the courtyard was the high point of her day. She believed she knew each sparrow personally and delighted in their company.</li>
+          <li style="margin-bottom:0.6rem;"><strong>Q3. How does the author suggest the sparrows also mourned the grandmother?</strong><br>
+          <em>Ans:</em> After she died, the sparrows ate the breadcrumbs scattered for them quietly and then flew away. The narrator says this felt like a farewell from the birds who loved her — suggesting even they sensed her absence.</li>
+          <li style="margin-bottom:0.6rem;"><strong>Q4. Find a word in Paragraph 1 that means 'contradicted / went against'.</strong><br>
+          <em>Ans:</em> <strong>Belied</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="q-card imp">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">C3</span>
+        <span class="q-text"><strong>Technique Q:</strong> What are the key strategies for answering Reading Comprehension in NIOS English? How do you handle vocabulary (word-meaning) questions?</span>
+        <span class="q-badges"><span class="badge imp">IMP</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Exam Strategy</span>
+        <ul>
+          <li><strong>Read the questions first</strong> — then read the passage (saves time)</li>
+          <li><strong>Underline keywords</strong> in questions, locate their position in the passage</li>
+          <li><strong>Answers are always in the passage</strong> — never add your own opinion</li>
+          <li><strong>Paraphrase</strong> — don't copy sentences verbatim; show you understood</li>
+          <li><strong>Word-meaning/synonym questions:</strong> Look in the paragraph mentioned. Often the surrounding sentence gives clues.</li>
+          <li><strong>Title questions:</strong> Choose a title that covers the entire passage, not just one part</li>
+          <li><strong>Marks = sentences.</strong> 2-mark answer = 2 clear points. Don't write essays.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================= LITERATURE — PROSE ============================= -->
+  <div class="section-block" id="literature">
+    <div class="section-title"><span class="section-icon">📚</span> Literature — Prose</div>
+    <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:0.8rem;">These questions are from the NIOS English Reader. Match with your prescribed texts. Themes and character questions are most frequently asked.</p>
+
+    <div class="subsection-title">The Last Lesson — Alphonse Daudet</div>
+
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">L1</span>
+        <span class="q-text">What was the "last lesson" about? What made that day's lesson different from any other day?</span>
+        <span class="q-badges"><span class="badge pyq">PYQ</span><span class="badge lit">LIT</span><span class="badge hot">🔥 HOT</span><span class="badge short">SHORT</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Model Answer</span>
+        <div class="model-ans">The "last lesson" was the final French language class taught by M. Hamel in a village in Alsace after the Prussian conquest. The Prussians had decreed that henceforth only German would be taught in the schools of Alsace and Lorraine.
+
+What made that day different was the extraordinary atmosphere. M. Hamel wore his fine Sunday clothes, the village elders sat at the back of the class, and everyone felt a deep sense of grief and regret. Franz, who used to dread his French lessons, suddenly found himself loving the language. M. Hamel spoke movingly about the importance of their mother tongue, calling French the most beautiful, clearest, and most logical language in the world. At the end of the lesson, when the church bell struck noon, M. Hamel was overcome with emotion and could only write "Vive La France!" on the board before dismissing the class.</div>
+        <div class="tip">Key themes to remember: nationalism, importance of mother tongue, loss, regret, love for one's language and identity.</div>
+      </div>
+    </div>
+
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">L2</span>
+        <span class="q-text">Draw the character sketch of M. Hamel as portrayed in "The Last Lesson". OR What qualities does M. Hamel display on the day of the last lesson?</span>
+        <span class="q-badges"><span class="badge pyq">PYQ</span><span class="badge lit">LIT</span><span class="badge long">LONG</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Model Answer</span>
+        <div class="model-ans">M. Hamel is the French teacher at the village school in Alsace and the central figure of Alphonse Daudet's "The Last Lesson." He is a complex character who embodies both human weakness and noble dedication.
+
+Under ordinary circumstances, M. Hamel was a strict teacher — he would punish students who had not done their homework and sometimes sent them to water his flowers. Franz had often dreaded his class. However, on the day of the last lesson, a remarkable transformation is visible in him.
+
+He arrives in his finest clothes — his beautiful green coat, frilled shirt, and embroidered cap — as a mark of respect for the occasion. He is patient, gentle, and deeply emotional. He blames himself and the parents for having sometimes sent children to work instead of school. He speaks with passionate love about the French language, calling it the most beautiful tongue in the world.
+
+Most importantly, he embodies patriotism — his devotion to French language and culture represents love for the fatherland. At the end, overcome with grief and unable to speak, he writes "Vive La France!" on the board. In those final moments, M. Hamel transforms from a schoolteacher into a symbol of national identity and resistance.</div>
+      </div>
+    </div>
+
+    <div class="q-card hot">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">L3</span>
+        <span class="q-text">What was Franz's attitude towards his French lessons at the beginning of the story? How did it change by the end? What caused this change?</span>
+        <span class="q-badges"><span class="badge hot">🔥 HOT</span><span class="badge lit">LIT</span><span class="badge short">SHORT</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Model Answer</span>
+        <div class="model-ans">At the beginning of the story, Franz has a careless and indifferent attitude towards his French lessons. He has not learnt his lesson on participles and is afraid of being scolded. He prefers playing outdoors and finds his lessons dull and burdensome.
+
+By the end of the story, however, Franz undergoes a complete transformation. He begins to love and value the French language deeply. He regrets having wasted his time, not paying attention in class, and not learning properly.
+
+The cause of this change is the announcement that it would be the "last lesson" in French. The realization that he would never again have the chance to learn his mother tongue makes him value what he had neglected. The emotional atmosphere, M. Hamel's dignified conduct, and the presence of the village elders all contribute to his awakening. The lesson teaches him — and the reader — that we often value things only when we are about to lose them.</div>
+      </div>
+    </div>
+
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">L4</span>
+        <span class="q-text">What is the central theme / message of "The Last Lesson"? What lesson does Alphonse Daudet convey to the reader?</span>
+        <span class="q-badges"><span class="badge pyq">PYQ</span><span class="badge lit">LIT</span><span class="badge hot">🔥 HOT</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Model Answer</span>
+        <div class="model-ans">The central theme of "The Last Lesson" is the importance of one's mother tongue as an inseparable part of national identity and cultural survival. Through the story, Daudet conveys that language is not merely a means of communication — it is the soul of a people. When a nation loses its language, it loses its identity.
+
+The story also explores the themes of loss, regret, and patriotism. Both Franz and the villagers realize the value of their language only when they are about to lose it forever. This serves as a universal lesson: we often neglect what is most precious — our culture, language, and heritage — until it is taken from us.
+
+M. Hamel's statement that French is the most beautiful language in the world, and his passionate plea to the students to guard it well, reminds us that preserving one's language is an act of patriotism and self-respect.</div>
+      </div>
+    </div>
+
+    <div class="subsection-title">A Hero — R.K. Narayan</div>
+
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">L5</span>
+        <span class="q-text">Why was Swami afraid at first to sleep alone? How did his father's challenge change him?</span>
+        <span class="q-badges"><span class="badge pyq">PYQ</span><span class="badge lit">LIT</span><span class="badge hot">🔥 HOT</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Model Answer</span>
+        <div class="model-ans">Swaminathan (Swami) was a young boy who was used to sleeping beside his grandmother. He was afraid to sleep alone in the office room because the dark corner near the bureau scared him and he feared supernatural presences. The very idea of spending the night alone filled him with terror.
+
+His father challenged his courage after Swami expressed fear, telling him that only cowards were afraid of the dark and that a boy his age should be able to sleep anywhere. Stung by his father's words and unwilling to be called a coward, Swami reluctantly went to sleep alone.
+
+That night, Swami heard a noise in the dark and, in a panic, bit hard into what he thought was a ghost's leg. It turned out to be a burglar who had entered the house. Swami had accidentally caught and exposed a thief! The following day, he was celebrated as a hero by the police, his family, and the school.
+
+The story shows that circumstances and necessity can bring out courage even from the most unexpected sources. Swami's fear was real, but facing it — however accidentally — transformed him into a hero and built his confidence.</div>
+      </div>
+    </div>
+
+    <div class="subsection-title">The Address — Marga Minco</div>
+
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">L6</span>
+        <span class="q-text">Why did the narrator go to Mrs Dorling's house? Why did she decide not to go back a second time?</span>
+        <span class="q-badges"><span class="badge pyq">PYQ</span><span class="badge lit">LIT</span><span class="badge short">SHORT</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Model Answer</span>
+        <div class="model-ans">The narrator went to Mrs Dorling's house after the war to recover the household belongings that her mother had entrusted to Mrs Dorling for safekeeping. Her mother had given away everything — silver cutlery, antiques, linen — to Mrs Dorling before the family was deported.
+
+However, when the narrator finally entered the house, the familiar objects from her childhood home — the tablecloth, the cutlery, the candlesticks — seemed utterly out of place in the ugly, cluttered surroundings of Mrs Dorling's house. Seeing them brought back overwhelming memories of her mother and the life that had been destroyed by the war. The objects, instead of being comforting, became a painful reminder of everything she had lost.
+
+She decided not to go back a second time because she realised that the past could not be recovered — the objects meant nothing without the people and the life they were once part of. She chose to let go of the material possessions to free herself from the grief and the burden of memory.</div>
+        <div class="tip">Key theme: The story explores memory, loss, displacement, and the impossibility of recovering the past after the Holocaust.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================= LITERATURE — POETRY ============================= -->
+  <div class="section-block" id="poetry">
+    <div class="section-title"><span class="section-icon">🎭</span> Literature — Poetry</div>
+
+    <div class="subsection-title">My Mother at Sixty-Six — Kamala Das</div>
+
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">P1</span>
+        <span class="q-text">What is the central idea of the poem "My Mother at Sixty-Six" by Kamala Das? What emotions does the poet experience during the drive?</span>
+        <span class="q-badges"><span class="badge pyq">PYQ</span><span class="badge lit">LIT</span><span class="badge hot">🔥 HOT</span><span class="badge long">LONG</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Model Answer</span>
+        <div class="model-ans">The central idea of "My Mother at Sixty-Six" is the fear of separation and loss that a daughter experiences when she sees her ageing mother's declining health. The poem explores the universal human emotion of confronting the mortality of a loved one.
+
+During the drive to Cochin airport, the poet observes her mother dozing beside her. Her mother's pale, ashen, corpse-like face fills her with a familiar, childhood ache — the fear of losing her. She compares her mother's face to "late winter's moon" — pale, dull, and fading.
+
+To escape this painful thought, the poet looks outside at the young trees sprinting past and merry children spilling out of homes — images of youth, life, and joy — contrasting sharply with her mother's frailty.
+
+At the airport, before parting, she looks at her mother's face once more and, instead of expressing her grief, smiles and says "see you soon, Amma." This "smile and smile and smile" represents a brave, composed farewell masking her inner anguish — her hope that her mother will still be alive when she returns, and her inability to voice her deep fear of this being their last goodbye.</div>
+        <div class="tip">Key images: mother's face = "late winter's moon" / "ashen like a corpse". Young trees = life, vitality, contrast. The repeated "smile" = suppressed grief, false hope, maternal love.</div>
+      </div>
+    </div>
+
+    <div class="q-card hot">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">P2</span>
+        <span class="q-text">Explain the significance of the images of "young trees sprinting" and "merry children spilling" in "My Mother at Sixty-Six". What do they contrast with?</span>
+        <span class="q-badges"><span class="badge hot">🔥 HOT</span><span class="badge lit">LIT</span><span class="badge short">SHORT</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Model Answer</span>
+        <div class="model-ans">The images of "young trees sprinting" and "merry children spilling out of their homes" are symbols of life, youth, energy, and joy. They represent vitality and a future full of possibilities.
+
+These images sharply contrast with the image of the poet's aged mother — pale-faced, corpse-like, and slowly fading. The contrast highlights the cruel gap between the vibrancy of youth and the decline of old age.
+
+The poet uses these images to escape momentarily from the painful reality of her mother's mortality. By turning her gaze outward to the living, moving world, she attempts to suppress her fear and anguish. The juxtaposition intensifies the poem's central theme of loss and the inevitability of ageing and death.</div>
+      </div>
+    </div>
+
+    <div class="subsection-title">Keeping Quiet — Pablo Neruda</div>
+
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">P3</span>
+        <span class="q-text">What does Pablo Neruda want people to do in the poem "Keeping Quiet"? What would be the result of this stillness?</span>
+        <span class="q-badges"><span class="badge pyq">PYQ</span><span class="badge lit">LIT</span><span class="badge hot">🔥 HOT</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Model Answer</span>
+        <div class="model-ans">In "Keeping Quiet," Pablo Neruda urges all of humanity to observe a moment of complete stillness and silence — to stop all activity, stop speaking, and simply exist together without movement or urgency.
+
+He wants people to stop their engines, put down their weapons, stop wars, cease the destruction of nature, and pause from the relentless rush of modern life. He wants fishermen to stop threatening the whales, salt gatherers to stop working, and those preparing wars to put on clean clothes and walk about with their brothers — suggesting an end to violence and conflict.
+
+Neruda believes that this moment of stillness and togetherness would allow people to reflect deeply, understand one another, and recognise the futility of war, hatred, and exploitation. It would give the Earth a chance to heal and give human beings a chance to reconnect with themselves and with nature.
+
+Crucially, Neruda clarifies that this is not about death or permanent inactivity — it is about "life" and self-reflection. The poem ends with the image of the Earth, which appears dead in winter but secretly keeps life alive beneath the soil — suggesting that silence and stillness can be creative and restorative, not destructive.</div>
+        <div class="tip">Key themes: anti-war, introspection, ecological concern, universal brotherhood, the value of silence. The poem is NOT about death — it is about stillness that leads to awareness and life.</div>
+      </div>
+    </div>
+
+    <div class="subsection-title">A Thing of Beauty — John Keats</div>
+
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">P4</span>
+        <span class="q-text">"A thing of beauty is a joy forever." What does Keats mean by this? What things of beauty does he mention in the poem?</span>
+        <span class="q-badges"><span class="badge pyq">PYQ</span><span class="badge lit">LIT</span><span class="badge hot">🔥 HOT</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Model Answer</span>
+        <div class="model-ans">By the famous opening line "A thing of beauty is a joy forever," Keats means that anything that is genuinely beautiful provides lasting pleasure and happiness. Its beauty never fades — it leaves an enduring impression on the mind. Even when the beautiful object is gone, the joy it gave remains forever. It acts as "a bower quiet for us" — a shelter from the sorrows and suffering of life.
+
+In the poem, Keats enumerates several things of beauty that give joy:
+• The sun, the moon, old and new trees that provide shade
+• Simple daffodils with their green covering
+• Clear streams and forests amidst which the green world lives
+• The lovely tales we have heard or read — heroic myths and legends
+• The mighty dead — great heroes and noble ancestors whose stories inspire us
+• All lovely things on Earth
+
+Keats ends the poem by saying that all these beautiful things flow to us like an "endless fountain" poured from heaven to Earth, showering us with a "spiritual wine" — connecting beauty to divinity and eternal spiritual nourishment. For Keats, beauty and truth are inseparable, and beauty is a source of eternal spiritual sustenance.</div>
+      </div>
+    </div>
+
+    <div class="subsection-title">An Elementary School Classroom in a Slum — Stephen Spender</div>
+
+    <div class="q-card hot">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">P5</span>
+        <span class="q-text">What is the condition of the children in the slum school as described by Spender? What does the poet demand for them?</span>
+        <span class="q-badges"><span class="badge hot">🔥 HOT</span><span class="badge lit">LIT</span><span class="badge long">LONG</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <span class="ans-label">✎ Model Answer</span>
+        <div class="model-ans">Stephen Spender paints a deeply disturbing picture of the slum children in the poem. They are thin, pale, and malnourished — their faces are like "rootless weeds," their hair is "slag heap," and they are "stunted" and "twisted." One boy has a "rat's eyes" while another is "bespectacled" with a "paper-seeming boy." They are trapped in lives of poverty with no access to the wider, beautiful world.
+
+The classroom walls have maps, pictures of Shakespeare, the Tyrolese valley, and Dante — images of a cultured world — but these are cruel mockeries for children who are imprisoned in slums. The world on the walls represents freedom and opportunity that these children will never have; it is not their world.
+
+Spender demands that society — represented by "governor, inspector, visitor" — act urgently to change the lives of these children. He wants them to be given real education, not cosmetic schooling. He demands that the barriers of class and poverty be broken, that these children be allowed to leave their "slag heap" world and access the same sunlit fields, rivers, and history that the privileged enjoy.
+
+The poem is a powerful indictment of social inequality and a passionate plea for equal access to education and opportunity. Only when knowledge opens doors for the poor will history truly be rewritten, Spender suggests.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================= MCQ RAPID FIRE ============================= -->
+  <div class="section-block" id="mcqs">
+    <div class="section-title"><span class="section-icon">⚡</span> MCQ Rapid Fire — 30 Questions</div>
+    <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:1rem;">Click each question to reveal the correct answer. Cover all sections equally. MCQs in NIOS English come from Grammar, Literature, and Writing Skills.</p>
+
+    <div class="subsection-title">Grammar MCQs</div>
+
+    <div class="q-card">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M1</span>
+        <span class="q-text">Choose the correct option: "She ______ here since morning."</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge gram">GRAM</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>is sitting</li>
+          <li class="correct">has been sitting</li>
+          <li>was sitting</li>
+          <li>sat</li>
+        </ul>
+        <em>Since = point of time → Present Perfect Continuous</em>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M2</span>
+        <span class="q-text">Identify the passive form: "They are building a bridge."</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge gram">GRAM</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>A bridge was being built by them.</li>
+          <li class="correct">A bridge is being built by them.</li>
+          <li>A bridge has been built by them.</li>
+          <li>A bridge will be built by them.</li>
+        </ul>
+        <em>Present Continuous passive = is/are being + V3</em>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M3</span>
+        <span class="q-text">He said to me, "Do you play cricket?" — Indirect speech:</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge gram">GRAM</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>He asked me if I play cricket.</li>
+          <li>He told me if I played cricket.</li>
+          <li class="correct">He asked me if I played cricket.</li>
+          <li>He enquired me did I play cricket.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M4</span>
+        <span class="q-text">Fill in: "She is good ______ painting."</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge gram">GRAM</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>in</li>
+          <li>on</li>
+          <li class="correct">at</li>
+          <li>for</li>
+        </ul>
+        <em>"Good at" is the correct collocating preposition.</em>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M5</span>
+        <span class="q-text">Which sentence is grammatically correct?</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge gram">GRAM</span><span class="badge hot">🔥 HOT</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>The news are shocking.</li>
+          <li>He is more taller than me.</li>
+          <li class="correct">Neither of the students was present.</li>
+          <li>I have met him yesterday.</li>
+        </ul>
+        <em>Neither/Either → singular verb. "News" = uncountable → "is". Double comparative wrong. "Yesterday" needs Past Simple.</em>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M6</span>
+        <span class="q-text">Choose the correct modal: "You ______ be more careful while driving." (strong advice)</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge gram">GRAM</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>may</li>
+          <li>might</li>
+          <li class="correct">should / must</li>
+          <li>would</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M7</span>
+        <span class="q-text">Identify the error: "I am knowing him for five years."</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge gram">GRAM</span><span class="badge hot">🔥 HOT</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>No error</li>
+          <li>"him" should be "he"</li>
+          <li class="correct">"am knowing" should be "have known"</li>
+          <li>"five years" should be "since five years"</li>
+        </ul>
+        <em>Stative verbs (know, believe, love, hate) are NOT used in continuous tenses. Correct: "I have known him for five years."</em>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M8</span>
+        <span class="q-text">Fill in with correct article: "He is ______ honest man."</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge gram">GRAM</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>a</li>
+          <li class="correct">an</li>
+          <li>the</li>
+          <li>no article</li>
+        </ul>
+        <em>"Honest" starts with a vowel sound (/ɒ/) → "an". The 'h' is silent.</em>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M9</span>
+        <span class="q-text">Transform: "It is too hot to go out." → Remove "too"</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge gram">GRAM</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>It is very hot to go out.</li>
+          <li>It is hot enough to go out.</li>
+          <li class="correct">It is so hot that we cannot go out.</li>
+          <li>It is not hot enough to go out.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M10</span>
+        <span class="q-text">Which is a correctly punctuated sentence?</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge gram">GRAM</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>She said "I am tired".</li>
+          <li class="correct">She said, "I am tired."</li>
+          <li>She said, "I am tired".</li>
+          <li>She said "I am tired."</li>
+        </ul>
+        <em>In Direct Speech: comma after reporting verb, opening quote, sentence, full stop inside closing quote.</em>
+      </div>
+    </div>
+
+    <div class="subsection-title">Literature MCQs</div>
+
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M11</span>
+        <span class="q-text">In "The Last Lesson," who announced that only German would be taught in Alsace schools?</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge lit">LIT</span><span class="badge pyq">PYQ</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>The French government</li>
+          <li class="correct">The Prussian authorities / Berlin</li>
+          <li>M. Hamel</li>
+          <li>The Mayor of the village</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M12</span>
+        <span class="q-text">What did M. Hamel write on the blackboard at the end of the last lesson?</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge lit">LIT</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>Goodbye France</li>
+          <li>Au Revoir</li>
+          <li class="correct">Vive La France!</li>
+          <li>Never forget French</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M13</span>
+        <span class="q-text">In "My Mother at Sixty-Six," the poet compares her mother's face to:</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge lit">LIT</span><span class="badge pyq">PYQ</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>A full moon</li>
+          <li class="correct">A late winter's moon / ashen like a corpse</li>
+          <li>A pale flower</li>
+          <li>A fading star</li>
+        </ul>
+        <em>Both images are used — pale, fading, near death.</em>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M14</span>
+        <span class="q-text">In "Keeping Quiet," Neruda counts up to:</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge lit">LIT</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>Ten</li>
+          <li class="correct">Twelve</li>
+          <li>Five</li>
+          <li>Twenty</li>
+        </ul>
+        <em>"Now we will count to twelve / and we will all keep still."</em>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M15</span>
+        <span class="q-text">John Keats says a thing of beauty is "a joy forever." What does he compare beautiful things to?</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge lit">LIT</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>A river</li>
+          <li class="correct">An endless fountain / bower quiet for us</li>
+          <li>A sunny day</li>
+          <li>A dream</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M16</span>
+        <span class="q-text">In "The Address," what does Mrs Dorling do with the narrator's mother's belongings?</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge lit">LIT</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>Returns them to the narrator</li>
+          <li>Sells them at a market</li>
+          <li class="correct">Keeps them in her own house and uses them</li>
+          <li>Donates them to charity</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M17</span>
+        <span class="q-text">In "A Hero," why does Swami's father call him a coward?</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge lit">LIT</span><span class="badge pyq">PYQ</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>Because Swami failed his exam</li>
+          <li class="correct">Because Swami refused to sleep alone in the dark</li>
+          <li>Because Swami cried in front of friends</li>
+          <li>Because Swami ran away from school</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M18</span>
+        <span class="q-text">The children in Spender's "An Elementary School Classroom in a Slum" are described as:</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge lit">LIT</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>Healthy and hopeful</li>
+          <li class="correct">Pale, malnourished, and trapped in poverty</li>
+          <li>Joyful and curious</li>
+          <li>Naughty and mischievous</li>
+        </ul>
+        <em>"rootless weeds", "stunted", "slag heap" — all imagery of deprivation.</em>
+      </div>
+    </div>
+
+    <div class="subsection-title">Writing Skills & Comprehension MCQs</div>
+
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M19</span>
+        <span class="q-text">A notice should be written in ______ person.</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge write">WRITE</span><span class="badge pyq">PYQ</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>First</li>
+          <li>Second</li>
+          <li class="correct">Third</li>
+          <li>Any person is acceptable</li>
+        </ul>
+        <em>Notices are official, impersonal documents — always third person ("students are informed…")</em>
+      </div>
+    </div>
+
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M20</span>
+        <span class="q-text">Which closing is used in a formal letter to a stranger?</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge write">WRITE</span><span class="badge pyq">PYQ</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>Yours sincerely</li>
+          <li>Yours lovingly</li>
+          <li class="correct">Yours faithfully</li>
+          <li>Yours truly</li>
+        </ul>
+        <em>"Yours faithfully" = when you DON'T know the person's name (started with Sir/Madam). "Yours sincerely" = when you DO know their name.</em>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M21</span>
+        <span class="q-text">A newspaper report is ALWAYS written in:</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge write">WRITE</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>First person</li>
+          <li class="correct">Third person, past tense</li>
+          <li>Second person</li>
+          <li>First person, present tense</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M22</span>
+        <span class="q-text">In a paragraph, the main idea is usually stated in the:</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge write">WRITE</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>Last sentence</li>
+          <li>Middle sentence</li>
+          <li class="correct">First sentence (topic sentence)</li>
+          <li>Any sentence</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M23</span>
+        <span class="q-text">While answering Reading Comprehension questions, your answers should be:</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>Based on your personal opinion</li>
+          <li>Very elaborate with examples from outside</li>
+          <li class="correct">Based only on information given in the passage</li>
+          <li>Creative and imaginative</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M24</span>
+        <span class="q-text">The word "belied" in the context "her energy belied her age" means:</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge pyq">PYQ</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>Supported</li>
+          <li>Revealed</li>
+          <li class="correct">Contradicted / gave a false impression of</li>
+          <li>Confirmed</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M25</span>
+        <span class="q-text">Which sentence uses the Present Perfect correctly?</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge gram">GRAM</span><span class="badge hot">🔥 HOT</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>I have seen her yesterday.</li>
+          <li class="correct">I have already eaten lunch.</li>
+          <li>She has gone to market two hours ago.</li>
+          <li>They have finished the work last week.</li>
+        </ul>
+        <em>Present Perfect is NEVER used with specific past time expressions (yesterday, last week, ago, in 2020).</em>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M26</span>
+        <span class="q-text">Identify the figure of speech in: "The road was a ribbon of moonlight." (from "The Highwayman" — or similar)</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge lit">LIT</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>Simile</li>
+          <li class="correct">Metaphor</li>
+          <li>Personification</li>
+          <li>Alliteration</li>
+        </ul>
+        <em>Metaphor = direct comparison (IS). Simile = uses like/as. "Road WAS a ribbon" = Metaphor.</em>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M27</span>
+        <span class="q-text">Which is an example of alliteration?</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge lit">LIT</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>The stars like diamonds glitter</li>
+          <li class="correct">Peter Piper picked a peck of pickled peppers</li>
+          <li>The wind whispered sorrowful tales</li>
+          <li>She sells seashells (only starts with different letters)</li>
+        </ul>
+        <em>Alliteration = repetition of the same CONSONANT sound at the start of nearby words. "Peter Piper picked" = /p/ sound repeated.</em>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M28</span>
+        <span class="q-text">"The fog comes on little cat feet." — What literary device is used?</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge lit">LIT</span><span class="badge hot">🔥 HOT</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>Simile</li>
+          <li class="correct">Personification / Metaphor</li>
+          <li>Alliteration</li>
+          <li>Oxymoron</li>
+        </ul>
+        <em>Fog is given cat-like qualities (movement) = Personification. It is also a Metaphor since fog "is" given cat's feet directly.</em>
+      </div>
+    </div>
+
+    <div class="q-card pyq">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M29</span>
+        <span class="q-text">The phrase "Vive La France!" written by M. Hamel symbolises:</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge lit">LIT</span><span class="badge pyq">PYQ</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>His anger at the Prussians</li>
+          <li>His farewell to teaching</li>
+          <li class="correct">His undying patriotism and hope for France's revival</li>
+          <li>His sadness about leaving the school</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-header" onclick="toggle(this)">
+        <span class="q-num">M30</span>
+        <span class="q-text">Which of the following is NOT a feature of formal letter writing?</span>
+        <span class="q-badges"><span class="badge mcq">MCQ</span><span class="badge write">WRITE</span><span class="badge hot">🔥 HOT</span></span>
+        <span class="q-chevron">▼</span>
+      </div>
+      <div class="q-answer">
+        <ul class="mcq-options">
+          <li>Subject line</li>
+          <li>Salutation (Sir/Madam)</li>
+          <li class="correct">Use of contractions and colloquial language</li>
+          <li>Designation of the writer</li>
+        </ul>
+        <em>Formal letters must use FORMAL, standard English. Contractions (I'm, don't, can't) and colloquial/slang language are strictly prohibited.</em>
+      </div>
+    </div>
+
+  </div><!-- end MCQ section -->
+
+  <!-- FOOTER -->
+  <div style="border-top: 2px solid var(--border); padding-top: 1.5rem; margin-top: 2rem; text-align: center;">
+    <p style="font-size:0.82rem; color:var(--text-muted);">NIOS English (301) — Exam Question Bank &nbsp;|&nbsp; Prepared for focused revision &nbsp;|&nbsp; Target: 90%+</p>
+    <p style="font-size:0.75rem; color:#bbb; margin-top:0.4rem;">Revise Grammar → Writing Skills → Literature → MCQs &nbsp;|&nbsp; Good luck! 🎯</p>
+  </div>
 
 </main>
 
 <script>
-  // Toggle answer visibility
-  function toggle(el) {
-    // Find the answer div
-    let card = el.closest('.q-card');
-    let answer = card.querySelector('.q-answer');
-    let toggleBtn = card.querySelector('.q-toggle');
-    if (answer.classList.contains('show')) {
-      answer.classList.remove('show');
-      if(toggleBtn) toggleBtn.textContent = toggleBtn.textContent.replace('▼','▶').replace('Hide','Show');
-    } else {
-      answer.classList.add('show');
-      if(toggleBtn) toggleBtn.textContent = toggleBtn.textContent.replace('▶','▼').replace('Show','Hide');
-    }
+  function toggle(header) {
+    const answer = header.nextElementSibling;
+    const chevron = header.querySelector('.q-chevron');
+    const isOpen = answer.classList.contains('open');
+    answer.classList.toggle('open', !isOpen);
+    chevron.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+    header.parentElement.style.boxShadow = isOpen ? '' : '0 4px 16px rgba(0,0,0,0.12)';
   }
 
-  // Active nav highlighting
-  const sections = document.querySelectorAll('section.chapter');
-  const navLinks = document.querySelectorAll('.nav-link');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 100) current = s.id;
-    });
-    navLinks.forEach(l => {
-      l.classList.remove('active');
-      if (l.getAttribute('href') === '#' + current) l.classList.add('active');
+  // Smooth scroll for nav links
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', e => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
     });
   });
 
-  // Make entire q-header area clickable
-  document.querySelectorAll('.q-header').forEach(h => {
-    h.style.cursor = 'pointer';
-  });
+  // Highlight active section in sidebar on scroll
+  const sections = document.querySelectorAll('.section-block[id], .subsection-title[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const id = entry.target.id;
+        const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  sections.forEach(s => observer.observe(s));
 </script>
 </body>
 </html>
